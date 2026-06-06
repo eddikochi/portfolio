@@ -1,0 +1,36 @@
+====================================================
+  PORTFÓLIO EDDI KOCHI — COMO ABRIR SEM BUG
+====================================================
+
+⚠️ SE AS PÁGINAS APARECEREM SEM ESTILO (texto preto, links
+azuis, cara de documento cru), É PORQUE A PASTA "assets"
+NÃO ESTÁ NO MESMO LUGAR QUE OS ARQUIVOS .html.
+
+A estrutura TEM que ficar exatamente assim — todos juntos:
+
+  pasta-do-site/
+  ├── index.html
+  ├── cases.html
+  ├── case-ibcmed.html
+  ├── sobre.html
+  ├── contato.html
+  └── assets/          <-- esta pasta PRECISA estar aqui dentro
+      ├── style.css
+      └── main.js
+
+Os .html buscam o estilo em "assets/style.css". Se a pasta
+assets estiver em outro nível, o navegador não acha o CSS.
+
+COMO CORRIGIR:
+1. Extraia este ZIP inteiro (não abra de dentro do zip).
+2. Garanta que a pasta "assets" está LADO A LADO com os .html.
+3. Abra o index.html com 2 cliques. O estilo vai aparecer.
+
+(Os prints que você viu estavam na pasta "files" sem a
+"assets" junto — era só isso.)
+
+====================================================
+  JÁ PREENCHIDO: e-mail, LinkedIn, WhatsApp
+  FALTA SÓ: os campos [EDITAR] do case IBCMED
+  (período, descrição do cliente, impacto) e o link do CV
+====================================================

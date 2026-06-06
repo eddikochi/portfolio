@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Governança Digital do Site IBCMED — Eddi Kochi</title>
+<meta name="description" content="Case: organização da operação pós-go-live de um site institucional, conectando UX, QA, SEO técnico-operacional, tracking, documentação e sustentação.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="case" data-slug="governanca-digital-ibcmed">
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a href="index.html" class="brand">Eddi&nbsp;Kochi<span>.</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+    <nav class="nav-links" id="nav-links">
+      <a href="index.html">Início</a>
+      <a href="cases.html" aria-current="page">Cases</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="contato.html">Contato</a>
+      <a href="#" data-track="click_download_resume">Currículo ↓</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- 1. HERO DO CASE -->
+  <section class="case-hero wrap">
+    <a href="cases.html" class="back">← Voltar para cases</a>
+    <p class="label label--accent" style="margin-top:var(--s-5)">Governança digital · operação pós-go-live</p>
+    <h1>Governança Digital do Site IBCMED</h1>
+    <p class="lead">Organização da operação de um site institucional depois do go-live: conectar UX, QA, SEO técnico-operacional, tracking, documentação e sustentação em uma rotina governável, em vez de uma fila reativa de bugs.</p>
+    <div class="tags" style="margin-top:var(--s-5)">
+      <span class="tag">UX</span><span class="tag">Governança</span><span class="tag">AEM</span>
+      <span class="tag">QA</span><span class="tag">SEO operacional</span><span class="tag">CRO</span>
+      <span class="tag">GTM</span><span class="tag">Clarity</span>
+    </div>
+    <dl class="case-meta">
+      <div><dt>Papel</dt><dd>Governança digital, UX e QA</dd></div>
+      <div><dt>Período</dt><dd><span class="ph">[EDITAR: ex. 2023–atual]</span></dd></div>
+      <div><dt>Ferramentas</dt><dd>AEM · GTM · Clarity · Figma</dd></div>
+      <div><dt>Tipo</dt><dd>Operação contínua · site institucional</dd></div>
+    </dl>
+  </section>
+
+  <hr class="divider">
+
+  <article class="section wrap prose">
+
+    <!-- 2. CONTEXTO -->
+    <span class="label">02 — Contexto</span>
+    <h2>O go-live não encerrou o projeto</h2>
+    <p>Um site institucional <span class="ph">[EDITAR: descreva o porte sem expor cliente — ex. "de uma instituição de educação em saúde, com múltiplas páginas de cursos e jornadas de captação"]</span> foi ao ar após um processo de migração/construção. O entendimento comum era de que, com o site publicado, o trabalho estava concluído.</p>
+    <p>Na prática, o go-live foi o começo de uma operação contínua: páginas precisavam de ajustes, o tracking nem sempre disparava como esperado, demandas de áreas diferentes chegavam sem critério de prioridade, e não havia um registro confiável do que tinha sido decidido e por quê.</p>
+
+    <!-- 3. PROBLEMA -->
+    <span class="label">03 — Problema</span>
+    <h2>Demanda reativa, sem governança</h2>
+    <p>O site era mantido de forma reativa. Os principais sintomas:</p>
+    <ul>
+      <li><strong>Sem priorização clara.</strong> Bugs, melhorias e pedidos de áreas chegavam misturados, sem critério para decidir o que entrava primeiro.</li>
+      <li><strong>Tracking não confiável.</strong> Eventos e tags nem sempre disparavam corretamente, comprometendo a leitura de comportamento e conversão.</li>
+      <li><strong>Decisões não documentadas.</strong> O racional de ajustes ficava na memória das pessoas, não em registro — o que gerava retrabalho e dependência.</li>
+      <li><strong>Qualidade inconsistente.</strong> Sem rotina de QA, problemas de links, formulários e responsividade só apareciam quando alguém reclamava.</li>
+    </ul>
+
+    <!-- 4. MEU PAPEL -->
+    <span class="label">04 — Meu papel</span>
+    <h2>Transformar manutenção avulsa em operação governada</h2>
+    <p>Atuei na ponte entre as áreas de negócio, marketing e o ambiente técnico, assumindo a governança digital da operação. Concretamente, eu:</p>
+    <ul>
+      <li>organizei as demandas em um backlog com critério de priorização;</li>
+      <li>estabeleci uma rotina de QA visual, funcional e de experiência;</li>
+      <li>validei e documentei o tracking (GTM) e o comportamento real via Clarity;</li>
+      <li>registrei decisões, critérios e handoffs para reduzir dependência de pessoas;</li>
+      <li>conectei achados de SEO operacional e UX às melhorias do roadmap.</li>
+    </ul>
+
+    <!-- 5. RESTRIÇÕES -->
+    <span class="label">05 — Restrições</span>
+    <h2>O que limitava o trabalho</h2>
+    <ul>
+      <li><strong>Ambiente corporativo</strong> — dependências entre áreas e janelas de publicação.</li>
+      <li><strong>AEM</strong> — autoria dentro das possibilidades e limites do CMS.</li>
+      <li><strong>Confidencialidade</strong> — dados e telas internas não podem ser expostos publicamente <span class="ph">[EDITAR: confirme o nível de anonimização permitido]</span>.</li>
+      <li><strong>Dados limitados</strong> — nem todo comportamento era mensurável desde o início; parte do trabalho foi tornar o site mensurável.</li>
+    </ul>
+
+    <!-- 6. PROCESSO -->
+    <span class="label">06 — Processo</span>
+    <h2>Diagnosticar → Estruturar → Documentar → Validar → Otimizar</h2>
+    <p><strong>Diagnóstico.</strong> Mapeei o estado real do site: quais páginas tinham problema, o que o tracking realmente capturava, onde estavam as fricções de jornada e quais demandas estavam represadas.</p>
+    <p><strong>Estruturação.</strong> Consolidei tudo em um backlog único, classificando por tipo (bug, melhoria, SEO, tracking, UX) e por prioridade — separando o urgente do importante.</p>
+    <p><strong>Documentação.</strong> Criei registros de decisão e critérios de aceite, de modo que cada ajuste tivesse contexto e finalidade, não apenas execução.</p>
+    <p><strong>Validação.</strong> Estabeleci passagens de QA antes de publicar: links, formulários, responsividade, headings e disparo de eventos. Usei Clarity para confirmar comportamento real, não suposto.</p>
+    <p><strong>Otimização.</strong> Com a operação estabilizada, passei a propor melhorias de página e jornada com base em dados de fricção e objetivos de negócio.</p>
+
+    <!-- 7. DECISÕES PRINCIPAIS -->
+    <span class="label">07 — Decisões principais</span>
+    <h2>Escolhas e o racional</h2>
+    <ul>
+      <li><strong>Backlog único com critério, não fila por ordem de chegada.</strong> Permitiu defender prioridades com argumento, não por pressão de quem pedia mais alto.</li>
+      <li><strong>Tratar tracking como pré-requisito, não como extra.</strong> Sem evento confiável, qualquer leitura de conversão seria ficção — então a validação de GTM/Clarity virou parte do QA.</li>
+      <li><strong>Documentar decisão, não só tarefa.</strong> Registrar o "por quê" reduziu retrabalho e tornou a operação menos dependente de memória individual.</li>
+    </ul>
+
+    <!-- 8. ENTREGAS -->
+    <span class="label">08 — Entregas</span>
+    <h2>Artefatos gerados</h2>
+    <ul>
+      <li>Backlog estruturado e priorizado da operação do site.</li>
+      <li>Rotina e checklist de QA (visual, funcional e de experiência).</li>
+      <li>Mapa de eventos/tags validado no GTM e leitura de comportamento no Clarity.</li>
+      <li>Documentação de decisões, critérios e handoffs.</li>
+      <li>Recomendações de UX/SEO operacional conectadas ao roadmap.</li>
+    </ul>
+
+    <!-- 9. FERRAMENTAS -->
+    <span class="label">09 — Ferramentas</span>
+    <h2>Stack do case</h2>
+    <p class="tags" style="margin-top:0">
+      <span class="tag">AEM</span><span class="tag">Google Tag Manager</span><span class="tag">Microsoft Clarity</span>
+      <span class="tag">Figma</span><span class="tag">SEO operacional</span><span class="tag">Documentação</span>
+    </p>
+
+    <!-- 10. IMPACTO -->
+    <span class="label">10 — Impacto</span>
+    <h2>De reativo a governável</h2>
+    <p>Impacto qualitativo (o que mudou na forma de operar):</p>
+    <ul>
+      <li>A manutenção deixou de ser reativa e passou a seguir um critério de priorização defensável.</li>
+      <li>O tracking passou a ser confiável, tornando as decisões de página mensuráveis em vez de baseadas em suposição.</li>
+      <li>A documentação reduziu retrabalho e a dependência de conhecimento individual.</li>
+    </ul>
+    <p>Impacto quantitativo, se você puder comprovar: <span class="ph">[EDITAR: só inclua número que você sustente em entrevista — ex. "redução de X% em bugs reabertos", "Y eventos corrigidos no tracking". Se não houver dado defensável, apague esta linha — o impacto qualitativo acima já sustenta o case.]</span></p>
+
+    <!-- 11. APRENDIZADOS -->
+    <span class="label">11 — Aprendizados</span>
+    <h2>O que ficou</h2>
+    <p>Governança digital é menos sobre apagar incêndios e mais sobre criar as condições para que o incêndio não recomece: critério de prioridade, mensuração confiável e decisão documentada. A maior parte do valor não estava em consertar uma página específica, mas em transformar a forma como o site era mantido.</p>
+
+    <!-- 12. PRÓXIMOS PASSOS -->
+    <span class="label">12 — Próximos passos</span>
+    <h2>Evolução possível</h2>
+    <ul>
+      <li>Evoluir a leitura de comportamento para hipóteses estruturadas de CRO.</li>
+      <li>Transformar a rotina de QA e governança em um <em>Kit de Governança Digital</em> replicável <span class="ph">[EDITAR: este é seu caminho de autonomia — Fase 5]</span>.</li>
+    </ul>
+
+    <!-- 13. CTA -->
+    <hr class="divider" style="margin-block:var(--s-7)">
+    <div class="hero-cta">
+      <a href="cases.html" class="btn btn--ghost">← Todos os cases</a>
+      <a href="contato.html" class="btn btn--primary" data-track="click_contact">Conversar sobre isso <span class="arrow">→</span></a>
+    </div>
+
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <div class="brand">Eddi&nbsp;Kochi<span>.</span></div>
+      <p>Experiência digital — UX/CRO, dados e governança. Portfólio em evolução como laboratório de Design Engineering.</p>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:eddimaicon@gmail.com" data-track="click_email">E-mail</a>
+      <a href="https://www.linkedin.com/in/edi-maicon-kochi-427625347/" data-track="click_linkedin">LinkedIn</a>
+      <a href="#" data-track="click_download_resume">Currículo</a>
+    </div>
+  </div>
+  <div class="wrap"><p class="copyright">© 2025 Eddi Kochi · Porto Alegre, BR · Construído à mão em HTML/CSS/JS</p></div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>
