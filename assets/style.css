@@ -7,17 +7,17 @@
 
 /* ---------- Tokens ---------- */
 :root {
-  /* Cor — claro, sóbrio, um acento */
-  --bg:        #f7f5f0;   /* off-white quente, papel */
-  --bg-soft:   #efece4;
-  --surface:   #ffffff;
-  --ink:       #1a1a17;   /* quase preto, levemente quente */
-  --ink-soft:  #55524b;
-  --ink-faint: #8a867d;
-  --line:      #ddd8cd;   /* traços finos */
-  --line-soft: #e8e3d8;
-  --accent:    #b5462f;   /* terracota — acento único, técnico/editorial */
-  --accent-deep:#8f3623;
+  /* Cor — dark, sóbrio, um acento cobre/âmbar */
+  --bg:        #0E0D0C;   /* quase-preto quente */
+  --bg-soft:   #161412;
+  --surface:   #1A1816;   /* superfícies/cards, um tom acima */
+  --ink:       #EDEAE5;   /* off-white quente — nunca branco puro */
+  --ink-soft:  #8A857D;   /* texto secundário, cinza quente */
+  --ink-faint: #6F6A62;
+  --line:      #2A2724;   /* traços finos */
+  --line-soft: #211E1B;
+  --accent:    #D26E45;   /* cobre/âmbar — acento único, clareado p/ contraste AA como texto */
+  --accent-deep:#D5764A;
 
   /* Tipografia */
   --serif: "Newsreader", Georgia, "Times New Roman", serif;
@@ -118,8 +118,8 @@ p { color: var(--ink-soft); }
   padding: 13px 22px; border-radius: var(--radius); cursor: pointer;
   border: 1px solid var(--ink); transition: all 0.2s var(--ease);
 }
-.btn--primary { background: var(--ink); color: var(--bg); }
-.btn--primary:hover { background: var(--accent); border-color: var(--accent); }
+.btn--primary { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+.btn--primary:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 .btn--ghost { background: transparent; color: var(--ink); border-color: var(--line); }
 .btn--ghost:hover { border-color: var(--ink); }
 .btn .arrow { transition: transform 0.2s var(--ease); }
