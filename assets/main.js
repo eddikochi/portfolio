@@ -12,6 +12,33 @@
   }
 })();
 
+/* Timeline do método — desenha a linha + revela etapas ao entrar na viewport.
+   Usa IntersectionObserver (não no load). Respeita prefers-reduced-motion
+   e navegadores sem suporte: nesses casos mostra a timeline completa na hora. */
+(function () {
+  var method = document.querySelector('.method');
+  if (!method) return;
+
+  var reduce = window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (reduce || !('IntersectionObserver' in window)) {
+    method.classList.add('is-visible');
+    return;
+  }
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target); // anima uma única vez
+      }
+    });
+  }, { threshold: 0.3 });
+
+  io.observe(method);
+})();
+
 /* Tracking leve — sem dependência externa.
    Hoje só registra no console (placeholder). Quando você plugar
    GTM/GA4/Clarity, troque o corpo de track() pela chamada real,
