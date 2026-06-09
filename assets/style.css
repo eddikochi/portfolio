@@ -7,7 +7,7 @@
 
 /* ---------- Tokens ---------- */
 :root {
-  /* Cor — dark, sóbrio, um acento cobre/âmbar */
+  /* Cor — dark, sóbrio, um acento carmim/caper */
   --bg:        #0E0D0C;   /* quase-preto quente */
   --bg-soft:   #161412;
   --surface:   #1A1816;   /* superfícies/cards, um tom acima */
@@ -16,8 +16,8 @@
   --ink-faint: #6F6A62;
   --line:      #2A2724;   /* traços finos */
   --line-soft: #211E1B;
-  --accent:    #D26E45;   /* cobre/âmbar — acento único, clareado p/ contraste AA como texto */
-  --accent-deep:#D5764A;
+  --accent:    #CA6275;   /* carmim/caper — vermelho-rosado profundo, acento único · AA ~5.1:1 como texto */
+  --accent-deep:#D5798A;  /* variante clara do carmim — texto do marcador .ph */
 
   /* Tipografia */
   --serif: "Newsreader", Georgia, "Times New Roman", serif;
