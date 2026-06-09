@@ -34,8 +34,10 @@
   --maxw-text: 680px;
   --radius: 2px;
 
-  /* Motion */
-  --ease: cubic-bezier(0.2, 0.6, 0.2, 1);
+  /* Motion — sistema simples, coeso em todo o site */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);  /* ease-out pronunciado, desacelera macio no fim */
+  --dur-fast: 180ms;                        /* hovers, micro-interações */
+  --dur-med: 650ms;                         /* expansões, reveals */
 }
 
 /* Fontes via Google Fonts (Newsreader + IBM Plex Mono).
@@ -101,7 +103,7 @@ p { color: var(--ink-soft); }
 .nav-links a {
   font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em;
   color: var(--ink-soft); position: relative; padding-block: 4px;
-  transition: color 0.2s var(--ease);
+  transition: color var(--dur-fast) var(--ease);
 }
 .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--ink); }
 .nav-links a[aria-current="page"]::after {
@@ -116,13 +118,13 @@ p { color: var(--ink-soft); }
   display: inline-flex; align-items: center; gap: var(--s-2);
   font-family: var(--mono); font-size: 0.82rem; letter-spacing: 0.03em;
   padding: 13px 22px; border-radius: var(--radius); cursor: pointer;
-  border: 1px solid var(--ink); transition: all 0.2s var(--ease);
+  border: 1px solid var(--ink); transition: all var(--dur-fast) var(--ease);
 }
 .btn--primary { background: var(--accent); color: var(--bg); border-color: var(--accent); }
 .btn--primary:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 .btn--ghost { background: transparent; color: var(--ink); border-color: var(--line); }
 .btn--ghost:hover { border-color: var(--ink); }
-.btn .arrow { transition: transform 0.2s var(--ease); }
+.btn .arrow { transition: transform var(--dur-fast) var(--ease); }
 .btn:hover .arrow { transform: translateX(3px); }
 
 /* ---------- Hero ---------- */
@@ -153,25 +155,142 @@ p { color: var(--ink-soft); }
 .area h3 { margin: var(--s-3) 0 var(--s-2); font-size: 1.25rem; }
 .area p { font-size: 0.94rem; }
 
-/* ---------- Cases ---------- */
-.cases { display: grid; gap: var(--s-5); }
+/* ---------- Cases — lista contínua expansível ---------- */
+.cases { display: grid; gap: 0; }
+
 .case-card {
-  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
-  padding: var(--s-6); display: grid; grid-template-columns: 1fr auto; gap: var(--s-5) var(--s-6);
-  align-items: start; transition: border-color 0.25s var(--ease), transform 0.25s var(--ease);
+  position: relative;
+  border-bottom: 1px solid var(--line);     /* divisória contínua entre os itens */
+  border-radius: var(--radius);
+  padding: var(--s-5) var(--s-6);
+  display: grid;
+  grid-template-columns: 1fr 0fr;           /* descanso: slot recolhido (lista limpa) */
+  grid-template-areas:
+    "head   cover"
+    "reveal cover";
+  column-gap: 0;
+  transition: grid-template-columns var(--dur-med) var(--ease),
+              column-gap var(--dur-med) var(--ease),
+              background var(--dur-med) var(--ease);
 }
-.case-card:hover { border-color: var(--ink); transform: translateY(-2px); }
-.case-card .ttl { font-family: var(--serif); font-size: 1.5rem; font-weight: 500; margin-bottom: var(--s-3); }
-.case-card p { font-size: 0.98rem; max-width: 60ch; }
-.case-card .meta { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: var(--s-4);
-  align-items: center; justify-content: space-between; padding-top: var(--s-4); border-top: 1px solid var(--line-soft); }
-.case-card .go { font-family: var(--mono); font-size: 0.8rem; color: var(--accent); white-space: nowrap; }
-.case-card--soon { opacity: 0.72; }
-.case-card--soon:hover { transform: none; border-color: var(--line); }
+.case-card:last-child { border-bottom: 0; }
+.case-card--soon { opacity: 0.78; }
+
+/* hover/foco: abre o slot lateralmente (2 colunas) e destaca o item aberto */
+.case-card:hover, .case-card:focus-within {
+  background: var(--surface);
+  border-bottom-color: transparent;
+  grid-template-columns: 1fr 0.46fr;
+  column-gap: var(--s-6);
+}
+
+/* link cobre o item inteiro — só nos cases com destino (clique em qualquer lugar) */
+.case-card__link { position: absolute; inset: 0; z-index: 3; border-radius: inherit; }
+
+/* stroke prata / glass sutil no item aberto (sem cobre) — anel com fade-in */
+.case-card::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(140deg,
+    color-mix(in srgb, var(--ink) 34%, transparent) 0%,
+    color-mix(in srgb, var(--ink) 9%, transparent) 48%,
+    transparent 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity: 0; transition: opacity var(--dur-fast) var(--ease);
+  pointer-events: none; z-index: 4;
+}
+.case-card:hover::after, .case-card:focus-within::after { opacity: 1; }
+
+/* cabeçalho sempre visível: título + tags (compacto) */
+.case-card__head { grid-area: head; align-self: start; }
+.case-card .ttl { font-family: var(--serif); font-size: 1.5rem; font-weight: 500; line-height: 1.2; }
+.case-card__head .tags { margin-top: var(--s-2); }
+
+/* coluna esquerda revelável (resumo + CTA) — anima a altura 0fr→1fr */
+.case-card__reveal {
+  grid-area: reveal;
+  display: grid; grid-template-rows: 0fr;
+  transition: grid-template-rows var(--dur-med) var(--ease);
+}
+.case-card:hover .case-card__reveal,
+.case-card:focus-within .case-card__reveal { grid-template-rows: 1fr; }
+.case-card__reveal-inner {
+  min-height: 0; overflow: hidden;
+  opacity: 0; transition: opacity var(--dur-med) var(--ease);
+}
+.case-card:hover .case-card__reveal-inner,
+.case-card:focus-within .case-card__reveal-inner { opacity: 1; }
+.case-card__reveal-inner > * { margin-top: var(--s-4); }
+.case-card__desc { font-size: 0.98rem; max-width: 60ch; color: var(--ink-soft); }
+
+.case-card__foot { display: flex; flex-wrap: wrap; gap: var(--s-4);
+  align-items: center; }
+.case-card .go { font-family: var(--mono); font-size: 0.84rem; color: var(--accent); white-space: nowrap;
+  transition: transform var(--dur-fast) var(--ease); }
+.case-card:hover .go, .case-card:focus-within .go { transform: translateX(4px); }
+
+/* ---------- Slot de mídia / fallback à direita (revelado lateralmente) ---------- */
+.case-cover {
+  grid-area: cover;
+  align-self: stretch;
+  position: relative; overflow: hidden;
+  border-radius: var(--radius);
+  background:
+    radial-gradient(130% 130% at 100% 0%, color-mix(in srgb, var(--ink) 7%, transparent), transparent 60%),
+    var(--bg);
+}
+/* fallback tipográfico — nome + contexto */
+.case-cover__plate {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; justify-content: flex-end; gap: var(--s-2);
+  padding: var(--s-5);
+}
+.case-cover__kicker {
+  font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.case-cover__name {
+  font-family: var(--serif); font-weight: 500; line-height: 1.12;
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+  color: var(--ink);          /* off-white quente, nunca branco puro */
+}
+
+/* o conteúdo do slot entra LATERALMENTE (esquerda → direita), não de baixo */
+.case-cover__plate, .case-cover__img, .case-cover__video {
+  opacity: 0; transform: translateX(-14px);
+  transition: opacity var(--dur-med) var(--ease), transform var(--dur-med) var(--ease);
+}
+.case-card:hover .case-cover__plate, .case-card:focus-within .case-cover__plate,
+.case-card:hover .case-cover__img, .case-card:focus-within .case-cover__img,
+.case-card:hover .case-cover__video, .case-card:focus-within .case-cover__video {
+  opacity: 1; transform: none;
+}
+/* Estado COM mídia (futuro): adicione <img class="case-cover__img"> ou
+   <video class="case-cover__video" autoplay muted loop playsinline> no slot. */
+.case-cover__img, .case-cover__video {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+}
+.case-cover:has(.case-cover__img) .case-cover__plate,
+.case-cover:has(.case-cover__video) .case-cover__plate { display: none; }
+
+/* ---------- Mobile / touch: lista clicável com título + tags; sem expansão ---------- */
+@media (hover: none) {
+  .case-card, .case-card:hover, .case-card:focus-within {
+    grid-template-columns: 1fr 0fr; column-gap: 0;
+    background: none; border-bottom-color: var(--line);
+  }
+  .case-card:last-child { border-bottom: 0; }
+  .case-card::after { opacity: 0; }
+  .case-card__reveal, .case-cover { display: none; }
+}
 
 .tags { display: flex; flex-wrap: wrap; gap: var(--s-2); }
 .tag { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.04em; color: var(--ink-soft);
   border: 1px solid var(--line); border-radius: var(--radius); padding: 4px 9px; }
+/* na lista de cases as tags sobem um degrau (hierarquia preservada) */
+.case-card .tag { font-size: 0.78rem; padding: 5px 10px; }
 .status { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
   color: var(--ink-faint); }
 .status--live { color: var(--accent); }
@@ -413,7 +532,12 @@ p { color: var(--ink-soft); }
   .nav-links a { padding: var(--s-3); border-bottom: 1px solid var(--line-soft); }
   .nav-toggle { display: inline-block; }
   .areas { grid-template-columns: 1fr; }
-  .case-card { grid-template-columns: 1fr; }
+  /* tela estreita: lista compacta — título + tags, sem expandir */
+  .case-card, .case-card:hover, .case-card:focus-within {
+    grid-template-columns: 1fr 0fr; column-gap: 0; background: none; border-bottom-color: var(--line); }
+  .case-card:last-child { border-bottom: 0; }
+  .case-card::after { opacity: 0; }
+  .case-card__reveal, .case-cover { display: none; }
   .footer-grid { flex-direction: column; align-items: flex-start; }
 }
 
@@ -447,4 +571,9 @@ p { color: var(--ink-soft); }
     transition: none;
     box-shadow: 0 0 6px 1px color-mix(in srgb, var(--accent) 40%, transparent);
   }
+  /* cases: expansão/revelação sem animação — troca de estado instantânea, sem movimento */
+  .case-card, .case-card::after, .case-card__reveal, .case-card__reveal-inner,
+  .case-cover__plate, .case-cover__img, .case-cover__video, .case-card .go { transition: none; }
+  .case-card .go { transform: none; }
+  .case-cover__plate, .case-cover__img, .case-cover__video { transform: none; }
 }
