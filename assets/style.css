@@ -188,17 +188,19 @@ p { color: var(--ink-soft); }
 /* link cobre o item inteiro — só nos cases com destino (clique em qualquer lugar) */
 .case-card__link { position: absolute; inset: 0; z-index: 3; border-radius: inherit; }
 
-/* stroke prata / glass sutil no item aberto (sem cobre) — anel com fade-in */
+/* stroke prata / glass sutil no item aberto (sem cobre) — só nas bordas
+   horizontais (topo e base); laterais sem borda. Fade-in suave. */
 .case-card::after {
   content: ""; position: absolute; inset: 0; border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(140deg,
-    color-mix(in srgb, var(--ink) 34%, transparent) 0%,
-    color-mix(in srgb, var(--ink) 9%, transparent) 48%,
-    transparent 100%);
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor; mask-composite: exclude;
+  background:
+    linear-gradient(90deg,
+      color-mix(in srgb, var(--ink) 34%, transparent) 0%,
+      color-mix(in srgb, var(--ink) 9%, transparent) 50%,
+      transparent 100%) top left / 100% 1px no-repeat,
+    linear-gradient(90deg,
+      color-mix(in srgb, var(--ink) 34%, transparent) 0%,
+      color-mix(in srgb, var(--ink) 9%, transparent) 50%,
+      transparent 100%) bottom left / 100% 1px no-repeat;
   opacity: 0; transition: opacity var(--dur-fast) var(--ease);
   pointer-events: none; z-index: 4;
 }
@@ -258,9 +260,9 @@ p { color: var(--ink-soft); }
   color: var(--ink);          /* off-white quente, nunca branco puro */
 }
 
-/* o conteúdo do slot entra LATERALMENTE (esquerda → direita), não de baixo */
+/* o conteúdo do slot entra suave de BAIXO PARA CIMA (desliza + fade), sem giro */
 .case-cover__plate, .case-cover__img, .case-cover__video {
-  opacity: 0; transform: translateX(-14px);
+  opacity: 0; transform: translateY(18px);
   transition: opacity var(--dur-med) var(--ease), transform var(--dur-med) var(--ease);
 }
 .case-card:hover .case-cover__plate, .case-card:focus-within .case-cover__plate,
@@ -273,8 +275,10 @@ p { color: var(--ink-soft); }
 .case-cover__img, .case-cover__video {
   position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
 }
+/* a placa tipográfica some só quando há mídia de fato pronta (img, ou vídeo já com poster
+   atribuído pelo lazy-load) — assim ela serve de fallback antes disso / sem JS */
 .case-cover:has(.case-cover__img) .case-cover__plate,
-.case-cover:has(.case-cover__video) .case-cover__plate { display: none; }
+.case-cover:has(.case-cover__video[poster]) .case-cover__plate { display: none; }
 
 /* ---------- Mobile / touch: lista clicável com título + tags; sem expansão ---------- */
 @media (hover: none) {

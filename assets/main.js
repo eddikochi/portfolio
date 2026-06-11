@@ -39,6 +39,54 @@
   io.observe(method);
 })();
 
+/* Vídeos dos cases (vitrine) — performance + hover.
+   - Poster (foto) carrega lazy quando o card se aproxima da viewport.
+   - O vídeo (.mp4) só é baixado no hover/foco (preload sob demanda) e toca
+     em loop, sem áudio. Respeita prefers-reduced-motion: mantém só o poster. */
+(function () {
+  var videos = document.querySelectorAll('.case-cover__video[data-poster]');
+  if (!videos.length) return;
+
+  var reduce = window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function setPoster(v) {
+    if (v.dataset.poster && !v.getAttribute('poster')) v.setAttribute('poster', v.dataset.poster);
+  }
+
+  // 1) poster lazy via IntersectionObserver (margem p/ carregar um pouco antes)
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { setPoster(entry.target); io.unobserve(entry.target); }
+      });
+    }, { rootMargin: '300px' });
+    videos.forEach(function (v) { io.observe(v); });
+  } else {
+    videos.forEach(setPoster);
+  }
+
+  // 2) vídeo sob demanda: baixa o src só no hover/foco e toca
+  videos.forEach(function (v) {
+    var card = v.closest('.case-card');
+    if (!card) return;
+
+    function play() {
+      if (reduce) { setPoster(v); return; }      // movimento reduzido: só o poster
+      setPoster(v);
+      if (!v.getAttribute('src') && v.dataset.src) v.setAttribute('src', v.dataset.src);
+      var p = v.play();
+      if (p && p.catch) p.catch(function () {});  // ignora rejeição sem gesto/autoplay
+    }
+    function stop() { try { v.pause(); } catch (e) {} }
+
+    card.addEventListener('mouseenter', play);
+    card.addEventListener('mouseleave', stop);
+    card.addEventListener('focusin', play);
+    card.addEventListener('focusout', stop);
+  });
+})();
+
 /* Tracking leve — sem dependência externa.
    Hoje só registra no console (placeholder). Quando você plugar
    GTM/GA4/Clarity, troque o corpo de track() pela chamada real,
