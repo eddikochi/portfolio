@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Redesign da Página de Produto orientado por dados — Eddi Kochi</title>
+<meta name="description" content="Case de CRO: diagnóstico comportamental via Microsoft Clarity e reestruturação da página de produto (PDP) do IBCMED — do discovery ao handoff com produto e tecnologia. Separar validação de ação, mapa de governança de componentes e execução no AEM.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="case" data-slug="redesign-pdp-orientado-por-dados">
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a href="index.html" class="brand">Eddi&nbsp;Kochi<span>.</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+    <nav class="nav-links" id="nav-links">
+      <a href="index.html">Início</a>
+      <a href="cases.html" aria-current="page">Cases</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="contato.html">Contato</a>
+      <a href="curriculo.pdf" target="_blank" data-track="click_download_resume">Currículo ↓</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- 1. HERO DO CASE -->
+  <section class="case-hero wrap">
+    <a href="cases.html" class="back">← Voltar para cases</a>
+    <p class="label label--accent" style="margin-top:var(--s-5)">CRO · análise comportamental · redesign de PDP</p>
+    <h1>Redesign da Página de Produto orientado por dados</h1>
+    <p class="lead">Diagnóstico comportamental via Microsoft Clarity e reestruturação da página de produto (PDP) do IBCMED (Inspirali Pós), do discovery ao handoff com os times de produto e tecnologia. O trabalho foi entender o comportamento real antes de mexer no layout — e descobrir que o gargalo não era o CTA, mas a transição entre validação e ação.</p>
+    <div class="tags" style="margin-top:var(--s-5)">
+      <span class="tag">UX</span><span class="tag">CRO</span><span class="tag">Análise comportamental</span>
+      <span class="tag">Discovery</span><span class="tag">Design System</span><span class="tag">Handoff</span>
+    </div>
+    <dl class="case-meta">
+      <div><dt>Papel</dt><dd>Digital Experience &amp; CRO Analyst</dd></div>
+      <div><dt>Foco</dt><dd>Diagnóstico de conversão → redesign → execução com time</dd></div>
+      <div><dt>Ferramentas</dt><dd>Microsoft Clarity · Miro · AEM · Figma</dd></div>
+      <div><dt>Tipo</dt><dd>CRO e redesign de produto orientado por dados</dd></div>
+    </dl>
+  </section>
+
+  <hr class="divider">
+
+  <article class="section wrap prose">
+
+    <!-- 2. CONTEXTO -->
+    <span class="label">02 — Contexto</span>
+    <h2>A página de decisão da jornada</h2>
+    <p>A página de produto (PDP) dos cursos de pós-graduação do <strong>IBCMED (Inspirali Pós)</strong> é a página de decisão da jornada: o usuário já passou da curiosidade genérica e está avaliando valor, reduzindo risco e buscando clareza antes de agir. Seu objetivo é gerar leads qualificados — a conversão principal é o envio do formulário de interesse.</p>
+    <p>A PDP existente era <strong>genérica e idêntica para todos os cursos</strong>, e a leitura de performance não explicava por que a conversão não acompanhava o volume de tráfego.</p>
+
+    <!-- 3. PROBLEMA -->
+    <span class="label">03 — Problema</span>
+    <h2>Tráfego relevante, conversão que não corresponde</h2>
+    <p>A página recebia tráfego relevante, mas a conversão não correspondia. Faltava entender o comportamento real antes de mexer no layout — havia esforço sendo investido sem impacto mensurável, com hipóteses baseadas em <strong>suposição, não em evidência</strong>.</p>
+
+    <!-- 4. MEU PAPEL -->
+    <span class="label">04 — Meu papel</span>
+    <h2>Do diagnóstico comportamental ao handoff com tech</h2>
+    <p>Conduzi o diagnóstico comportamental e o discovery da nova PDP, e atuei como ponte com os times de produto e tecnologia no handoff e na otimização dos componentes:</p>
+    <ul>
+      <li><strong>Análise comportamental via Microsoft Clarity</strong> (90 dias, mobile e desktop).</li>
+      <li>Diagnóstico de padrões de navegação, scroll, cliques e fricções (<strong>rage e dead clicks</strong>).</li>
+      <li>Discovery e estruturação da nova PDP, do mapa de objeções ao user flow.</li>
+      <li>Handoff e acompanhamento da execução com produto e tecnologia, otimizando os componentes.</li>
+      <li>Implementação de parte das mudanças diretamente no <strong>AEM</strong>.</li>
+    </ul>
+
+    <!-- 5. PROCESSO -->
+    <span class="label">05 — Processo</span>
+    <h2>Separar validação de ação para achar o gargalo real</h2>
+    <p><strong>Diagnóstico com critério.</strong> A análise no Clarity seguiu critérios para evitar conclusão por caso isolado: analisar múltiplas sessões, diagnosticar padrões e não exceções, separar mobile de desktop e isolar a página específica. O recorte foi feito sobre o curso de maior tráfego, em sessões curtas, médias e longas, com e sem clique.</p>
+    <p><strong>Separação entre validação e ação.</strong> O ponto-chave do diagnóstico foi tratar scroll e leitura como microconversões reais — sinais de validação — e separá-los da ação final (envio do formulário). Isso revelou dois perfis de comportamento recorrentes:</p>
+    <ul>
+      <li><strong>Já decidido:</strong> vai direto ao formulário, pouco scroll, conversão cedo. O site apenas executa uma decisão tomada fora dele.</li>
+      <li><strong>Em validação:</strong> lê bastante, scroll consistente, pausas longas em seções como “para quem é o curso”, “aulas práticas” e “corpo docente”. Usa o site para decidir se o curso é para ele.</li>
+    </ul>
+    <p><strong>O insight central.</strong> O CTA não era o gatilho de decisão — funcionava como mecanismo final de execução para quem já estava decidido. A conversão era resultado de confiança construída ao longo da navegação, não de estímulo isolado. O formulário não era o problema e o CTA não era confuso: o gargalo estava na <strong>transição entre validação e ação</strong>. Depois de consumir o conteúdo de validação, o usuário não recebia orientação explícita do próximo passo, o que gerava hesitação.</p>
+    <p><strong>Do diagnóstico ao redesign.</strong> O discovery da nova PDP partiu desse diagnóstico — mapa de objeções, user flow e estrutura final — e resultou em um mapa de governança de componentes que define cada dobra da página (função, autoração, estrutura fixa e reutilização entre PDPs), permitindo que a página deixasse de ser genérica e passasse a ser estruturada e escalável.</p>
+
+    <!-- 6. DECISÕES PRINCIPAIS -->
+    <span class="label">06 — Decisões principais</span>
+    <h2>As escolhas que guiaram o redesign</h2>
+    <ul>
+      <li><strong>Diagnosticar antes de redesenhar:</strong> investir em análise comportamental (Clarity) antes de propor qualquer mudança de layout, para basear a decisão em evidência e não em suposição.</li>
+      <li><strong>Tratar scroll e leitura como microconversões:</strong> medir validação, não só a conversão final, para entender onde a jornada realmente quebrava.</li>
+      <li><strong>Dar contexto ao CTA após o ponto de validação:</strong> hipótese central de melhoria — reduzir a hesitação conduzindo o usuário do “entendi” para o “quero fazer”.</li>
+      <li><strong>Estruturar a PDP como sistema de componentes:</strong> sair de uma página genérica e idêntica para um mapa de governança que define cada dobra, reutilizável entre cursos.</li>
+    </ul>
+
+    <!-- 7. ENTREGAS -->
+    <span class="label">07 — Entregas</span>
+    <h2>O que ficou de concreto</h2>
+    <ul>
+      <li>Análise comportamental completa (Clarity, 90 dias), separando validação de ação e identificando os perfis de usuário.</li>
+      <li>Diagnóstico priorizado dos pontos de maior impacto na conversão.</li>
+      <li>Discovery da nova PDP: mapa de objeções, user flow e estrutura final.</li>
+      <li>Mapa de governança de componentes da PDP, definindo função, autoração e reutilização de cada dobra.</li>
+      <li>Handoff e acompanhamento da execução com os times de produto e tecnologia.</li>
+    </ul>
+
+    <!-- 8. FERRAMENTAS -->
+    <span class="label">08 — Ferramentas</span>
+    <h2>Stack do case</h2>
+    <p class="tags" style="margin-top:0">
+      <span class="tag">Microsoft Clarity</span><span class="tag">Miro</span><span class="tag">AEM</span>
+      <span class="tag">Figma</span><span class="tag">Análise comportamental</span><span class="tag">CRO</span>
+    </p>
+
+    <!-- 9. IMPACTO -->
+    <span class="label">09 — Impacto</span>
+    <h2>Do “o CTA não converte” ao problema certo</h2>
+    <p>O impacto foi qualitativo e de processo:</p>
+    <ul>
+      <li>A decisão de redesign passou a ser <strong>orientada por evidência comportamental</strong>, não por suposição.</li>
+      <li>O diagnóstico <strong>reposicionou o problema</strong>: deixou de ser “o CTA não converte” e passou a ser “falta transição entre validação e ação” — um problema diferente, que muda o que se constrói.</li>
+      <li>A PDP saiu de uma página genérica para uma <strong>estrutura de componentes governada e reutilizável</strong> entre cursos.</li>
+      <li>O redesign foi <strong>implementado em produção</strong>, com parte das implementações feitas diretamente por mim no AEM.</li>
+    </ul>
+    <p style="color:var(--ink-faint);font-style:italic">O redesign foi implementado em produção; a mensuração de conversão pós-implementação seguiu com o time.</p>
+    <div class="hero-cta" style="margin-top:var(--s-5)">
+      <a href="mailto:eddimaicon@gmail.com?subject=Portf%C3%B3lio%20%E2%80%94%20Aprofundamento%20do%20case%20PDP" class="btn btn--primary" data-track="click_contact">Solicitar aprofundamento do processo <span class="arrow">→</span></a>
+    </div>
+    <p style="color:var(--ink-faint);font-style:italic;margin-top:var(--s-4)">Diagnóstico completo, artefatos de discovery e mapa de governança apresentados sob solicitação.</p>
+
+    <!-- 10. APRENDIZADOS -->
+    <span class="label">10 — Aprendizados</span>
+    <h2>O que ficou</h2>
+    <ul>
+      <li>Entender o comportamento antes de mexer no layout evita otimizar o elemento errado: o formulário e o CTA não eram o problema.</li>
+      <li>Microconversões (scroll, leitura) contam a história que a taxa de conversão final esconde.</li>
+      <li>O papel mais valioso não foi desenhar a tela, mas <strong>traduzir dado de comportamento em decisão de produto</strong> e levá-la à execução com tech.</li>
+    </ul>
+
+    <!-- 11. PRÓXIMOS PASSOS -->
+    <span class="label">11 — Próximos passos</span>
+    <h2>Evolução possível</h2>
+    <p style="color:var(--ink-faint);font-style:italic">Continuidade projetada.</p>
+    <ul>
+      <li>Mensurar a conversão da nova PDP em produção, validando a hipótese de que o fluxo mais longo, porém mais qualificado, melhora a qualidade do lead.</li>
+      <li>Refinar os breakpoints de desktop, identificados como o principal risco técnico remanescente.</li>
+    </ul>
+
+    <!-- 12. CTA -->
+    <hr class="divider" style="margin-block:var(--s-7)">
+    <div class="hero-cta">
+      <a href="cases.html" class="btn btn--ghost">← Todos os cases</a>
+      <a href="contato.html" class="btn btn--primary" data-track="click_contact">Conversar sobre isso <span class="arrow">→</span></a>
+    </div>
+
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <div class="brand">Eddi&nbsp;Kochi<span>.</span></div>
+      <p>Experiência digital — UX/CRO, dados e governança. Portfólio em evolução como laboratório de Design Engineering.</p>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:eddimaicon@gmail.com" data-track="click_email">E-mail</a>
+      <a href="https://www.linkedin.com/in/edi-maicon-kochi-427625347/" data-track="click_linkedin">LinkedIn</a>
+      <a href="curriculo.pdf" target="_blank" data-track="click_download_resume">Currículo</a>
+    </div>
+  </div>
+  <div class="wrap"><p class="copyright">© 2025 Eddi Kochi · Porto Alegre, BR · Construído à mão em HTML/CSS/JS</p></div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>
