@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kit de componentes de case — preview</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  /* estilos só do preview (não fazem parte do kit) */
+  .kit-page { padding-block: var(--s-8) var(--s-9); }
+  .kit-head { margin-bottom: var(--s-8); }
+  .kit-comp { padding-top: var(--s-8); margin-top: var(--s-8); border-top: 1px solid var(--line); }
+  .kit-comp__meta { max-width: var(--maxw-text); margin-bottom: var(--s-5); }
+  .kit-comp__meta h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); margin: var(--s-2) 0; }
+  .kit-comp__meta p { color: var(--ink-soft); }
+  .kit-note { font-family: var(--mono); font-size: 0.72rem; color: var(--ink-faint); margin-top: var(--s-3); }
+</style>
+</head>
+<body>
+
+<main class="wrap kit-page">
+
+  <header class="kit-head">
+    <p class="label label--accent">Preview · não publicado</p>
+    <h1 class="display" style="font-size:clamp(2rem,5vw,3rem)">Kit de componentes de case</h1>
+    <p class="lead">5 componentes reutilizáveis para escaneabilidade dos cases — acento carmim, Fraunces nos títulos, IBM Plex Mono nos detalhes. Conteúdo de exemplo (PDP / CRM) para validação. Ainda não aplicado em nenhum case.</p>
+  </header>
+
+  <!-- 1 -->
+  <section class="kit-comp">
+    <div class="kit-comp__meta">
+      <span class="label label--accent">Componente 1</span>
+      <h2>Bloco de destaque (insight)</h2>
+      <p>A tese central do case num relance, contrastando com o texto ao redor sem virar banner. Uma vez por case.</p>
+    </div>
+
+    <aside class="insight">
+      <span class="insight__label">Insight</span>
+      <p class="insight__text">O gargalo não era o CTA, mas a transição entre validação e ação.</p>
+    </aside>
+
+    <aside class="insight">
+      <p class="insight__text">Régua que reage a comportamento converte mais que volume de disparo.</p>
+    </aside>
+    <p class="kit-note">Classes: <code>.insight</code> · <code>.insight__label</code> (opcional) · <code>.insight__text</code></p>
+  </section>
+
+  <!-- 2 -->
+  <section class="kit-comp">
+    <div class="kit-comp__meta">
+      <span class="label label--accent">Componente 2</span>
+      <h2>Cards de comparação</h2>
+      <p>Comparações “X vs. Y” / “antes-depois” em cards paralelos de largura e altura iguais. Empilham no mobile.</p>
+    </div>
+
+    <div class="compare">
+      <div class="compare__card">
+        <h3 class="compare__title">Já decidido</h3>
+        <ul>
+          <li>Vai direto ao formulário, pouco scroll.</li>
+          <li>Conversão cedo na sessão.</li>
+          <li>O site apenas executa uma decisão tomada fora dele.</li>
+        </ul>
+      </div>
+      <div class="compare__card">
+        <h3 class="compare__title">Em validação</h3>
+        <ul>
+          <li>Lê bastante, scroll consistente.</li>
+          <li>Pausas longas em “para quem é”, “aulas práticas”, “corpo docente”.</li>
+          <li>Usa o site para decidir se o curso é para ele.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="kit-note">Classes: <code>.compare</code> (use <code>.compare--3</code> para 3 colunas) · <code>.compare__card</code> · <code>.compare__title</code></p>
+  </section>
+
+  <!-- 3 -->
+  <section class="kit-comp">
+    <div class="kit-comp__meta">
+      <span class="label label--accent">Componente 3</span>
+      <h2>Fluxo horizontal de etapas</h2>
+      <p>Processos sequenciais conectados por linha fina, reaproveitando a timeline da home. Vertical no mobile, reveal discreto no scroll.</p>
+    </div>
+
+    <p class="kit-note" style="margin-top:0;margin-bottom:var(--s-3)">Variante padrão (com dot):</p>
+    <ol class="flow">
+      <li class="flow__step"><span class="flow__label">Diagnóstico</span><span class="flow__desc">Análise comportamental no Clarity</span></li>
+      <li class="flow__step"><span class="flow__label">Reposicionamento</span><span class="flow__desc">O problema certo: validação → ação</span></li>
+      <li class="flow__step"><span class="flow__label">Redesign</span><span class="flow__desc">Discovery e mapa de governança</span></li>
+      <li class="flow__step"><span class="flow__label">Produção</span><span class="flow__desc">Implementação no AEM</span></li>
+    </ol>
+
+    <p class="kit-note" style="margin-top:var(--s-6);margin-bottom:var(--s-3)">Variante numerada (<code>.flow--numbered</code>) — usada na timeline do método:</p>
+    <ol class="flow flow--numbered">
+      <li class="flow__step"><span class="flow__label">Diagnóstico</span><span class="flow__desc">Análise comportamental no Clarity</span></li>
+      <li class="flow__step"><span class="flow__label">Reposicionamento</span><span class="flow__desc">O problema certo: validação → ação</span></li>
+      <li class="flow__step"><span class="flow__label">Redesign</span><span class="flow__desc">Discovery e mapa de governança</span></li>
+      <li class="flow__step"><span class="flow__label">Produção</span><span class="flow__desc">Implementação no AEM</span></li>
+    </ol>
+    <p class="kit-note">Classes: <code>.flow</code> (use <code>&lt;ol&gt;</code> p/ sequência) · <code>.flow--numbered</code> (números no lugar dos dots) · <code>.flow__step</code> · <code>.flow__label</code> · <code>.flow__desc</code> (opcional)</p>
+  </section>
+
+  <!-- 4 -->
+  <section class="kit-comp">
+    <div class="kit-comp__meta">
+      <span class="label label--accent">Componente 4</span>
+      <h2>Grid de itens com micro-título</h2>
+      <p>Entregas e Decisões (4+ itens) como grid escaneável: micro-título + linha de contexto. 1 coluna no mobile.</p>
+    </div>
+
+    <p class="kit-note" style="margin-top:0;margin-bottom:var(--s-3)">Variante padrão (sem número):</p>
+    <div class="itemgrid">
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">Diagnosticar antes de redesenhar</h3>
+        <p class="itemgrid__text">Análise comportamental antes de mexer no layout — evidência, não suposição.</p>
+      </div>
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">Scroll e leitura como microconversões</h3>
+        <p class="itemgrid__text">Medir validação, não só a conversão final, para achar onde a jornada quebrava.</p>
+      </div>
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">Contexto ao CTA após a validação</h3>
+        <p class="itemgrid__text">Conduzir o usuário do “entendi” para o “quero fazer”, reduzindo a hesitação.</p>
+      </div>
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">PDP como sistema de componentes</h3>
+        <p class="itemgrid__text">Mapa de governança que define cada dobra, reutilizável entre cursos.</p>
+      </div>
+    </div>
+
+    <p class="kit-note" style="margin-top:var(--s-6);margin-bottom:var(--s-3)">Variante numerada (<code>.itemgrid--numbered</code>) — usada nas decisões do case PDP:</p>
+    <div class="itemgrid itemgrid--numbered">
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">Diagnosticar antes de redesenhar</h3>
+        <p class="itemgrid__text">Análise comportamental antes de mexer no layout — evidência, não suposição.</p>
+      </div>
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">Scroll e leitura como microconversões</h3>
+        <p class="itemgrid__text">Medir validação, não só a conversão final, para achar onde a jornada quebrava.</p>
+      </div>
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">Contexto ao CTA após a validação</h3>
+        <p class="itemgrid__text">Conduzir o usuário do “entendi” para o “quero fazer”, reduzindo a hesitação.</p>
+      </div>
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">PDP como sistema de componentes</h3>
+        <p class="itemgrid__text">Mapa de governança que define cada dobra, reutilizável entre cursos.</p>
+      </div>
+    </div>
+    <p class="kit-note">Classes: <code>.itemgrid</code> (use <code>.itemgrid--3</code> p/ 3 colunas) · <code>.itemgrid--numbered</code> (numera os cards) · <code>.itemgrid__item</code> · <code>.itemgrid__title</code> · <code>.itemgrid__text</code> · <code>.itemgrid__ico</code> (ícone opcional)</p>
+  </section>
+
+  <!-- 5 -->
+  <section class="kit-comp">
+    <div class="kit-comp__meta">
+      <span class="label label--accent">Componente 5</span>
+      <h2>Slot de artefato com legenda</h2>
+      <p>Padroniza artefatos visuais (heatmap, user flow, peça de e-mail). Imagem sempre com legenda que diz <em>o que ela prova</em> — nunca imagem solta. Regra: só entra anonimizada.</p>
+    </div>
+
+    <figure class="artifact">
+      <div class="artifact__media artifact__media--empty">[ área da imagem — no case real, <code>&lt;img class="artifact__media"&gt;</code> ]</div>
+      <figcaption class="artifact__caption">Heatmap do Clarity: o scroll se concentra nas seções de validação — confirma que o usuário lê antes de decidir. (rosto/dados de terceiros borrados, painel de volume cortado)</figcaption>
+    </figure>
+    <p class="kit-note">Classes: <code>.artifact</code> · <code>.artifact__media</code> (img) · <code>.artifact__caption</code> · <code>.artifact__zoom</code> (link p/ ampliar, opcional). O placeholder cinza acima é só do preview.</p>
+  </section>
+
+</main>
+
+<script src="assets/main.js"></script>
+</body>
+</html>

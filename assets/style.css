@@ -592,7 +592,11 @@ p { color: var(--ink-soft); }
 .prose strong { color: var(--ink); font-weight: 600; }
 .prose ul { padding-left: var(--s-5); color: var(--ink-soft); }
 .prose li + li { margin-top: var(--s-2); }
-.prose .label { margin-bottom: var(--s-3); display: block; }
+/* rótulos de bloco (ex.: "06 — Decisões principais"): carmim + respiro generoso acima,
+   separando cada bloco do anterior; o h2 cola no seu rótulo. */
+.prose .label { display: block; margin-top: var(--s-8); margin-bottom: var(--s-3); color: var(--accent); }
+.prose .label:first-child { margin-top: 0; }
+.prose .label + h2 { margin-top: 0; }
 
 /* timeline (Sobre / linha narrativa) */
 .timeline { font-family: var(--mono); font-size: 0.86rem; color: var(--ink-soft);
@@ -699,4 +703,214 @@ p { color: var(--ink-soft); }
   .case-cover__plate, .case-cover__img, .case-cover__video, .case-card .go { transition: none; }
   .case-card .go { transform: none; }
   .case-cover__plate, .case-cover__img, .case-cover__video { transform: none; }
+}
+
+/* ============================================================================
+   KIT DE COMPONENTES DE CASE — sistema reutilizável (mobile-first, AA, teclado).
+   5 componentes fechados. Usam tokens do site: carmim, Fraunces (--serif),
+   IBM Plex Mono (--mono) e motion (--ease / --dur-fast / --dur-med).
+   Pensados para viver dentro de .prose, mas independentes.
+   ============================================================================ */
+
+/* —— 1. Bloco de destaque (insight) ——
+   <aside class="insight"><span class="insight__label">Insight</span>
+     <p class="insight__text">…tese…</p></aside> */
+.insight {
+  margin: var(--s-6) 0;
+  padding: var(--s-4) var(--s-5);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: color-mix(in srgb, var(--accent) 7%, transparent);
+}
+.insight__label {
+  display: block; margin: 0 0 var(--s-2);
+  font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: color-mix(in srgb, var(--accent) 72%, #fff);   /* carmim clareado p/ contraste AA sobre o leve fundo */
+}
+.insight__text {
+  margin: 0; color: var(--ink);
+  font-family: var(--serif); font-weight: 500; line-height: 1.25;
+  font-size: clamp(1.2rem, 2.6vw, 1.55rem);
+}
+
+/* —— 2. Cards de comparação ——
+   <div class="compare">  (use .compare--3 para 3 colunas)
+     <div class="compare__card"><h3 class="compare__title">…</h3><ul><li>…</li></ul></div> … */
+.compare {
+  display: grid; gap: var(--s-4); grid-template-columns: 1fr;   /* mobile: empilha */
+  margin: var(--s-6) 0;
+}
+.compare__card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: var(--s-5);
+}
+.compare__title {
+  margin: 0 0 var(--s-3); padding-bottom: var(--s-3); border-bottom: 1px solid var(--line-soft);
+  font-family: var(--serif); font-weight: 500; font-size: 1.15rem; line-height: 1.2; color: var(--ink);
+}
+.compare__card p { margin: 0; font-size: 0.92rem; line-height: 1.5; color: var(--ink-soft); }
+.compare__card ul { list-style: none; display: grid; gap: var(--s-2); }
+.compare__card li {
+  position: relative; padding-left: var(--s-4); font-size: 0.92rem; line-height: 1.5; color: var(--ink-soft);
+}
+.compare__card li::before {
+  content: ""; position: absolute; left: 0; top: 0.55em;
+  width: 4px; height: 4px; border-radius: 50%; background: var(--accent);
+}
+@media (min-width: 640px) {
+  .compare { grid-template-columns: repeat(2, 1fr); }
+  .compare--3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* —— 3. Fluxo horizontal de etapas (reaproveita a lógica da timeline) ——
+   <ol class="flow"><li class="flow__step"><span class="flow__label">…</span>
+     <span class="flow__desc">…</span></li> … */
+.flow {
+  position: relative; list-style: none; margin: var(--s-6) 0; padding: 0;
+  display: flex; flex-direction: column; gap: var(--s-5);   /* mobile: vertical */
+}
+.flow::before {                                  /* trilho fino */
+  content: ""; position: absolute; top: 5px; bottom: 5px; left: 4px; width: 1px;
+  background: var(--line);
+}
+.flow__step { position: relative; padding-left: var(--s-6); }
+.flow__step::before {                            /* nó na linha */
+  content: ""; position: absolute; left: 0; top: 4px;
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--bg); border: 1px solid var(--accent);
+}
+.flow__label {
+  display: block; font-family: var(--serif); font-weight: 500; font-size: 1.05rem; line-height: 1.2; color: var(--ink);
+}
+.flow__desc {
+  display: block; margin-top: var(--s-1);
+  font-family: var(--mono); font-size: 0.78rem; line-height: 1.45; color: var(--ink-soft);
+}
+/* reveal discreto no scroll — só quando "armado" por JS (sem JS/sem motion: fica visível) */
+.flow.reveal-armed .flow__step {
+  opacity: 0; transform: translateY(8px);
+  transition: opacity var(--dur-med) var(--ease), transform var(--dur-med) var(--ease);
+}
+.flow.reveal-armed.is-visible .flow__step { opacity: 1; transform: none; }
+.flow.reveal-armed.is-visible .flow__step:nth-child(2){ transition-delay: .08s; }
+.flow.reveal-armed.is-visible .flow__step:nth-child(3){ transition-delay: .16s; }
+.flow.reveal-armed.is-visible .flow__step:nth-child(4){ transition-delay: .24s; }
+.flow.reveal-armed.is-visible .flow__step:nth-child(5){ transition-delay: .32s; }
+.flow.reveal-armed.is-visible .flow__step:nth-child(6){ transition-delay: .40s; }
+@media (min-width: 720px) {
+  .flow { flex-direction: row; gap: var(--s-5); }
+  .flow::before { top: 4px; bottom: auto; left: 0; right: 0; width: auto; height: 1px; }   /* linha horizontal */
+  .flow__step { flex: 1 1 0; padding-left: 0; padding-top: var(--s-6); text-align: center; }   /* colunas iguais */
+  .flow__step::before { left: 50%; top: 0; transform: translateX(-50%); }   /* nó centrado na coluna → distribuição uniforme */
+}
+
+/* —— 4. Grid de itens com micro-título ——
+   <div class="itemgrid">  (use .itemgrid--3 para 3 colunas)
+     <div class="itemgrid__item">
+       [<span class="itemgrid__ico">…svg…</span>]
+       <h3 class="itemgrid__title">…</h3><p class="itemgrid__text">…</p></div> … */
+.itemgrid {
+  display: grid; gap: var(--s-4); grid-template-columns: 1fr;   /* mobile: 1 coluna */
+  margin: var(--s-6) 0;
+}
+.itemgrid__item {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: var(--s-5);
+}
+.itemgrid__ico { display: block; margin-bottom: var(--s-3); line-height: 0; color: var(--accent); }
+.itemgrid__ico svg { width: 20px; height: 20px; }
+.itemgrid__title {
+  margin: 0 0 var(--s-2);
+  font-family: var(--serif); font-weight: 500; font-size: 1.05rem; line-height: 1.2; color: var(--ink);
+}
+.itemgrid__text { margin: 0; font-size: 0.9rem; line-height: 1.5; color: var(--ink-soft); }
+@media (min-width: 560px) { .itemgrid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 880px) { .itemgrid--3 { grid-template-columns: repeat(3, 1fr); } }
+
+/* —— 5. Slot de artefato com legenda ——
+   <figure class="artifact">
+     <img class="artifact__media" src="…" alt="…">   (ou envolver num <a class="artifact__zoom">)
+     <figcaption class="artifact__caption">…o que o artefato prova…</figcaption></figure> */
+.artifact { margin: var(--s-6) 0; }
+.artifact__media {
+  display: block; width: 100%; height: auto;
+  border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg);
+  box-shadow: 0 2px 16px color-mix(in srgb, #000 35%, transparent);   /* sombra sutil */
+}
+.artifact__zoom { display: block; border-radius: var(--radius); }
+.artifact__zoom:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.artifact__caption {
+  margin-top: var(--s-3);
+  font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.02em; line-height: 1.5; color: var(--ink-soft);
+}
+/* placeholder de demonstração (não usar nos cases — só no preview do kit) */
+.artifact__media--empty {
+  aspect-ratio: 16 / 9; display: grid; place-items: center;
+  background: var(--surface); box-shadow: none;
+  font-family: var(--mono); font-size: 0.74rem; color: var(--ink-faint); text-align: center; padding: var(--s-5);
+}
+
+/* Slot de artefato com scroll interno — imagem alta (ex.: mapa) num container de
+   altura fixa. O scroll vertical fica contido no frame; overscroll-behavior impede
+   que ele propague para a página. Sem blur/granulado: o conteúdo precisa ficar legível. */
+.artifact-scroll { margin: var(--s-6) 0; }
+.artifact-scroll__frame {
+  height: 70vh; max-height: 640px;
+  overflow-y: auto; overflow-x: hidden;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;   /* scroll por toque suave no iOS */
+  border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg);
+  box-shadow: 0 2px 16px color-mix(in srgb, #000 35%, transparent);
+  /* scrollbar nas cores do site (Firefox) — trilho escuro, polegar carmim */
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) var(--surface);
+}
+/* scrollbar nas cores do site (WebKit/Chromium) */
+.artifact-scroll__frame::-webkit-scrollbar { width: 10px; }
+.artifact-scroll__frame::-webkit-scrollbar-track {
+  background: var(--surface); border-left: 1px solid var(--line);
+}
+.artifact-scroll__frame::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--accent) 70%, var(--bg));
+  border: 2px solid var(--surface); border-radius: 999px;   /* respiro entre polegar e trilho */
+}
+.artifact-scroll__frame::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+.artifact-scroll__img { display: block; width: 100%; height: auto; }   /* legível: largura cheia, sem filtro */
+@media (max-width: 560px) { .artifact-scroll__frame { height: 60vh; } }
+
+/* —— Variante NUMERADA (componentes 3 e 4) ——
+   O dot/marcador continua sendo o padrão; .flow--numbered e .itemgrid--numbered trocam
+   por números sequenciais automáticos (01, 02, 03… via counters). Ambas as variantes
+   ficam disponíveis no kit. */
+
+/* Fluxo: o badge numerado substitui o dot, centrado no trilho (corrige o desalinhamento) */
+.flow--numbered { counter-reset: flowstep; }
+.flow--numbered .flow__step { counter-increment: flowstep; padding-left: var(--s-6); }
+.flow--numbered::before { left: 11px; top: 11px; bottom: 11px; }   /* trilho no centro do badge (mobile) */
+.flow--numbered .flow__step::before {
+  content: counter(flowstep, decimal-leading-zero);
+  left: 0; top: 0;
+  width: 1.4rem; height: 1.4rem; box-sizing: border-box; border-radius: 50%;
+  background: var(--bg); border: 1px solid var(--accent);
+  display: grid; place-items: center;
+  font-family: var(--mono); font-size: 0.6rem; line-height: 1; color: var(--accent);
+}
+@media (min-width: 720px) {
+  .flow--numbered .flow__step { padding-left: 0; padding-top: calc(1.4rem + var(--s-3)); }
+  .flow--numbered::before { left: 0; right: 0; top: 0.7rem; bottom: auto; }   /* linha no centro do badge */
+  .flow--numbered .flow__step::before { left: 50%; top: 0; transform: translateX(-50%); }   /* badge centrado na coluna */
+}
+
+/* Grid: número (01, 02…) acima do micro-título, para leitura sequencial */
+.itemgrid--numbered { counter-reset: griditem; }
+.itemgrid--numbered .itemgrid__item { counter-increment: griditem; }
+.itemgrid--numbered .itemgrid__item::before {
+  content: counter(griditem, decimal-leading-zero);
+  display: block; margin-bottom: var(--s-2);
+  font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em; color: var(--accent);
+}
+
+/* Acessibilidade do kit: sem reveal de movimento se prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .flow.reveal-armed .flow__step { opacity: 1; transform: none; transition: none; }
 }

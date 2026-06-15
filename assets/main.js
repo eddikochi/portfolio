@@ -87,6 +87,25 @@
   });
 })();
 
+/* Kit de componentes — reveal discreto do Fluxo de etapas (.flow) ao entrar na viewport.
+   "Arma" a animação só com JS + sem prefers-reduced-motion; senão o fluxo fica visível. */
+(function () {
+  var flows = document.querySelectorAll('.flow');
+  if (!flows.length) return;
+
+  var reduce = window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) return;   // fica visível, sem animação
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) { entry.target.classList.add('is-visible'); io.unobserve(entry.target); }
+    });
+  }, { threshold: 0.25 });
+
+  flows.forEach(function (f) { f.classList.add('reveal-armed'); io.observe(f); });
+})();
+
 /* Tracking leve — sem dependência externa.
    Hoje só registra no console (placeholder). Quando você plugar
    GTM/GA4/Clarity, troque o corpo de track() pela chamada real,

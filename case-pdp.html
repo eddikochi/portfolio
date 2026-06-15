@@ -33,8 +33,8 @@
     <h1>Redesign da Página de Produto orientado por dados</h1>
     <p class="lead">Diagnóstico comportamental via Microsoft Clarity e reestruturação da página de produto (PDP) do IBCMED (Inspirali Pós), do discovery ao handoff com os times de produto e tecnologia. O trabalho foi entender o comportamento real antes de mexer no layout — e descobrir que o gargalo não era o CTA, mas a transição entre validação e ação.</p>
     <div class="tags" style="margin-top:var(--s-5)">
-      <span class="tag">UX</span><span class="tag">CRO</span><span class="tag">Análise comportamental</span>
-      <span class="tag">Discovery</span><span class="tag">Design System</span><span class="tag">Handoff</span>
+      <span class="tag">UX</span><span class="tag">Discovery</span><span class="tag">Design System</span>
+      <span class="tag">Microsoft Clarity</span><span class="tag">Figma</span><span class="tag">AEM</span>
     </div>
     <dl class="case-meta">
       <div><dt>Papel</dt><dd>Digital Experience &amp; CRO Analyst</dd></div>
@@ -52,12 +52,18 @@
     <span class="label">02 — Contexto</span>
     <h2>A página de decisão da jornada</h2>
     <p>A página de produto (PDP) dos cursos de pós-graduação do <strong>IBCMED (Inspirali Pós)</strong> é a página de decisão da jornada: o usuário já passou da curiosidade genérica e está avaliando valor, reduzindo risco e buscando clareza antes de agir. Seu objetivo é gerar leads qualificados — a conversão principal é o envio do formulário de interesse.</p>
-    <p>A PDP existente era <strong>genérica e idêntica para todos os cursos</strong>, e a leitura de performance não explicava por que a conversão não acompanhava o volume de tráfego.</p>
+    <p>A PDP existente era <strong>genérica e idêntica para todos os cursos</strong>. Dois problemas estruturais a limitavam: cada modalidade de uma mesma especialização (híbrido, presencial, online) gerava uma página separada, <strong>multiplicando o número de PDPs</strong> no site e poluindo a própria vitrine; e o conteúdo era apresentado em <strong>formato sanfona</strong>, obrigando o usuário a uma sequência de cliques para acessar informação essencial à decisão. A leitura de performance, ainda assim, não explicava por que a conversão não acompanhava o tráfego.</p>
 
     <!-- 3. PROBLEMA -->
     <span class="label">03 — Problema</span>
     <h2>Tráfego relevante, conversão que não corresponde</h2>
     <p>A página recebia tráfego relevante, mas a conversão não correspondia. Faltava entender o comportamento real antes de mexer no layout — havia esforço sendo investido sem impacto mensurável, com hipóteses baseadas em <strong>suposição, não em evidência</strong>.</p>
+
+    <!-- Componente 1 · Bloco de destaque (insight central) -->
+    <aside class="insight">
+      <span class="insight__label">Insight central</span>
+      <p class="insight__text">O gargalo não era o CTA, mas a transição entre validação e ação.</p>
+    </aside>
 
     <!-- 4. MEU PAPEL -->
     <span class="label">04 — Meu papel</span>
@@ -74,35 +80,110 @@
     <!-- 5. PROCESSO -->
     <span class="label">05 — Processo</span>
     <h2>Separar validação de ação para achar o gargalo real</h2>
+    <!-- Componente 3 · Fluxo horizontal (variante numerada) -->
+    <ol class="flow flow--numbered">
+      <li class="flow__step"><span class="flow__label">Diagnóstico</span><span class="flow__desc">Análise comportamental no Clarity</span></li>
+      <li class="flow__step"><span class="flow__label">Reposicionamento</span><span class="flow__desc">O problema certo: validação → ação</span></li>
+      <li class="flow__step"><span class="flow__label">Redesign</span><span class="flow__desc">Discovery e mapa de governança</span></li>
+      <li class="flow__step"><span class="flow__label">Produção</span><span class="flow__desc">Implementação no AEM</span></li>
+    </ol>
+
     <p><strong>Diagnóstico com critério.</strong> A análise no Clarity seguiu critérios para evitar conclusão por caso isolado: analisar múltiplas sessões, diagnosticar padrões e não exceções, separar mobile de desktop e isolar a página específica. O recorte foi feito sobre o curso de maior tráfego, em sessões curtas, médias e longas, com e sem clique.</p>
     <p><strong>Separação entre validação e ação.</strong> O ponto-chave do diagnóstico foi tratar scroll e leitura como microconversões reais — sinais de validação — e separá-los da ação final (envio do formulário). Isso revelou dois perfis de comportamento recorrentes:</p>
-    <ul>
-      <li><strong>Já decidido:</strong> vai direto ao formulário, pouco scroll, conversão cedo. O site apenas executa uma decisão tomada fora dele.</li>
-      <li><strong>Em validação:</strong> lê bastante, scroll consistente, pausas longas em seções como “para quem é o curso”, “aulas práticas” e “corpo docente”. Usa o site para decidir se o curso é para ele.</li>
-    </ul>
-    <p><strong>O insight central.</strong> O CTA não era o gatilho de decisão — funcionava como mecanismo final de execução para quem já estava decidido. A conversão era resultado de confiança construída ao longo da navegação, não de estímulo isolado. O formulário não era o problema e o CTA não era confuso: o gargalo estava na <strong>transição entre validação e ação</strong>. Depois de consumir o conteúdo de validação, o usuário não recebia orientação explícita do próximo passo, o que gerava hesitação.</p>
-    <p><strong>Do diagnóstico ao redesign.</strong> O discovery da nova PDP partiu desse diagnóstico — mapa de objeções, user flow e estrutura final — e resultou em um mapa de governança de componentes que define cada dobra da página (função, autoração, estrutura fixa e reutilização entre PDPs), permitindo que a página deixasse de ser genérica e passasse a ser estruturada e escalável.</p>
+
+    <!-- Componente 2 · Cards de comparação (perfis de usuário) -->
+    <div class="compare">
+      <div class="compare__card">
+        <h3 class="compare__title">Já decidido</h3>
+        <ul>
+          <li>Vai direto ao formulário, pouco scroll, conversão cedo.</li>
+          <li>O site apenas executa uma decisão tomada fora dele.</li>
+        </ul>
+      </div>
+      <div class="compare__card">
+        <h3 class="compare__title">Em validação</h3>
+        <ul>
+          <li>Lê bastante, scroll consistente, pausas longas em “para quem é o curso”, “aulas práticas” e “corpo docente”.</li>
+          <li>Usa o site para decidir se o curso é para ele.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p><strong>O insight central.</strong> O CTA não era o gatilho de decisão — funcionava como mecanismo final de execução para quem já estava decidido. A conversão era resultado de confiança construída ao longo da navegação, não de estímulo isolado. O formulário não era o problema e o CTA não era confuso: depois de consumir o conteúdo de validação, o usuário não recebia orientação explícita do próximo passo — e era nessa transição, não no botão, que a conversão se perdia.</p>
+
+    <!-- Componente 5 · Slot de artefato com legenda -->
+    <figure class="artifact">
+      <img class="artifact__media" src="img/artefato-pdp-01.png" alt="Heatmap de cliques da PDP: a interação se concentra nas seções de validação do conteúdo, não no CTA.">
+      <figcaption class="artifact__caption">Heatmap de cliques revelando concentração de interação nas seções de validação, não no CTA.</figcaption>
+    </figure>
+
+    <p><strong>Do diagnóstico ao redesign.</strong> O discovery da nova PDP partiu desse diagnóstico — mapa de objeções, user flow e estrutura final — e resultou em um mapa de governança de componentes que define cada dobra da página (função, autoração, estrutura fixa e reutilização entre PDPs). A nova estrutura resolveu os dois gargalos de origem: <strong>consolidou as modalidades de uma especialização em uma página única</strong>, eliminando a multiplicação de PDPs, e <strong>abandonou a sanfona</strong> em favor de um conteúdo mais direto e escaneável, alinhado ao SEO técnico e à estrutura do design system existente.</p>
 
     <!-- 6. DECISÕES PRINCIPAIS -->
     <span class="label">06 — Decisões principais</span>
     <h2>As escolhas que guiaram o redesign</h2>
-    <ul>
-      <li><strong>Diagnosticar antes de redesenhar:</strong> investir em análise comportamental (Clarity) antes de propor qualquer mudança de layout, para basear a decisão em evidência e não em suposição.</li>
-      <li><strong>Tratar scroll e leitura como microconversões:</strong> medir validação, não só a conversão final, para entender onde a jornada realmente quebrava.</li>
-      <li><strong>Dar contexto ao CTA após o ponto de validação:</strong> hipótese central de melhoria — reduzir a hesitação conduzindo o usuário do “entendi” para o “quero fazer”.</li>
-      <li><strong>Estruturar a PDP como sistema de componentes:</strong> sair de uma página genérica e idêntica para um mapa de governança que define cada dobra, reutilizável entre cursos.</li>
-    </ul>
+    <!-- Componente 4 · Grid com micro-título (variante numerada) -->
+    <div class="itemgrid itemgrid--numbered">
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">Diagnosticar antes de redesenhar</h3>
+        <p class="itemgrid__text">Análise comportamental (Clarity) antes de qualquer mudança de layout — decisão por evidência, não por suposição.</p>
+      </div>
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">Consolidar modalidades em uma PDP única</h3>
+        <p class="itemgrid__text">Uma página por especialização, com as variações (híbrido, presencial, online) dentro dela — menos PDPs no site, vitrine limpa, governança e manutenção mais simples.</p>
+      </div>
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">Reduzir a fricção da sanfona</h3>
+        <p class="itemgrid__text">Entregar o conteúdo de validação de forma direta e escaneável, sem a sequência de cliques que a sanfona exigia.</p>
+      </div>
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">Scroll e leitura como microconversões</h3>
+        <p class="itemgrid__text">Medir validação, não só a conversão final, para entender onde a jornada realmente quebrava.</p>
+      </div>
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">Contexto ao CTA após a validação</h3>
+        <p class="itemgrid__text">Reduzir a hesitação conduzindo o usuário do “entendi” para o “quero fazer”.</p>
+      </div>
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">PDP como sistema de componentes</h3>
+        <p class="itemgrid__text">Sair de uma página genérica para um mapa de governança que define cada dobra, reutilizável entre cursos.</p>
+      </div>
+    </div>
 
     <!-- 7. ENTREGAS -->
     <span class="label">07 — Entregas</span>
     <h2>O que ficou de concreto</h2>
-    <ul>
-      <li>Análise comportamental completa (Clarity, 90 dias), separando validação de ação e identificando os perfis de usuário.</li>
-      <li>Diagnóstico priorizado dos pontos de maior impacto na conversão.</li>
-      <li>Discovery da nova PDP: mapa de objeções, user flow e estrutura final.</li>
-      <li>Mapa de governança de componentes da PDP, definindo função, autoração e reutilização de cada dobra.</li>
-      <li>Handoff e acompanhamento da execução com os times de produto e tecnologia.</li>
-    </ul>
+    <!-- Componente 4 · Grid com micro-título -->
+    <div class="itemgrid">
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">Análise comportamental (Clarity, 90 dias)</h3>
+        <p class="itemgrid__text">Separando validação de ação e identificando os perfis de usuário.</p>
+      </div>
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">Diagnóstico priorizado</h3>
+        <p class="itemgrid__text">Os pontos de maior impacto na conversão.</p>
+      </div>
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">Discovery da nova PDP</h3>
+        <p class="itemgrid__text">Mapa de objeções, user flow e estrutura final.</p>
+      </div>
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">Mapa de governança de componentes</h3>
+        <p class="itemgrid__text">Define função, autoração e reutilização de cada dobra da PDP.</p>
+      </div>
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">Handoff com produto e tecnologia</h3>
+        <p class="itemgrid__text">Acompanhamento da execução com os times.</p>
+      </div>
+    </div>
+
+    <!-- Artefato com scroll interno · mapa de governança (imagem alta) -->
+    <figure class="artifact-scroll">
+      <div class="artifact-scroll__frame">
+        <img class="artifact-scroll__img" src="img/mapa-full.png" alt="Mapa de governança das dobras da PDP, detalhando função, autoração e reutilização de cada componente entre cursos.">
+      </div>
+      <figcaption class="artifact__caption">Mapa de governança das dobras da PDP: função, autoração e reutilização de cada componente entre cursos.</figcaption>
+    </figure>
 
     <!-- 8. FERRAMENTAS -->
     <span class="label">08 — Ferramentas</span>
@@ -119,9 +200,19 @@
     <ul>
       <li>A decisão de redesign passou a ser <strong>orientada por evidência comportamental</strong>, não por suposição.</li>
       <li>O diagnóstico <strong>reposicionou o problema</strong>: deixou de ser “o CTA não converte” e passou a ser “falta transição entre validação e ação” — um problema diferente, que muda o que se constrói.</li>
-      <li>A PDP saiu de uma página genérica para uma <strong>estrutura de componentes governada e reutilizável</strong> entre cursos.</li>
+      <li>A PDP saiu de uma página genérica para uma <strong>estrutura de componentes governada e reutilizável</strong> entre cursos, com as <strong>modalidades consolidadas em uma única página</strong>.</li>
+      <li>A proposta de redesign foi <strong>aprovada de primeira pela diretoria</strong>.</li>
       <li>O redesign foi <strong>implementado em produção</strong>, com parte das implementações feitas diretamente por mim no AEM.</li>
     </ul>
+
+    <!-- Componente 5 · Slot de artefato com legenda (imagem clicável p/ ampliar) -->
+    <figure class="artifact">
+      <a class="artifact__zoom" href="img/antes-depois.png" target="_blank" rel="noopener" aria-label="Ampliar a comparação antes e depois do redesign">
+        <img class="artifact__media" src="img/antes-depois.png" alt="Comparação antes e depois do redesign da PDP: à esquerda, a página informativa em sanfona; à direita, a PDP consolidada e escaneável.">
+      </a>
+      <figcaption class="artifact__caption">Antes e depois do redesign: da página informativa em sanfona à PDP consolidada e escaneável. <span style="color:var(--ink-faint)">(clique para ampliar)</span></figcaption>
+    </figure>
+
     <p style="color:var(--ink-faint);font-style:italic">O redesign foi implementado em produção; a mensuração de conversão pós-implementação seguiu com o time.</p>
     <div class="hero-cta" style="margin-top:var(--s-5)">
       <a href="mailto:eddimaicon@gmail.com?subject=Portf%C3%B3lio%20%E2%80%94%20Aprofundamento%20do%20case%20PDP" class="btn btn--primary" data-track="click_contact">Solicitar aprofundamento do processo <span class="arrow">→</span></a>

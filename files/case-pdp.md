@@ -17,7 +17,7 @@
 
 A página de produto (PDP) dos cursos de pós-graduação do IBCMED é a página de decisão da jornada: o usuário já passou da curiosidade genérica e está avaliando valor, reduzindo risco e buscando clareza antes de agir. Seu objetivo é gerar leads qualificados — a conversão principal é o envio do formulário de interesse.
 
-A PDP existente era genérica e idêntica para todos os cursos, e a leitura de performance não explicava por que a conversão não acompanhava o volume de tráfego.
+A PDP existente era genérica e idêntica para todos os cursos. Dois problemas estruturais a limitavam: cada modalidade de uma mesma especialização (híbrido, presencial, online) gerava uma página separada, multiplicando o número de PDPs no site e poluindo a própria vitrine; e o conteúdo era apresentado em formato sanfona, obrigando o usuário a uma sequência de cliques para acessar informação essencial à decisão. A leitura de performance, ainda assim, não explicava por que a conversão não acompanhava o tráfego.
 
 ## Problema
 
@@ -44,13 +44,15 @@ Conduzi o diagnóstico comportamental e o discovery da nova PDP, e atuei como po
 
 **O insight central.** O CTA não era o gatilho de decisão — funcionava como mecanismo final de execução para quem já estava decidido. A conversão era resultado de confiança construída ao longo da navegação, não de estímulo isolado. O formulário não era o problema e o CTA não era confuso: o gargalo estava na **transição entre validação e ação**. Depois de consumir o conteúdo de validação, o usuário não recebia orientação explícita do próximo passo, o que gerava hesitação.
 
-**Do diagnóstico ao redesign.** O discovery da nova PDP partiu desse diagnóstico — mapa de objeções, user flow e estrutura final — e resultou em um mapa de governança de componentes que define cada dobra da página (função, autoração, estrutura fixa e reutilização entre PDPs), permitindo que a página deixasse de ser genérica e passasse a ser estruturada e escalável.
+**Do diagnóstico ao redesign.** O discovery da nova PDP partiu desse diagnóstico — mapa de objeções, user flow e estrutura final — e resultou em um mapa de governança de componentes que define cada dobra da página (função, autoração, estrutura fixa e reutilização entre PDPs). A nova estrutura resolveu os dois gargalos de origem: consolidou as modalidades de uma especialização em uma página única, eliminando a multiplicação de PDPs, e abandonou a sanfona em favor de um conteúdo mais direto e escaneável, alinhado ao SEO técnico e à estrutura do design system existente.
 
 ## Decisões principais
 
 - **Diagnosticar antes de redesenhar:** investir em análise comportamental (Clarity) antes de propor qualquer mudança de layout, para basear a decisão em evidência e não em suposição.
+- **Consolidar as modalidades em uma única PDP:** em vez de uma página por modalidade (híbrido, presencial, online) da mesma especialização, uma página única com as variações dentro dela. Reduziu o número de PDPs no site, limpou a vitrine e simplificou a governança e a manutenção.
+- **Reduzir a fricção da sanfona:** substituir o padrão que exigia múltiplos cliques para acessar informação essencial por uma estrutura que entrega o conteúdo de validação de forma mais direta e escaneável.
 - **Tratar scroll e leitura como microconversões:** medir validação, não só a conversão final, para entender onde a jornada realmente quebrava.
-- **Dar contexto ao CTA após o ponto de validação:** hipótese central de melhoria — reduzir a hesitação conduzindo o usuário do "entendi" para o "quero fazer".
+- **Dar contexto ao CTA após o ponto de validação:** reduzir a hesitação conduzindo o usuário do "entendi" para o "quero fazer".
 - **Estruturar a PDP como sistema de componentes:** sair de uma página genérica e idêntica para um mapa de governança que define cada dobra, reutilizável entre cursos.
 
 ## Entregas
@@ -67,7 +69,8 @@ Conduzi o diagnóstico comportamental e o discovery da nova PDP, e atuei como po
 
 - A decisão de redesign passou a ser orientada por evidência comportamental, não por suposição.
 - O diagnóstico reposicionou o problema: deixou de ser "o CTA não converte" e passou a ser "falta transição entre validação e ação" — um problema diferente, que muda o que se constrói.
-- A PDP saiu de uma página genérica para uma estrutura de componentes governada e reutilizável entre cursos.
+- A PDP saiu de uma página genérica para uma estrutura de componentes governada e reutilizável entre cursos, com as modalidades consolidadas em uma única página.
+- A proposta de redesign foi aprovada de primeira pela diretoria.
 - O redesign foi implementado em produção, com parte das implementações feitas diretamente por mim no AEM.
 
 > *O redesign foi implementado em produção; a mensuração de conversão pós-implementação seguiu com o time.*
