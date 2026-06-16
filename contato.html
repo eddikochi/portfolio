@@ -27,6 +27,11 @@
 
 <main>
   <section class="hero" style="padding-block:var(--s-8) var(--s-7)">
+    <div class="hero-aurora" aria-hidden="true">
+      <span class="aurora-blob aurora-blob--1"></span>
+      <span class="aurora-blob aurora-blob--2"></span>
+      <span class="aurora-blob aurora-blob--3"></span>
+    </div>
     <div class="wrap">
       <p class="label label--accent reveal">Contato</p>
       <h1 class="display reveal" style="font-size:clamp(2.2rem,5vw,3.6rem);max-width:18ch">Vamos conversar.</h1>
@@ -81,9 +86,15 @@
       <p>Experiência digital — UX/CRO, dados e governança. Portfólio em evolução como laboratório de Design Engineering.</p>
     </div>
     <div class="footer-links">
-      <a href="mailto:eddimaicon@gmail.com" data-track="click_email">E-mail</a>
-      <a href="https://www.linkedin.com/in/edi-maicon-kochi-427625347/" data-track="click_linkedin">LinkedIn</a>
-      <a href="curriculo.pdf" target="_blank" data-track="click_download_resume">Currículo</a>
+      <a href="mailto:eddimaicon@gmail.com" class="footer-ico" aria-label="Enviar e-mail para eddimaicon@gmail.com" title="E-mail" data-track="click_email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/edi-maicon-kochi-427625347/" class="footer-ico" aria-label="Abrir o LinkedIn de Eddi Kochi" title="LinkedIn" data-track="click_linkedin">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+      <a href="curriculo.pdf" class="footer-ico" target="_blank" rel="noopener" aria-label="Baixar currículo em PDF (abre em nova aba)" title="Currículo (PDF)" data-track="click_download_resume">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h5"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg>
+      </a>
     </div>
   </div>
   <div class="wrap"><p class="copyright">© 2025 Eddi Kochi · Porto Alegre, BR · Construído à mão em HTML/CSS/JS</p></div>

@@ -632,9 +632,13 @@ p { color: var(--ink-soft); }
 .footer-grid { display: flex; justify-content: space-between; gap: var(--s-6); flex-wrap: wrap; align-items: flex-end; }
 .footer-grid .brand { font-size: 1.3rem; margin-bottom: var(--s-2); }
 .footer-grid p { font-size: 0.9rem; max-width: 38ch; }
-.footer-links { display: flex; gap: var(--s-5); }
+.footer-links { display: flex; gap: var(--s-5); align-items: center; }
 .footer-links a { font-family: var(--mono); font-size: 0.8rem; color: var(--ink-soft); }
 .footer-links a:hover { color: var(--accent); }
+/* links do rodapé como ícones (e-mail, LinkedIn, currículo) — herdam cor/hover acima via currentColor */
+.footer-ico { display: inline-flex; align-items: center; justify-content: center; }
+.footer-ico svg { width: 22px; height: 22px; display: block; }
+.footer-ico:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: var(--radius); }
 .copyright { font-family: var(--mono); font-size: 0.72rem; color: var(--ink-faint); margin-top: var(--s-6); }
 
 /* ---------- back link ---------- */
