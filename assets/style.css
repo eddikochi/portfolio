@@ -800,7 +800,7 @@ p { color: var(--ink-soft); }
 @media (min-width: 720px) {
   .flow { flex-direction: row; gap: var(--s-5); }
   .flow::before { top: 4px; bottom: auto; left: 0; right: 0; width: auto; height: 1px; }   /* linha horizontal */
-  .flow__step { flex: 1 1 0; padding-left: 0; padding-top: var(--s-6); text-align: center; }   /* colunas iguais */
+  .flow__step { flex: 1 1 0; min-width: 0; padding-left: 0; padding-top: var(--s-6); text-align: center; }   /* colunas iguais (min-width:0 garante largura igual mesmo com rótulo longo) */
   .flow__step::before { left: 50%; top: 0; transform: translateX(-50%); }   /* nó centrado na coluna → distribuição uniforme */
 }
 
@@ -901,6 +901,61 @@ p { color: var(--ink-soft); }
   .flow--numbered .flow__step::before { left: 50%; top: 0; transform: translateX(-50%); }   /* badge centrado na coluna */
 }
 
+/* —— Fluxo de handoff em cards conectados por seta ——
+   6 cards num grid 3×2 no desktop, 1 coluna no mobile. As setas seguem a leitura:
+   → no gap horizontal entre colunas (01→02→03, 04→05→06) e ↓ entre os cards no mobile.
+   A seta vive no gap, ancorada na borda do card — nunca sobre o texto vizinho.
+   Card horizontal (número ao lado do rótulo) para reduzir a altura. */
+.handoff-fig { margin: var(--s-8) 0 var(--s-9); }   /* respiro do bloco (a legenda fica colada nos cards) */
+.handoff {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: 1fr; gap: var(--s-6);   /* mobile: 1 coluna */
+  align-items: stretch;   /* cards da mesma linha sempre com altura igual */
+}
+.handoff__card {
+  position: relative;
+  display: flex; align-items: flex-start; gap: var(--s-3);   /* número à esquerda, alinhado ao topo → altura consistente entre 1 e 2 linhas */
+  padding: var(--s-3) var(--s-4);
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+}
+.handoff__n {
+  flex: none;
+  font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.06em; color: var(--accent);
+}
+.handoff__label {
+  font-family: var(--serif); font-weight: 500; font-size: 0.92rem; line-height: 1.3; color: var(--ink);
+}
+/* base cosmética da seta — direção/posição e o próprio content vêm por breakpoint */
+.handoff__card::after {
+  pointer-events: none; position: absolute;
+  transform: translate(-50%, -50%);
+  font-family: var(--mono); font-size: 0.95rem; line-height: 1; color: var(--accent);
+}
+/* mobile: pilha de 1 coluna, seta ↓ entre todos os cards consecutivos */
+@media (max-width: 719px) {
+  .handoff__card:not(:last-child)::after {
+    content: "↓"; top: 100%; left: 50%; margin-top: calc(var(--s-6) / 2);
+  }
+}
+/* desktop: grid 3×2, seta → só entre colunas (não no fim de cada linha → sem 03→04) */
+@media (min-width: 720px) {
+  .handoff { grid-template-columns: repeat(3, 1fr); gap: var(--s-5) var(--s-7); }
+  .handoff__card:not(:nth-child(3n))::after {
+    content: "→"; top: 50%; left: 100%; margin-left: calc(var(--s-7) / 2);
+  }
+}
+/* motion discreto — reveal ao entrar na viewport (armado por JS; sem JS/sem motion: visível) */
+.handoff.reveal-armed .handoff__card {
+  opacity: 0; transform: translateY(8px);
+  transition: opacity var(--dur-med) var(--ease), transform var(--dur-med) var(--ease);
+}
+.handoff.reveal-armed.is-visible .handoff__card { opacity: 1; transform: none; }
+.handoff.reveal-armed.is-visible .handoff__card:nth-child(2){ transition-delay: .07s; }
+.handoff.reveal-armed.is-visible .handoff__card:nth-child(3){ transition-delay: .14s; }
+.handoff.reveal-armed.is-visible .handoff__card:nth-child(4){ transition-delay: .21s; }
+.handoff.reveal-armed.is-visible .handoff__card:nth-child(5){ transition-delay: .28s; }
+.handoff.reveal-armed.is-visible .handoff__card:nth-child(6){ transition-delay: .35s; }
+
 /* Grid: número (01, 02…) acima do micro-título, para leitura sequencial */
 .itemgrid--numbered { counter-reset: griditem; }
 .itemgrid--numbered .itemgrid__item { counter-increment: griditem; }
@@ -912,5 +967,6 @@ p { color: var(--ink-soft); }
 
 /* Acessibilidade do kit: sem reveal de movimento se prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
-  .flow.reveal-armed .flow__step { opacity: 1; transform: none; transition: none; }
+  .flow.reveal-armed .flow__step,
+  .handoff.reveal-armed .handoff__card { opacity: 1; transform: none; transition: none; }
 }

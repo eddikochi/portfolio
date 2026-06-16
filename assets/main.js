@@ -90,7 +90,7 @@
 /* Kit de componentes — reveal discreto do Fluxo de etapas (.flow) ao entrar na viewport.
    "Arma" a animação só com JS + sem prefers-reduced-motion; senão o fluxo fica visível. */
 (function () {
-  var flows = document.querySelectorAll('.flow');
+  var flows = document.querySelectorAll('.flow, .handoff');
   if (!flows.length) return;
 
   var reduce = window.matchMedia &&
