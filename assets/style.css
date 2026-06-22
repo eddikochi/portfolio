@@ -974,7 +974,10 @@ p { color: var(--ink-soft); }
   .handoff.reveal-armed .handoff__card { opacity: 1; transform: none; transition: none; }
 }
 
-/* ---------- ASSINATURA — linha de convergência (hero da home) ---------- */
+/* ---------- ASSINATURA — teia de convergência (hero da home) ----------
+   Camada base: a teia desenha uma vez e permanece.
+   Camada de pulsos: sinais percorrem as linhas em loop infinito
+   (dados fluindo das disciplinas para o tronco do sistema). */
 .hero { position: relative; overflow: hidden; }
 .hero .wrap { position: relative; z-index: 2; }
 .hero-route {
@@ -984,29 +987,56 @@ p { color: var(--ink-soft); }
   width: min(54vw, 680px); max-width: 680px;
   pointer-events: none; opacity: 0.9;
 }
+
+/* teia base — desenho único */
 .hero-route .strand {
-  fill: none; stroke: var(--accent); stroke-width: 1.4; opacity: 0.45;
+  fill: none; stroke: var(--accent); stroke-width: 1.4; opacity: 0.3;
   stroke-dasharray: 1; stroke-dashoffset: 1;
   animation: route-draw 1.5s var(--ease) forwards;
 }
 .hero-route .strand:nth-child(1) { animation-delay: 0.05s; }
 .hero-route .strand:nth-child(2) { animation-delay: 0.18s; }
-.hero-route .strand:nth-child(3) { animation-delay: 0.31s; stroke-width: 1.8; opacity: 0.6; }
+.hero-route .strand:nth-child(3) { animation-delay: 0.31s; opacity: 0.42; }
 .hero-route .strand:nth-child(4) { animation-delay: 0.44s; }
 .hero-route .strand:nth-child(5) { animation-delay: 0.57s; }
 .hero-route .trunk {
-  fill: none; stroke: var(--accent); stroke-width: 3; stroke-linecap: round;
+  fill: none; stroke: var(--accent); stroke-width: 2.4; stroke-linecap: round; opacity: 0.5;
   stroke-dasharray: 1; stroke-dashoffset: 1;
   animation: route-draw 0.9s var(--ease) 0.9s forwards;
 }
-.hero-route .node { fill: var(--bg); stroke: var(--accent); stroke-width: 2; opacity: 0; animation: route-pop 0.4s var(--ease) 1.3s forwards; }
-.hero-route .tip { fill: var(--accent); opacity: 0; animation: route-pop 0.4s var(--ease) 1.7s forwards; }
+
+/* pulsos viajantes — loop infinito */
+.route-pulse { opacity: 0; animation: route-fade 0.7s ease 1.3s forwards; }
+.hero-route .pulse {
+  fill: none; stroke: var(--accent); stroke-width: 2.4; stroke-linecap: round;
+  stroke-dasharray: 0.12 0.88;
+  animation: route-flow 2.6s linear infinite;
+}
+.hero-route .pulse:nth-child(1) { animation-duration: 2.6s; }
+.hero-route .pulse:nth-child(2) { animation-duration: 3.0s; }
+.hero-route .pulse:nth-child(3) { animation-duration: 2.3s; }
+.hero-route .pulse:nth-child(4) { animation-duration: 2.9s; }
+.hero-route .pulse:nth-child(5) { animation-duration: 2.5s; }
+.hero-route .pulse--trunk { stroke-width: 3.2; animation-duration: 1.8s; }
+
+/* nó central (pulsa) e ponta */
+.hero-route .node {
+  fill: var(--bg); stroke: var(--accent); stroke-width: 2; opacity: 0;
+  transform-box: fill-box; transform-origin: center;
+  animation: route-fade 0.5s ease 1.3s forwards, route-nodepulse 2.4s var(--ease) 1.3s infinite;
+}
+.hero-route .tip { fill: var(--accent); opacity: 0; animation: route-fade 0.5s ease 1.7s forwards; }
 .hero-route text { font-family: var(--mono); font-size: 13px; fill: var(--ink-soft); opacity: 0; animation: route-fade 0.5s ease 1s forwards; }
+
 @keyframes route-draw { to { stroke-dashoffset: 0; } }
-@keyframes route-pop { from { opacity: 0; transform: scale(0.4); } to { opacity: 1; transform: scale(1); } }
+@keyframes route-flow { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
 @keyframes route-fade { to { opacity: 1; } }
+@keyframes route-nodepulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.22); } }
+
 @media (max-width: 900px) { .hero-route { opacity: 0.16; width: 70vw; } }
 @media (prefers-reduced-motion: reduce) {
-  .hero-route .strand, .hero-route .trunk { stroke-dashoffset: 0; }
-  .hero-route .node, .hero-route .tip, .hero-route text { opacity: 1; }
+  .hero-route .strand, .hero-route .trunk { stroke-dashoffset: 0; animation: none; }
+  .route-pulse { display: none; }
+  .hero-route .node { opacity: 1; animation: none; }
+  .hero-route .tip, .hero-route text { opacity: 1; animation: none; }
 }

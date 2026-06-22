@@ -68,12 +68,22 @@
       <span class="aurora-blob aurora-blob--2"></span>
     </div>
     <svg class="hero-route" viewBox="0 0 640 360" fill="none" aria-hidden="true" focusable="false">
-      <path class="strand" pathLength="1" d="M14 60 C 150 60 210 180 300 180"/>
-      <path class="strand" pathLength="1" d="M14 112 C 150 112 230 180 300 180"/>
-      <path class="strand" pathLength="1" d="M14 180 L 300 180"/>
-      <path class="strand" pathLength="1" d="M14 248 C 150 248 230 180 300 180"/>
-      <path class="strand" pathLength="1" d="M14 300 C 150 300 210 180 300 180"/>
-      <path class="trunk" pathLength="1" d="M300 180 L 620 180"/>
+      <g class="route-base">
+        <path class="strand" pathLength="1" d="M14 60 C 150 60 210 180 300 180"/>
+        <path class="strand" pathLength="1" d="M14 112 C 150 112 230 180 300 180"/>
+        <path class="strand" pathLength="1" d="M14 180 L 300 180"/>
+        <path class="strand" pathLength="1" d="M14 248 C 150 248 230 180 300 180"/>
+        <path class="strand" pathLength="1" d="M14 300 C 150 300 210 180 300 180"/>
+        <path class="trunk" pathLength="1" d="M300 180 L 620 180"/>
+      </g>
+      <g class="route-pulse">
+        <path class="pulse" pathLength="1" d="M14 60 C 150 60 210 180 300 180"/>
+        <path class="pulse" pathLength="1" d="M14 112 C 150 112 230 180 300 180"/>
+        <path class="pulse" pathLength="1" d="M14 180 L 300 180"/>
+        <path class="pulse" pathLength="1" d="M14 248 C 150 248 230 180 300 180"/>
+        <path class="pulse" pathLength="1" d="M14 300 C 150 300 210 180 300 180"/>
+        <path class="pulse pulse--trunk" pathLength="1" d="M300 180 L 620 180"/>
+      </g>
       <circle class="node" cx="300" cy="180" r="7"/>
       <circle class="tip" cx="620" cy="180" r="5"/>
       <text x="14" y="48">UX</text>
