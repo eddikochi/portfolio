@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /kit-componentes.html
+
+Sitemap: https://eddikochi.github.io/portfolio/sitemap.xml

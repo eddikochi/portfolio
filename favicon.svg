@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Eddi Kochi">
+  <rect width="64" height="64" rx="14" fill="#16181A"/>
+  <g fill="none" stroke="#E8E9E4" stroke-width="3" stroke-linecap="round">
+    <path d="M14 20 C 28 20 34 32 44 32"/>
+    <path d="M14 32 L 44 32"/>
+    <path d="M14 44 C 28 44 34 32 44 32"/>
+  </g>
+  <path d="M44 32 L 53 32" stroke="#1F46E5" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="44" cy="32" r="5" fill="#16181A" stroke="#1F46E5" stroke-width="3"/>
+</svg>
