@@ -329,7 +329,7 @@ p { color: var(--ink-soft); }
   grid-area: cover;
   align-self: stretch;
   position: relative; overflow: hidden;
-  border-radius: var(--radius);
+  border-radius: 25px;
   background:
     radial-gradient(130% 130% at 100% 0%, color-mix(in srgb, var(--ink) 7%, transparent), transparent 60%),
     var(--bg);
@@ -837,10 +837,10 @@ p { color: var(--ink-soft); }
 .artifact { margin: var(--s-6) 0; }
 .artifact__media {
   display: block; width: 100%; height: auto;
-  border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg);
+  border: 1px solid var(--line); border-radius: 25px; background: var(--bg);
   box-shadow: 0 2px 16px color-mix(in srgb, #000 35%, transparent);   /* sombra sutil */
 }
-.artifact__zoom { display: block; border-radius: var(--radius); }
+.artifact__zoom { display: block; border-radius: 25px; }
 .artifact__zoom:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .artifact__caption {
   margin-top: var(--s-3);
@@ -862,7 +862,7 @@ p { color: var(--ink-soft); }
   overflow-y: auto; overflow-x: hidden;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;   /* scroll por toque suave no iOS */
-  border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg);
+  border: 1px solid var(--line); border-radius: 25px; background: var(--bg);
   box-shadow: 0 2px 16px color-mix(in srgb, #000 35%, transparent);
   /* scrollbar nas cores do site (Firefox) — trilho escuro, polegar carmim */
   scrollbar-width: thin;
