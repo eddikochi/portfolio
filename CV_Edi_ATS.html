@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edi Maicon Kochi — CV</title>
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.55;
+      color: #1a1a1a;
+      background: #fff;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 48px;
+    }
+
+    /* ── Header ── */
+    .header {
+      border-bottom: 2px solid #1a1a1a;
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+
+    .name {
+      font-size: 26pt;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+
+    .headline {
+      font-size: 9.5pt;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #555;
+      margin: 6px 0 10px;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 6px;
+      margin-top: 10px;
+    }
+
+    .contact-row a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 9pt;
+      color: #333;
+      text-decoration: none;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      padding: 4px 12px 4px 9px;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .contact-row a:hover {
+      border-color: #0066cc;
+      color: #0066cc;
+    }
+
+    .contact-row a svg {
+      flex-shrink: 0;
+    }
+
+    /* ── Section ── */
+    section { margin-bottom: 26px; }
+
+    .section-title {
+      font-size: 7.5pt;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #888;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 4px;
+      margin-bottom: 14px;
+    }
+
+    /* ── Summary ── */
+    .summary p {
+      font-size: 10.5pt;
+      line-height: 1.65;
+      color: #222;
+    }
+
+    /* ── Experience Entry ── */
+    .entry {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .entry:last-child { border-bottom: none; }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .entry-title {
+      font-size: 11pt;
+      font-weight: 700;
+    }
+
+    .entry-period {
+      font-size: 9pt;
+      color: #666;
+      white-space: nowrap;
+    }
+
+    .entry-company {
+      font-size: 9.5pt;
+      color: #444;
+      margin: 1px 0 6px;
+    }
+
+    .entry-desc {
+      font-size: 10pt;
+      color: #333;
+      margin-bottom: 8px;
+    }
+
+    ul.bullets {
+      padding-left: 18px;
+      margin-bottom: 8px;
+    }
+
+    ul.bullets li {
+      font-size: 9.5pt;
+      color: #333;
+      margin-bottom: 3px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 6px;
+    }
+
+    .tag {
+      font-size: 8pt;
+      font-weight: 600;
+      border: 1px solid #bbb;
+      border-radius: 3px;
+      padding: 1px 7px;
+      color: #444;
+      letter-spacing: 0.3px;
+    }
+
+    /* ── Education ── */
+    .edu-entry {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 10px;
+    }
+
+    .edu-left .edu-degree { font-size: 10.5pt; font-weight: 700; }
+    .edu-left .edu-inst   { font-size: 9.5pt; color: #555; }
+    .edu-year { font-size: 9pt; color: #666; }
+
+    /* ── Skills Grid ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px 24px;
+    }
+
+    .skill-group-title {
+      font-size: 8pt;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #0066cc;
+      margin-bottom: 5px;
+    }
+
+    .skill-list {
+      list-style: none;
+      font-size: 9.5pt;
+      color: #333;
+      line-height: 1.7;
+    }
+
+    /* ── Print ── */
+    @media print {
+      body { padding: 28px 36px; }
+      a { color: #0066cc !important; }
+      .tag { border-color: #999; }
+
+      .entry             { page-break-inside: avoid; break-inside: avoid; }
+      .edu-entry         { page-break-inside: avoid; break-inside: avoid; }
+      .skills-grid > div { page-break-inside: avoid; break-inside: avoid; }
+      .section-title     { page-break-after: avoid;  break-after: avoid;  }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════ HEADER ══ -->
+  <header class="header">
+    <div class="name">Edi Maicon Kochi</div>
+    <div class="headline">CRM · CRO · Digital Experience · Analytics · Growth</div>
+    <div class="contact-row">
+      <!-- Localização -->
+      <a href="https://maps.google.com/?q=Porto+Alegre,RS" target="_blank">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Porto Alegre, RS
+      </a>
+      <!-- Email -->
+      <a href="mailto:eddimaicon@gmail.com">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+        eddimaicon@gmail.com
+      </a>
+      <!-- WhatsApp -->
+      <a href="https://wa.me/5551991318945" target="_blank">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+        (51) 99131-8945
+      </a>
+      <!-- Portfólio -->
+      <a href="https://portfolio.eddimaicon.workers.dev/" target="_blank">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        Portfólio
+      </a>
+      <!-- GitHub -->
+      <a href="https://github.com/eddikochi" target="_blank">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+        eddikochi
+      </a>
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/edimaiconkochi" target="_blank">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════════ RESUMO ══ -->
+  <section class="summary">
+    <div class="section-title">Resumo Profissional</div>
+    <p>
+      Profissional com mais de 10 anos de experiência em marketing digital, CRM, CRO e experiência digital,
+      atuando na interseção entre dados, estratégia de crescimento e tecnologia. Especialista em Salesforce CRM,
+      Marketing Cloud e Adobe Experience Manager (AEM), com histórico comprovado de otimização de funis de
+      conversão, integração de canais digitais e governança de produto digital. Habilidade consolidada em
+      analytics (GA4, GTM, dataLayer), SEO técnico, UX/UI e liderança de projetos multidisciplinares orientados
+      a resultados de receita.
+    </p>
+  </section>
+
+  <!-- ══════════════════════════════════════════ EXPERIÊNCIA ══ -->
+  <section>
+    <div class="section-title">Experiência Profissional</div>
+
+    <!-- Entry 1 -->
+    <div class="entry">
+      <div class="entry-header">
+        <div class="entry-title">Digital Growth &amp; CRO — Site Owner</div>
+        <div class="entry-period">ago 2024 – presente</div>
+      </div>
+      <div class="entry-company">ibcmed · Inspirali — Porto Alegre, RS</div>
+      <div class="entry-desc">
+        Owner estratégico do canal digital institucional, conectando Marketing, Produto e Tecnologia em operação
+        orientada a dados, performance e melhoria contínua. Responsável por roadmap, governança e crescimento do site.
+      </div>
+      <ul class="bullets">
+        <li>Liderou estratégia de CRO com impacto direto em receita, reduzindo fricção no funil de conversão</li>
+        <li>Implementou tracking avançado (GA4, GTM, dataLayer, Microsoft Clarity) para decisões baseadas em dados</li>
+        <li>Governança completa do site institucional: roadmap, deploy, QA e melhoria contínua</li>
+        <li>Integração entre CRM (Salesforce e Bitrix), automação de marketing e canais digitais</li>
+        <li>Evolução de PDPs, Landing Pages e páginas estratégicas com foco em conversão e SEO técnico</li>
+        <li>Condução de processos de UX Discovery: pesquisa com usuários, mapeamento de jornada e identificação de oportunidades de melhoria</li>
+        <li>Criação e validação de hipóteses por meio de testes A/B, heatmaps e análise de sessões (Microsoft Clarity)</li>
+        <li>Priorização de backlog de UX e produto com base em dados de comportamento e impacto no funil</li>
+      </ul>
+      <div class="tags">
+        <span class="tag">CRO</span>
+        <span class="tag">UX Discovery</span>
+        <span class="tag">Mapeamento de jornada</span>
+        <span class="tag">Salesforce</span>
+        <span class="tag">GA4</span>
+        <span class="tag">GTM</span>
+        <span class="tag">dataLayer</span>
+        <span class="tag">SEO Técnico</span>
+        <span class="tag">AEM</span>
+        <span class="tag">Growth</span>
+        <span class="tag">A/B Testing</span>
+        <span class="tag">Microsoft Clarity</span>
+        <span class="tag">Heatmap</span>
+      </div>
+    </div>
+
+    <!-- Entry 2 -->
+    <div class="entry">
+      <div class="entry-header">
+        <div class="entry-title">Analista de CRM &amp; Experiência Digital</div>
+        <div class="entry-period">2023 – ago 2024</div>
+      </div>
+      <div class="entry-company">ibcmed · Inspirali — Porto Alegre, RS</div>
+      <div class="entry-desc">
+        Referência técnica na operação e evolução do CRM Salesforce e gestão de conteúdo via AEM. Foco nas
+        integrações entre canais digitais e jornada do lead, com construção de fluxos de nutrição e segmentação.
+      </div>
+      <ul class="bullets">
+        <li>Operação e evolução do CRM Salesforce: fluxos, segmentações e automações de jornada</li>
+        <li>Criação e otimização de fluxos de nutrição de leads no Marketing Cloud</li>
+        <li>Gestão e publicação de conteúdo no Adobe Experience Manager (AEM)</li>
+        <li>Integração entre site, CRM e ferramentas de automação de marketing</li>
+        <li>Análise de dados de comportamento e jornada para decisões de UX e segmentação</li>
+        <li>Estratégia de personalização e segmentação de audiência por ciclo de vida</li>
+      </ul>
+      <div class="tags">
+        <span class="tag">Salesforce CRM</span>
+        <span class="tag">Marketing Cloud</span>
+        <span class="tag">AEM</span>
+        <span class="tag">Automação</span>
+        <span class="tag">Nutrição de leads</span>
+        <span class="tag">Segmentação</span>
+        <span class="tag">UX Analysis</span>
+        <span class="tag">Lead Scoring</span>
+      </div>
+    </div>
+
+    <!-- Entry 3 -->
+    <div class="entry">
+      <div class="entry-header">
+        <div class="entry-title">UX/UI Designer · Web Design</div>
+        <div class="entry-period">2022 – 2023</div>
+      </div>
+      <div class="entry-company">Clava Company — Porto Alegre, RS</div>
+      <div class="entry-desc">
+        Desenvolvimento de layouts e interfaces digitais com foco em usabilidade, design responsivo e
+        conversão. Coordenação de implementação com equipes técnicas e testes de qualidade (QA).
+      </div>
+      <div class="tags">
+        <span class="tag">UX/UI</span>
+        <span class="tag">Figma</span>
+        <span class="tag">Design Responsivo</span>
+        <span class="tag">QA</span>
+        <span class="tag">Prototipagem</span>
+      </div>
+    </div>
+
+    <!-- Entry 4 -->
+    <div class="entry">
+      <div class="entry-header">
+        <div class="entry-title">Coordenador Editorial · Diretor de Arte</div>
+        <div class="entry-period">2013 – 2022</div>
+      </div>
+      <div class="entry-company">Fleming Educação — Porto Alegre, RS</div>
+      <div class="entry-desc">
+        Trajetória de diagramador a diretor de arte e coordenação editorial. Liderança do setor didático com
+        gestão de equipes multidisciplinares e supervisão completa da produção de materiais educacionais.
+      </div>
+      <div class="tags">
+        <span class="tag">Gestão editorial</span>
+        <span class="tag">Direção de arte</span>
+        <span class="tag">Liderança de equipes</span>
+        <span class="tag">Diagramação</span>
+      </div>
+    </div>
+
+    <!-- Entry 5 -->
+    <div class="entry">
+      <div class="entry-header">
+        <div class="entry-title">Designer &amp; Editor — Projeto Especial</div>
+        <div class="entry-period">2013</div>
+      </div>
+      <div class="entry-company">Silva's Hunter Foto</div>
+      <div class="entry-desc">
+        Produção de livro fotobiográfico para a família Sirotsky (Grupo RBS). Entrevistas, curadoria de
+        acervo fotográfico, edição e design de peça editorial única e personalizada.
+      </div>
+      <div class="tags">
+        <span class="tag">Design editorial</span>
+        <span class="tag">Diagramação</span>
+        <span class="tag">Curadoria</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ FORMAÇÃO ══ -->
+  <section>
+    <div class="section-title">Formação Acadêmica</div>
+
+    <div class="edu-entry">
+      <div class="edu-left">
+        <div class="edu-degree">Big Data &amp; Inteligência Analítica</div>
+        <div class="edu-inst">Uniritter — Universidade Ritter dos Reis</div>
+      </div>
+      <div class="edu-year">2024</div>
+    </div>
+
+    <div class="edu-entry">
+      <div class="edu-left">
+        <div class="edu-degree">UX Design</div>
+        <div class="edu-inst">EBAC — Escola Britânica de Artes Criativas e Tecnologia</div>
+      </div>
+      <div class="edu-year">2023</div>
+    </div>
+
+    <div class="edu-entry">
+      <div class="edu-left">
+        <div class="edu-degree">Design Gráfico</div>
+        <div class="edu-inst">Senac RS</div>
+      </div>
+      <div class="edu-year">2011</div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ COMPETÊNCIAS ══ -->
+  <section>
+    <div class="section-title">Competências Técnicas</div>
+    <div class="skills-grid">
+
+      <div>
+        <div class="skill-group-title">CRM &amp; Automação</div>
+        <ul class="skill-list">
+          <li>Salesforce CRM</li>
+          <li>Salesforce Marketing Cloud</li>
+          <li>Bitrix24</li>
+          <li>Fluxos de nutrição de leads</li>
+          <li>Segmentação de audiência</li>
+          <li>Lead Scoring</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="skill-group-title">Growth &amp; CRO</div>
+        <ul class="skill-list">
+          <li>Otimização de conversão (CRO)</li>
+          <li>A/B Testing</li>
+          <li>Funil de aquisição</li>
+          <li>SEO técnico</li>
+          <li>Landing Page Optimization</li>
+          <li>Growth Hacking</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="skill-group-title">Analytics &amp; Dados</div>
+        <ul class="skill-list">
+          <li>Google Analytics 4 (GA4)</li>
+          <li>Google Tag Manager (GTM)</li>
+          <li>dataLayer</li>
+          <li>Microsoft Clarity</li>
+          <li>Big Data</li>
+          <li>Inteligência Analítica</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="skill-group-title">Plataformas &amp; CMS</div>
+        <ul class="skill-list">
+          <li>Adobe Experience Manager (AEM)</li>
+          <li>WordPress</li>
+          <li>Deploy &amp; QA</li>
+          <li>Cloudflare Workers</li>
+          <li>Governança digital</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="skill-group-title">Design &amp; UX</div>
+        <ul class="skill-list">
+          <li>UI/UX Design</li>
+          <li>Figma</li>
+          <li>Design responsivo</li>
+          <li>Direção de arte</li>
+          <li>Prototipagem</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="skill-group-title">Soft Skills</div>
+        <ul class="skill-list">
+          <li>Gestão de produto digital</li>
+          <li>Liderança multidisciplinar</li>
+          <li>Orientação a dados</li>
+          <li>Visão estratégica</li>
+          <li>Comunicação cross-funcional</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ PORTFÓLIO ══ -->
+  <section>
+    <div class="section-title">Portfólio</div>
+    <p style="font-size:10pt;">
+      Cases de CRM, CRO, experiência digital e analytics disponíveis em:<br>
+      <a href="https://portfolio.eddimaicon.workers.dev/" target="_blank">https://portfolio.eddimaicon.workers.dev/</a>
+    </p>
+  </section>
+
+</body>
+</html>
