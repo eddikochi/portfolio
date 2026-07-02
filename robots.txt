@@ -2,4 +2,4 @@
 Allow: /
 Disallow: /kit-componentes.html
 
-Sitemap: https://portfolio.eddimaicon.workers.dev/sitemap.xml
+Sitemap: https://eddikochi.github.io/portfolio/sitemap.xml
