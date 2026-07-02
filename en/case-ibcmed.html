@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Governance of a Medical Postgraduate Website — Eddi Kochi</title>
+<meta name="description" content="Case: bridge between marketing, product and tech during the WordPress → AEM migration of a medical postgraduate website. Implementation process redesign, product→dev handoff map, QA flow and A/B tests.">
+<meta name="author" content="Eddi Kochi">
+<meta name="theme-color" content="#0E0D0C">
+<link rel="canonical" href="https://portfolio.eddimaicon.workers.dev/en/case-ibcmed.html">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../favicon.svg">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Eddi Kochi">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Digital Governance of a Medical Postgraduate Website">
+<meta property="og:description" content="From WordPress → AEM migration to go-live: turning chaos into a governable operation — handoff product→dev, QA and A/B tests.">
+<meta property="og:url" content="https://portfolio.eddimaicon.workers.dev/en/case-ibcmed.html">
+<meta property="og:image" content="https://portfolio.eddimaicon.workers.dev/assets/videos/governanca-foto.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="case" data-slug="digital-governance-medical-postgraduate">
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a href="index.html" class="brand"><img src="../favicon.svg" alt="" width="20" height="20" style="border-radius:5px;flex-shrink:0;">Eddi&nbsp;Kochi</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+    <nav class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="cases.html" aria-current="page">Cases</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="../curriculo.pdf" target="_blank" data-track="click_download_resume">Resume ↓</a>
+      <a href="../case-ibcmed.html" style="opacity:.55;font-size:.85em">PT</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="case-hero wrap">
+    <a href="cases.html" class="back">← Back to cases</a>
+    <p class="label label--accent" style="margin-top:var(--s-5)">Digital governance · platform migration · go-live</p>
+    <h1>From migration to go-live: governance of a medical postgraduate website</h1>
+    <p class="lead">I was brought in to be the bridge between marketing, product and technology at the most critical moment of an institutional website: the migration from WordPress to AEM, in the middle of the go-live deploy, with no team integration and no defined process. My work was to turn chaos into a governable operation — and redesign the processes that were blocking delivery.</p>
+    <div class="tags" style="margin-top:var(--s-5)">
+      <span class="tag">Digital governance</span><span class="tag">UX</span><span class="tag">AEM</span>
+      <span class="tag">Dev↔Product process</span><span class="tag">QA</span><span class="tag">CRO</span>
+      <span class="tag">A/B Tests</span><span class="tag">Backlog</span>
+    </div>
+    <dl class="case-meta">
+      <div><dt>Role</dt><dd>Bridge: product / marketing / tech · governance</dd></div>
+      <div><dt>Context</dt><dd>WordPress → AEM migration · go-live</dd></div>
+      <div><dt>Tools</dt><dd>AEM · Monday · Figma · GTM</dd></div>
+      <div><dt>Sector</dt><dd>Medical postgraduate · multi-location</dd></div>
+    </dl>
+  </section>
+
+  <hr class="divider">
+
+  <article class="section wrap prose">
+
+    <span class="label">02 — Context</span>
+    <h2>A platform migration at the worst possible moment</h2>
+    <p>The client was a <strong>large-scale medical postgraduate institution</strong>, with locations in several Brazilian state capitals and an extensive catalog of specialization courses for physicians. The institutional website — the central piece of lead capture — was being migrated from WordPress to <strong>Adobe Experience Manager (AEM)</strong>.</p>
+    <p>I was brought in exactly at the go-live deploy moment: when the most things can go wrong and the fewest people have a view of the whole picture. The migration was moving forward, but without the structure to sustain it.</p>
+
+    <span class="label">03 — Problem</span>
+    <h2>Migration without governance, teams without a bridge</h2>
+    <p>The technical project existed, but the layer that connects people, process and platform was missing. The symptoms:</p>
+    <ul>
+      <li><strong>No team integration.</strong> Marketing, product and tech operated in silos, with no shared communication or decision flow.</li>
+      <li><strong>No UX-to-implementation flow.</strong> There was no defined path between the designed interface and AEM component implementation.</li>
+      <li><strong>Three environments, no process.</strong> AEM ran on dev, stage and prod, but without a clear promotion and validation process between them.</li>
+      <li><strong>Confusing backlog.</strong> User stories were hard to interpret for implementers — the dev received requests without clarity on what to do.</li>
+      <li><strong>No post-go-live QA.</strong> Bugs on many course pages only surfaced when someone stumbled on them in production.</li>
+      <li><strong>No testing culture.</strong> There were no A/B tests or structured improvement hypotheses.</li>
+    </ul>
+
+    <aside class="insight">
+      <span class="insight__label">Central insight</span>
+      <p class="insight__text">Being the bridge between areas is less about mediating conversations and more about designing the processes that make those conversations unnecessary.</p>
+    </aside>
+
+    <span class="label">04 — My role</span>
+    <h2>Being the bridge — and building the rails that were missing</h2>
+    <p>I joined as the link between marketing, product and technology. But being a "bridge" wasn't just about mediating conversations: it was about designing the processes that allowed these areas to work together without friction. In practice, I:</p>
+    <ul>
+      <li>took the disorganized operation and <strong>segmented and clustered it by topic</strong>, bringing order to what was arriving loose;</li>
+      <li>integrated the teams around a shared demand and decision flow;</li>
+      <li><strong>redesigned the content implementation process</strong> together with the developers;</li>
+      <li>created a <strong>process map for the product → dev handoff</strong>;</li>
+      <li>optimized the frontend UX and implemented content on the site;</li>
+      <li>created a <strong>QA flow</strong> and cleared the accumulated bug backlog;</li>
+      <li>implemented <strong>A/B tests</strong> where no testing culture had existed before.</li>
+    </ul>
+
+    <span class="label">05 — Constraints</span>
+    <h2>What limited the work</h2>
+    <ul>
+      <li><strong>Timing.</strong> I joined mid go-live — there was no luxury of stopping everything to reorganize; the operation had to run and improve simultaneously.</li>
+      <li><strong>New platform.</strong> AEM had just replaced WordPress, and workflows hadn't yet adapted to the new CMS.</li>
+      <li><strong>Consolidated silos.</strong> Marketing, product and tech had different languages and priorities; alignment was not a technical matter, but one of process and translation.</li>
+      <li><strong>Content scale.</strong> Many course pages, spread across multiple locations, multiplied any process problem.</li>
+    </ul>
+
+    <span class="label">06 — Process</span>
+    <h2>Diagnose → Structure → Document → Validate → Optimize</h2>
+
+    <ol class="flow flow--numbered">
+      <li class="flow__step"><span class="flow__label">Diagnosis</span><span class="flow__desc">Map what was coming in, from whom, and where it got stuck</span></li>
+      <li class="flow__step"><span class="flow__label">Structuring</span><span class="flow__desc">Cluster demands by topic</span></li>
+      <li class="flow__step"><span class="flow__label">Documentation</span><span class="flow__desc">Handoff map and readable backlog</span></li>
+      <li class="flow__step"><span class="flow__label">Validation</span><span class="flow__desc">QA flow built from scratch</span></li>
+      <li class="flow__step"><span class="flow__label">Optimization</span><span class="flow__desc">Shortened processes and A/B tests</span></li>
+    </ol>
+
+    <p><strong>Diagnosis.</strong> The first task was to understand a "messy room": map what was coming in, from whom, in what state, and where it got stuck. Without that map, any solution would be a shot in the dark.</p>
+    <p><strong>Structuring.</strong> I separated and clustered demands by topic, turning a chaotic queue into manageable categories. This gave the teams a shared language to talk about the work.</p>
+    <p><strong>Documentation.</strong> I created the product → dev handoff map and rewrote backlog stories so the developer understood what needed to be done — without rounds of "what did you mean by this?".</p>
+    <p><strong>Validation.</strong> I built a QA flow that didn't exist, validating pages before and after they went to production, and clearing the accumulated bug backlog.</p>
+    <p><strong>Optimization.</strong> With the operation stable, I tackled the slow processes and implemented A/B tests to start making decisions based on behavior, not opinion.</p>
+
+    <span class="label">07 — Key decisions</span>
+    <h2>Two redesigns that unblocked the operation</h2>
+    <p>Of everything I optimized, two processes summarize the work's impact:</p>
+
+    <h3>The product → dev handoff map</h3>
+    <p>The biggest bottleneck wasn't technical — it was communication. Backlog stories arrived hard to interpret, and the developer lost time deciphering the request before executing it. I created a process map for the handoff between product and development: a clear path for how a demand moves from idea to the dev ready for implementation. The result was less rework, less noise and more predictable deliveries.</p>
+
+    <h3>Optimizing the implementation processes</h3>
+    <p>Some processes were absurdly long for what they delivered. The clearest example: <strong>inserting a simple photo on the site required a 3–4 step process.</strong> Multiplied by the volume of course pages and locations, this consumed enormous operational time. I redesigned these flows together with the developers, shortening paths and eliminating steps that only existed through inertia. Tasks that previously bottlenecked the team became trivial.</p>
+
+    <span class="label">08 — Deliverables</span>
+    <h2>What was left concrete</h2>
+
+    <div class="itemgrid itemgrid--numbered">
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">Product → dev handoff map</h3>
+        <p class="itemgrid__text">A clear path for how demand moves from idea to the dev, ready for implementation.</p>
+      </div>
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">Shortened implementation processes</h3>
+        <p class="itemgrid__text">Redesigned flows, without the steps that only existed through inertia.</p>
+      </div>
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">Reorganized backlog</h3>
+        <p class="itemgrid__text">Clustered by topic with readable stories for the dev.</p>
+      </div>
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">QA flow built from scratch</h3>
+        <p class="itemgrid__text">Validation before and after production, with the bug backlog cleared.</p>
+      </div>
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">A/B tests implemented</h3>
+        <p class="itemgrid__text">Experimentation where no testing culture had existed before.</p>
+      </div>
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">Frontend UX adjusted</h3>
+        <p class="itemgrid__text">Content implemented on course pages across multiple locations.</p>
+      </div>
+    </div>
+
+    <figure class="handoff-fig">
+      <ol class="handoff">
+        <li class="handoff__card"><span class="handoff__n">01</span><span class="handoff__label">Design/UX</span></li>
+        <li class="handoff__card"><span class="handoff__n">02</span><span class="handoff__label">Authoring</span></li>
+        <li class="handoff__card"><span class="handoff__n">03</span><span class="handoff__label">Dev (AEM)</span></li>
+        <li class="handoff__card"><span class="handoff__n">04</span><span class="handoff__label">QA</span></li>
+        <li class="handoff__card"><span class="handoff__n">05</span><span class="handoff__label">Go-live</span></li>
+        <li class="handoff__card"><span class="handoff__n">06</span><span class="handoff__label">Maintenance</span></li>
+      </ol>
+      <figcaption class="artifact__caption">Product → dev handoff pipeline: each stage with a clear owner and criteria, from design to maintenance — the path that replaced the ambiguous backlog.</figcaption>
+    </figure>
+
+    <span class="label">09 — Tools</span>
+    <h2>Case stack</h2>
+    <p class="tags" style="margin-top:0">
+      <span class="tag">AEM</span><span class="tag">Monday</span><span class="tag">Figma</span>
+      <span class="tag">Google Tag Manager</span><span class="tag">A/B Tests</span><span class="tag">QA</span>
+    </p>
+
+    <span class="label">10 — Impact</span>
+    <h2>From migration chaos to a self-running operation</h2>
+    <p>The impact was operational and qualitative — the kind of change that doesn't show up in a single metric, but that everyone on the team feels:</p>
+
+    <div class="compare">
+      <div class="compare__card">
+        <h3 class="compare__title">Before</h3>
+        <ul>
+          <li>Marketing, product and tech operating in silos.</li>
+          <li>Confusing handoff — the dev decoded the request before executing it.</li>
+          <li>3–4 step processes for trivial tasks.</li>
+          <li>Bugs discovered by accident, already in production.</li>
+          <li>Decision driven by opinion.</li>
+        </ul>
+      </div>
+      <div class="compare__card">
+        <h3 class="compare__title">After</h3>
+        <ul>
+          <li>Teams integrated by a shared flow and language.</li>
+          <li>Clear handoff — the dev receives ready demands, with less rework.</li>
+          <li>Shortened processes, freeing up operational time.</li>
+          <li>QA flow catches bugs before they go live.</li>
+          <li>Decision based on data, via A/B tests.</li>
+        </ul>
+      </div>
+    </div>
+
+    <span class="label">11 — Learnings</span>
+    <h2>What stayed</h2>
+    <p>The most valuable work is often the least visible. Nobody sees a "handoff map" or a "shortened implementation process" from the outside — but those are exactly the invisible structures that decide whether a digital operation works or stalls. I learned that being the bridge between areas is less about mediating conversations and more about designing the processes that make those conversations unnecessary.</p>
+
+    <span class="label">12 — Next steps</span>
+    <h2>Possible evolution</h2>
+    <ul>
+      <li>Turn the handoff map and QA flow into a replicable <em>Digital Governance Kit</em> — an asset that applies the same method to other operations.</li>
+      <li>Evolve the A/B testing culture into a structured CRO program, with hypotheses and prioritization.</li>
+    </ul>
+
+    <span class="label">Visual artifacts</span>
+    <p style="color:var(--ink-faint);font-style:italic">I'm recreating the visual artifacts for this case — handoff map, QA flow and process before/after — in anonymized versions, since the original material contained internal data. Coming soon.</p>
+
+    <hr class="divider" style="margin-block:var(--s-7)">
+    <div class="hero-cta">
+      <a href="cases.html" class="btn btn--ghost">← All cases</a>
+      <a href="contact.html" class="btn btn--primary" data-track="click_contact">Talk about this <span class="arrow">→</span></a>
+    </div>
+
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <div class="brand"><img src="../favicon.svg" alt="" width="20" height="20" style="border-radius:5px;flex-shrink:0;">Eddi&nbsp;Kochi</div>
+      <p>Digital experience — UX/CRO, data and governance. Portfolio evolving as a Design Engineering lab.</p>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:eddimaicon@gmail.com" class="footer-ico" aria-label="Send email to eddimaicon@gmail.com" title="Email" data-track="click_email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/edi-maicon-kochi-427625347/" class="footer-ico" aria-label="Open Eddi Kochi's LinkedIn" title="LinkedIn" data-track="click_linkedin">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+      <a href="../curriculo.pdf" class="footer-ico" target="_blank" rel="noopener" aria-label="Download resume as PDF (opens in new tab)" title="Resume (PDF)" data-track="click_download_resume">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h5"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="wrap"><p class="copyright">© 2025 Eddi Kochi · Porto Alegre, BR · Handcrafted in HTML/CSS/JS</p></div>
+</footer>
+
+<script src="../assets/main.js"></script>
+</body>
+</html>
