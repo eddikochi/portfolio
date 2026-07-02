@@ -1,305 +1,236 @@
-﻿<!DOCTYPE html>
-<html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eddi Kochi — Experiência Digital · UX, CRO, Dados e Governança</title>
-<meta name="description" content="Profissional híbrido de experiência digital. UX/UI, CRO, CRM, dados e governança de sites, em evolução técnica para Design Engineering. Conecto diagnóstico, documentação, validação e otimização.">
+<title>Eddi Kochi — Portfolio</title>
+<meta name="description" content="Eddi Kochi — Digital Experience · UX, CRO, CRM, Data & Governance">
 <meta name="author" content="Eddi Kochi">
 <meta name="theme-color" content="#0E0D0C">
-<link rel="canonical" href="https://portfolio.eddimaicon.workers.dev/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="favicon.svg">
-<link rel="manifest" href="site.webmanifest">
-
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Eddi Kochi">
-<meta property="og:locale" content="pt_BR">
-<meta property="og:title" content="Eddi Kochi — Experiência Digital · UX, CRO, Dados e Governança">
-<meta property="og:description" content="UX, CRO, CRM, dados e governança digital para otimizar sites, campanhas e jornadas. Em evolução para Design Engineering.">
-<meta property="og:url" content="https://portfolio.eddimaicon.workers.dev/">
-<meta property="og:image" content="https://portfolio.eddimaicon.workers.dev/img/avatar.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Eddi Kochi — Experiência Digital">
-<meta name="twitter:description" content="UX, CRO, CRM, dados e governança digital para otimizar sites, campanhas e jornadas.">
-<meta name="twitter:image" content="https://portfolio.eddimaicon.workers.dev/img/avatar.jpg">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/style.css">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Eddi Kochi",
-  "alternateName": "Edi Maicon Kochi",
-  "url": "https://portfolio.eddimaicon.workers.dev/",
-  "image": "https://portfolio.eddimaicon.workers.dev/img/avatar.jpg",
-  "jobTitle": "UX Designer Sênior — Experiência Digital (UX, CRO, CRM, Dados e Governança)",
-  "email": "mailto:eddimaicon@gmail.com",
-  "address": { "@type": "PostalAddress", "addressLocality": "Porto Alegre", "addressRegion": "RS", "addressCountry": "BR" },
-  "sameAs": ["https://www.linkedin.com/in/edi-maicon-kochi-427625347/"],
-  "knowsAbout": ["UX", "CRO", "CRM", "Governança Digital", "Análise de Dados", "Design Engineering", "Adobe Experience Manager", "Salesforce"]
-}
-</script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0E0D0C;
+    --ink: #E8E9E4;
+    --ink-faint: #888880;
+    --accent: #CA6275;
+    --accent-light: #D5798A;
+    --serif: 'Fraunces', Georgia, serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+
+  html, body {
+    height: 100%;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--serif);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100dvh;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Aurora blobs */
+  .aurora {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: .13;
+  }
+  .blob--1 {
+    width: 520px; height: 520px;
+    background: radial-gradient(circle, #CA6275 0%, transparent 70%);
+    top: -120px; right: -80px;
+  }
+  .blob--2 {
+    width: 380px; height: 380px;
+    background: radial-gradient(circle, #7b6ca8 0%, transparent 70%);
+    bottom: -80px; left: -60px;
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 520px;
+    width: 100%;
+  }
+
+  /* Brand */
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -.01em;
+    margin-bottom: 3rem;
+  }
+  .brand img {
+    border-radius: 5px;
+    flex-shrink: 0;
+  }
+
+  /* Label */
+  .label {
+    font-family: var(--mono);
+    font-size: .7rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 1.25rem;
+  }
+
+  /* Heading */
+  h1 {
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    font-weight: 500;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: .75rem;
+    letter-spacing: -.02em;
+  }
+
+  .sub {
+    font-family: var(--mono);
+    font-size: .8rem;
+    color: var(--ink-faint);
+    letter-spacing: .04em;
+    margin-bottom: 3rem;
+  }
+
+  /* Divider line */
+  .divider-line {
+    width: 48px;
+    height: 1px;
+    background: var(--accent);
+    opacity: .35;
+    margin: 0 auto 3rem;
+  }
+
+  /* Lang buttons */
+  .lang-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .lang-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+    padding: 1.75rem 2.5rem;
+    border: 1px solid rgba(232,233,228,.12);
+    border-radius: 16px;
+    background: rgba(232,233,228,.04);
+    color: var(--ink);
+    text-decoration: none;
+    font-family: var(--serif);
+    transition: border-color .2s, background .2s, transform .18s;
+    min-width: 160px;
+    cursor: pointer;
+  }
+  .lang-btn:hover {
+    border-color: var(--accent);
+    background: rgba(202,98,117,.07);
+    transform: translateY(-2px);
+  }
+
+  .lang-btn__flag {
+    font-size: 2rem;
+    line-height: 1;
+  }
+  .lang-btn__name {
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: -.01em;
+  }
+  .lang-btn__desc {
+    font-family: var(--mono);
+    font-size: .65rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  .lang-btn--primary {
+    border-color: rgba(202,98,117,.4);
+  }
+
+  /* Footer note */
+  .note {
+    margin-top: 3rem;
+    font-family: var(--mono);
+    font-size: .65rem;
+    color: var(--ink-faint);
+    letter-spacing: .04em;
+  }
+
+  @media (max-width: 400px) {
+    .lang-buttons { flex-direction: column; align-items: center; }
+    .lang-btn { width: 100%; max-width: 240px; }
+  }
+</style>
 </head>
-<body data-page="home">
+<body>
 
-<header class="site-header">
-  <div class="wrap nav">
-    <a href="index.html" class="brand"><img src="favicon.svg" alt="" width="20" height="20" style="border-radius:5px;flex-shrink:0;">Eddi&nbsp;Kochi</a>
-    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
-    <nav class="nav-links" id="nav-links">
-      <a href="index.html" aria-current="page">Início</a>
-      <a href="cases.html">Cases</a>
-      <a href="sobre.html">Sobre</a>
-      <a href="contato.html">Contato</a>
-      <a href="curriculo.pdf" target="_blank" data-track="click_download_resume">Currículo ↓</a>
-      <a href="en/index.html" style="opacity:.55;font-size:.85em">EN</a>
-    </nav>
+<div class="aurora" aria-hidden="true">
+  <div class="blob blob--1"></div>
+  <div class="blob blob--2"></div>
+</div>
+
+<div class="content">
+  <a href="index.html" class="brand">
+    <img src="favicon.svg" alt="" width="22" height="22">
+    Eddi&nbsp;Kochi
+  </a>
+
+  <span class="label">Portfolio · Choose your language</span>
+  <h1>Digital Experience</h1>
+  <p class="sub">UX · CRO · CRM · Data · Governance</p>
+
+  <div class="divider-line"></div>
+
+  <div class="lang-buttons">
+    <a href="home.html" class="lang-btn lang-btn--primary">
+      <span class="lang-btn__flag">🇧🇷</span>
+      <span class="lang-btn__name">Português</span>
+      <span class="lang-btn__desc">Versão brasileira</span>
+    </a>
+    <a href="en/index.html" class="lang-btn">
+      <span class="lang-btn__flag">🇺🇸</span>
+      <span class="lang-btn__name">English</span>
+      <span class="lang-btn__desc">English version</span>
+    </a>
   </div>
-</header>
 
-<main>
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-aurora" aria-hidden="true">
-      <span class="aurora-blob aurora-blob--1"></span>
-      <span class="aurora-blob aurora-blob--2"></span>
-    </div>
-    <svg class="hero-route" viewBox="0 0 640 360" fill="none" aria-hidden="true" focusable="false">
-      <g class="route-base">
-        <path class="strand" pathLength="1" d="M44 60 C 150 60 210 180 300 180"/>
-        <path class="strand" pathLength="1" d="M52 112 C 150 112 230 180 300 180"/>
-        <path class="strand" pathLength="1" d="M68 180 L 300 180"/>
-        <path class="strand" pathLength="1" d="M52 248 C 150 248 230 180 300 180"/>
-        <path class="strand" pathLength="1" d="M108 300 C 150 300 210 180 300 180"/>
-        <path class="trunk" pathLength="1" d="M300 180 L 620 180"/>
-      </g>
-      <g class="route-pulse">
-        <path class="pulse" pathLength="1" d="M44 60 C 150 60 210 180 300 180"/>
-        <path class="pulse" pathLength="1" d="M52 112 C 150 112 230 180 300 180"/>
-        <path class="pulse" pathLength="1" d="M68 180 L 300 180"/>
-        <path class="pulse" pathLength="1" d="M52 248 C 150 248 230 180 300 180"/>
-        <path class="pulse" pathLength="1" d="M108 300 C 150 300 210 180 300 180"/>
-        <path class="pulse pulse--trunk" pathLength="1" d="M300 180 L 620 180"/>
-      </g>
-      <circle class="node" cx="300" cy="180" r="7"/>
-      <circle class="tip" cx="620" cy="180" r="5"/>
-      <g class="route-chips">
-        <g class="route-chip"><rect x="2" y="49" width="34" height="22" rx="11"/><text x="11" y="64">UX</text></g>
-        <g class="route-chip"><rect x="2" y="101" width="42" height="22" rx="11"/><text x="11" y="116">CRM</text></g>
-        <g class="route-chip"><rect x="2" y="169" width="58" height="22" rx="11"/><text x="11" y="184">DADOS</text></g>
-        <g class="route-chip"><rect x="2" y="237" width="42" height="22" rx="11"/><text x="11" y="252">CRO</text></g>
-        <g class="route-chip"><rect x="2" y="289" width="98" height="22" rx="11"/><text x="11" y="304">GOVERNANÇA</text></g>
-      </g>
-    </svg>
-    <div class="wrap">
-      <p class="label label--accent reveal">Experiência digital · dados · otimização · governança</p>
-      <h1 class="display reveal">Conecto UX, CRM, dados e governança para otimizar sites, campanhas e jornadas digitais.</h1>
-      <p class="lead reveal">UX Designer Sênior em evolução técnica para Design Engineering, com atuação em CRM, CRO, dados, QA e governança de sites institucionais.</p>
-      <div class="hero-cta reveal">
-        <a href="cases.html" class="btn btn--primary" data-track="click_view_cases">Ver cases <span class="arrow">→</span></a>
-        <a href="curriculo.pdf" target="_blank" class="btn btn--ghost" data-track="click_download_resume">Baixar currículo</a>
-      </div>
-    </div>
-  </section>
+  <p class="note">portfolio.eddimaicon.workers.dev</p>
+</div>
 
-  <hr class="divider">
-
-  <!-- ÁREAS -->
-  <section class="section wrap">
-    <div class="sec-head">
-      <h2>Áreas de atuação</h2>
-      <span class="label">06 frentes · um eixo</span>
-    </div>
-    <div class="areas">
-      <div class="area">
-        <span class="area-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg></span>
-        <h3>UX &amp; Experiência</h3><p>Estruturação de jornadas, arquitetura de informação, páginas, CTAs e interfaces mais claras.</p>
-      </div>
-      <div class="area">
-        <span class="area-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></svg></span>
-        <h3>CRO &amp; Otimização</h3><p>Análise de fricções, dados comportamentais, hipóteses de melhoria e qualificação de páginas para conversão.</p>
-      </div>
-      <div class="area">
-        <span class="area-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg></span>
-        <h3>CRM &amp; Dados</h3><p>Templates, campanhas, dashboards, KPIs e performance em canais como Email Marketing e WhatsApp.</p>
-      </div>
-      <div class="area">
-        <span class="area-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>
-        <h3>Governança Digital</h3><p>QA e validação pós-go-live, sustentação, AEM, SEO técnico-operacional, GTM e tracking, documentação.</p>
-      </div>
-      <div class="area">
-        <span class="area-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3z"/></svg></span>
-        <h3>IA Aplicada</h3><p>IA para documentação, organização de conhecimento, prototipação e criação de ativos digitais.</p>
-      </div>
-      <div class="area">
-        <span class="area-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></svg></span>
-        <h3>Gestão de Produto</h3><p>Priorização de backlog de produto, user stories, roadmap de features, alinhamento entre times (UX/dev) e apresentação a stakeholders.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CASES EM DESTAQUE -->
-  <section class="section--tight wrap">
-    <div class="sec-head">
-      <h2>Cases em destaque</h2>
-      <a href="cases.html" class="label label--accent" data-track="click_view_cases">Ver todos →</a>
-    </div>
-    <div class="cases">
-
-      <article class="case-card">
-        <a class="case-card__link" href="case-ibcmed.html" aria-label="Ler case: Governança digital de um site de pós médica"></a>
-        <div class="case-card__head">
-          <div class="ttl">Governança digital de um site de pós médica</div>
-          <div class="tags">
-            <span class="tag">Governança</span><span class="tag">AEM</span><span class="tag">Processo dev↔produto</span>
-            <span class="tag">QA</span><span class="tag">CRO</span><span class="tag">Testes A/B</span>
-          </div>
-        </div>
-        <div class="case-card__reveal">
-          <div class="case-card__reveal-inner">
-            <p class="case-card__desc">A ponte entre marketing, produto e tech na migração WordPress → AEM de um site de pós-graduação médica: redesenho de processos, mapa de handoff produto→dev, fluxo de QA e testes A/B.</p>
-            <div class="case-card__foot">
-              <span class="go">Ler case →</span>
-            </div>
-          </div>
-        </div>
-        <div class="case-cover" aria-hidden="true">
-          <div class="case-cover__plate">
-            <span class="case-cover__kicker">Governança Digital</span>
-            <span class="case-cover__name">Governança digital de um site de pós médica</span>
-          </div>
-          <video class="case-cover__video" muted loop playsinline preload="none"
-                 data-poster="assets/videos/governanca-foto.png"
-                 data-src="assets/videos/governanca-video.mp4"></video>
-        </div>
-      </article>
-
-      <article class="case-card">
-        <a class="case-card__link" href="case-crm.html" aria-label="Ler case: CRM como motor de relacionamento e conversão de leads"></a>
-        <div class="case-card__head">
-          <div class="ttl">CRM como motor de relacionamento e conversão de leads</div>
-          <div class="tags">
-            <span class="tag">CRM</span><span class="tag">Email Marketing</span><span class="tag">Automação</span>
-            <span class="tag">Salesforce</span><span class="tag">Testes A/B</span>
-          </div>
-        </div>
-        <div class="case-card__reveal">
-          <div class="case-card__reveal-inner">
-            <p class="case-card__desc">Régua de e-mail e CRM multicanal para captação e nutrição de leads numa instituição de pós-graduação médica: jornadas com ramificação por comportamento, automação no Salesforce, testes A/B e dashboard de performance.</p>
-            <div class="case-card__foot">
-              <span class="go">Ler case →</span>
-            </div>
-          </div>
-        </div>
-        <div class="case-cover" aria-hidden="true">
-          <div class="case-cover__plate">
-            <span class="case-cover__kicker">CRM &amp; E-mail</span>
-            <span class="case-cover__name">CRM como motor de relacionamento e conversão de leads</span>
-          </div>
-          <video class="case-cover__video" muted loop playsinline preload="none"
-                 data-poster="assets/videos/warmup-foto.png"
-                 data-src="assets/videos/warmup-video.mp4"></video>
-        </div>
-      </article>
-
-      <article class="case-card">
-        <a class="case-card__link" href="case-pdp.html" aria-label="Ler case: Redesign da Página de Produto orientado por dados"></a>
-        <div class="case-card__head">
-          <div class="ttl">Redesign da Página de Produto orientado por dados</div>
-          <div class="tags">
-            <span class="tag">UX</span><span class="tag">CRO</span><span class="tag">Análise comportamental</span>
-            <span class="tag">Discovery</span><span class="tag">AEM</span>
-          </div>
-        </div>
-        <div class="case-card__reveal">
-          <div class="case-card__reveal-inner">
-            <p class="case-card__desc">Diagnóstico comportamental via Clarity e redesign da PDP do IBCMED: separar validação de ação, mapa de governança de componentes e handoff com produto e tech — do discovery à execução no AEM.</p>
-            <div class="case-card__foot">
-              <span class="go">Ler case →</span>
-            </div>
-          </div>
-        </div>
-        <div class="case-cover" aria-hidden="true">
-          <div class="case-cover__plate">
-            <span class="case-cover__kicker">UX / CRO</span>
-            <span class="case-cover__name">Redesign da Página de Produto</span>
-          </div>
-          <video class="case-cover__video" muted loop playsinline preload="none"
-                 data-poster="assets/videos/pdp-foto.png"
-                 data-src="assets/videos/pdp-video.mp4"></video>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- MÉTODO -->
-  <section class="section wrap">
-    <div class="sec-head">
-      <h2>Como trabalho</h2>
-      <span class="label">método em 6 etapas</span>
-    </div>
-    <div class="method">
-      <div class="step"><span class="n">01</span><div class="name">Diagnosticar</div><p>Contexto, problema, jornada, dados disponíveis e restrições.</p></div>
-      <div class="step"><span class="n">02</span><div class="name">Estruturar</div><p>Informações, demandas, prioridades, páginas, fluxos e backlog.</p></div>
-      <div class="step"><span class="n">03</span><div class="name">Documentar</div><p>Decisões, evidências, critérios, handoffs e próximos passos.</p></div>
-      <div class="step"><span class="n">04</span><div class="name">Validar</div><p>Experiência, tracking, QA, links, formulários e comportamento.</p></div>
-      <div class="step"><span class="n">05</span><div class="name">Otimizar</div><p>Melhorias com base em dados, fricções, clareza e objetivos.</p></div>
-      <div class="step"><span class="n">06</span><div class="name">Evoluir</div><p>Aprendizado vira processo, case, produto ou próxima versão.</p></div>
-    </div>
-  </section>
-
-  <!-- STACK -->
-  <section class="section--tight wrap">
-    <div class="sec-head">
-      <h2>Stack &amp; ferramentas</h2>
-      <span class="label">por categoria, não parede de logos</span>
-    </div>
-    <div class="stack">
-      <div class="stack-col"><h4>Design / UX</h4><ul><li>Figma</li><li>Adobe</li><li>Arquitetura de informação</li><li>Prototipação</li></ul></div>
-      <div class="stack-col"><h4>Dados / Performance</h4><ul><li>Power BI</li><li>Microsoft Clarity</li><li>Google Tag Manager</li><li>PageSpeed / GTmetrix</li></ul></div>
-      <div class="stack-col"><h4>CRM</h4><ul><li>Salesforce</li><li>Email Marketing</li><li>WhatsApp</li><li>HTML modular</li></ul></div>
-      <div class="stack-col"><h4>Site / Governança</h4><ul><li>AEM</li><li>QA</li><li>SEO técnico-operacional</li><li>Documentação · Backlog</li></ul></div>
-      <div class="stack-col"><h4>Evolução técnica</h4><ul><li>HTML · CSS · JS</li><li>Git / GitHub</li><li>Design Systems</li><li>IA aplicada</li></ul></div>
-    </div>
-  </section>
-
-  <!-- CTA FINAL -->
-  <section class="section--tight wrap cta-final">
-    <p class="label label--accent">Vamos conversar</p>
-    <h2>Quer falar sobre UX, CRO, CRM, governança digital ou portfólio?</h2>
-    <div class="hero-cta">
-      <a href="https://wa.me/5551991318956?text=Ol%C3%A1%2C%20Eddi%21%20Vim%20pelo%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar." class="btn btn--primary" target="_blank" rel="noopener" data-track="click_whatsapp">Entrar em contato <span class="arrow">→</span></a>
-      <a href="curriculo.pdf" target="_blank" class="btn btn--ghost" data-track="click_download_resume">Ver currículo</a>
-    </div>
-  </section>
-</main>
-
-<footer class="site-footer">
-  <div class="wrap footer-grid">
-    <div>
-      <div class="brand"><img src="favicon.svg" alt="" width="20" height="20" style="border-radius:5px;flex-shrink:0;">Eddi&nbsp;Kochi</div>
-      <p>Experiência digital — UX/CRO, dados e governança. Portfólio em evolução como laboratório de Design Engineering.</p>
-    </div>
-    <div class="footer-links">
-      <a href="mailto:eddimaicon@gmail.com" class="footer-ico" aria-label="Enviar e-mail para eddimaicon@gmail.com" title="E-mail" data-track="click_email">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-      </a>
-      <a href="https://www.linkedin.com/in/edi-maicon-kochi-427625347/" class="footer-ico" aria-label="Abrir o LinkedIn de Eddi Kochi" title="LinkedIn" data-track="click_linkedin">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-      </a>
-      <a href="curriculo.pdf" class="footer-ico" target="_blank" rel="noopener" aria-label="Baixar currículo em PDF (abre em nova aba)" title="Currículo (PDF)" data-track="click_download_resume">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h5"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg>
-      </a>
-    </div>
-  </div>
-  <div class="wrap"><p class="copyright">© 2025 Eddi Kochi · Porto Alegre, BR · Construído à mão em HTML/CSS/JS</p></div>
-</footer>
-
-<script src="assets/main.js"></script>
 </body>
 </html>
