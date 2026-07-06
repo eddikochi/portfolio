@@ -365,6 +365,17 @@ p { color: var(--ink-soft); }
 .case-cover__img, .case-cover__video {
   position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
 }
+.case-cover__img {
+  transition: transform var(--dur-med) var(--ease);
+  animation: slow-zoom 6s ease-in-out infinite;
+}
+@keyframes slow-zoom {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+.case-card:hover .case-cover__img, .case-card:focus-within .case-cover__img {
+  transform: scale(1.03);
+}
 /* a placa tipográfica some só quando há mídia de fato pronta (img, ou vídeo já com poster
    atribuído pelo lazy-load) — assim ela serve de fallback antes disso / sem JS */
 .case-cover:has(.case-cover__img) .case-cover__plate,
