@@ -10,7 +10,7 @@ A origem criativa não é um limite a superar — é o repertório que sustenta 
 
 ## Como evoluí
 
-Design → UX/UI → CRM → Dados → CRO → Governança Digital → IA aplicada → Design Engineering
+Design → UX/UI → CRM → Dados → CRO → Governança Digital → IA aplicada
 
 UX trouxe comportamento e jornada; CRM, performance; dados, base para decisão; CRO, mensuração; governança, resposta aos gargalos operacionais. Camadas complementares que convergem para experiência digital orientada por dados, otimização e governança.
 
@@ -20,4 +20,4 @@ Atuo entre UX, CRM, dados e governança — na estratégia e na execução. Minh
 
 ## Para onde vou
 
-Venho desenvolvendo competências técnicas em direção a Design Engineering: não abandonar UX, CRO ou governança, mas combiná-los com mais autonomia técnica. Trato o portfólio como produto — este site é parte dessa prática: construído à mão, documentado, em evolução.
+Venho ampliando minha capacidade de execução técnica — construir, prototipar e publicar por conta própria — para reduzir a distância entre a ideia e o que vai ao ar. Trato o portfólio como produto: este site é parte dessa prática, construído e documentado à mão.
