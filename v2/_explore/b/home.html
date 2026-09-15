@@ -1,0 +1,748 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Eddi Kochi — Experiência digital, dados &amp; governança</title>
+<meta name="description" content="UX Designer sênior que também opera CRM, CRO, dados e governança de sites institucionais." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F4EC;
+    --ink:#1A1815;
+    --muted:#6B655C;
+    --hair:#E2DCD0;
+    --surface:#FFFFFF;
+    --surface-soft:#FDFBF6;
+
+    --blue:#2F6DB5;
+    --blue-tint:rgba(47,109,181,.11);
+    --blue-tint-strong:rgba(47,109,181,.18);
+
+    --green:#3B7A57;
+    --green-tint:rgba(59,122,87,.11);
+    --green-tint-strong:rgba(59,122,87,.18);
+
+    --mustard:#C8912A;
+    --mustard-tint:rgba(200,145,42,.13);
+    --mustard-tint-strong:rgba(200,145,42,.20);
+
+    --lilac:#7C6BB0;
+    --lilac-tint:rgba(124,107,176,.12);
+    --lilac-tint-strong:rgba(124,107,176,.19);
+
+    --radius-lg:28px;
+    --radius-md:18px;
+    --radius-sm:12px;
+    --maxw:1240px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
+  }
+  h1,h2,h3,.brand,.kicker,.step-num,.card-index{
+    font-family:'Bricolage Grotesque', 'Inter', system-ui, sans-serif;
+  }
+  img,svg{display:block;max-width:100%;}
+  a{color:inherit;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
+  button{font-family:inherit;}
+
+  /* ---------- Skip link ---------- */
+  .skip-link{
+    position:absolute; left:-999px; top:auto;
+    background:var(--ink); color:var(--bg); padding:12px 18px;
+    border-radius:0 0 10px 0; z-index:100; font-weight:600;
+  }
+  .skip-link:focus{ left:0; top:0; }
+
+  /* ---------- Header ---------- */
+  header.site{
+    position:sticky; top:0; z-index:40;
+    background:rgba(247,244,236,.88);
+    backdrop-filter:saturate(160%) blur(10px);
+    border-bottom:1px solid var(--hair);
+  }
+  .nav-row{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 24px;
+  }
+  .brand{
+    font-weight:700; font-size:1.15rem; letter-spacing:-0.01em;
+    text-decoration:none; color:var(--ink);
+  }
+  nav.primary-nav{ display:flex; align-items:center; gap:2px; }
+  nav.primary-nav a{
+    text-decoration:none; color:var(--ink); font-weight:500; font-size:.95rem;
+    padding:9px 14px; border-radius:999px; transition:background .15s ease, color .15s ease;
+  }
+  nav.primary-nav a:hover{ background:var(--surface); }
+  nav.primary-nav a.lang{
+    border:1px solid var(--hair); margin-left:8px; font-weight:600;
+  }
+  .nav-toggle{
+    display:none; border:1px solid var(--hair); background:var(--surface);
+    border-radius:10px; width:42px; height:42px; align-items:center; justify-content:center;
+    cursor:pointer;
+  }
+  .nav-toggle svg{ width:20px; height:20px; }
+
+  /* ---------- Hero ---------- */
+  .hero{ padding:64px 0 72px; }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.02fr .98fr;
+    gap:56px;
+    align-items:center;
+  }
+  .kicker{
+    display:inline-block;
+    font-size:.76rem;
+    font-weight:700;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin:0 0 22px;
+    padding:7px 14px;
+    background:var(--surface);
+    border:1px solid var(--hair);
+    border-radius:999px;
+  }
+  .hero h1{
+    font-size:clamp(2.1rem, 3.4vw + 1rem, 3.4rem);
+    font-weight:800;
+    line-height:1.06;
+    letter-spacing:-0.02em;
+    margin:0 0 22px;
+  }
+  .hero .lead{
+    font-size:1.14rem;
+    color:var(--muted);
+    max-width:52ch;
+    margin:0 0 34px;
+  }
+  .hero-ctas{ display:flex; gap:14px; flex-wrap:wrap; }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    font-weight:700; font-size:.98rem;
+    padding:14px 24px;
+    border-radius:999px;
+    text-decoration:none;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:transform .15s ease, background .15s ease, border-color .15s ease;
+  }
+  .btn:active{ transform:translateY(1px); }
+  .btn-primary{ background:var(--ink); color:var(--bg); }
+  .btn-primary:hover{ background:#2c2822; }
+  .btn-ghost{ background:transparent; color:var(--ink); border-color:var(--hair); }
+  .btn-ghost:hover{ background:var(--surface); border-color:#d3ccbc; }
+
+  /* ---------- Carousel ---------- */
+  .carousel{
+    position:relative;
+  }
+  .carousel-viewport{
+    overflow:hidden;
+    border-radius:var(--radius-lg);
+  }
+  .carousel-track{
+    display:flex;
+    transition:transform .5s cubic-bezier(.65,0,.35,1);
+    will-change:transform;
+  }
+  .case-card{
+    flex:0 0 100%;
+    min-height:392px;
+    padding:36px 32px 30px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    border-radius:var(--radius-lg);
+    border:1px solid;
+    position:relative;
+  }
+  .case-card.blue{ background:var(--blue-tint); border-color:var(--blue-tint-strong); }
+  .case-card.green{ background:var(--green-tint); border-color:var(--green-tint-strong); }
+  .case-card.lilac{ background:var(--lilac-tint); border-color:var(--lilac-tint-strong); }
+
+  .card-top{
+    display:flex; align-items:center; justify-content:space-between;
+    margin-bottom:22px;
+  }
+  .card-index{
+    font-weight:800; font-size:.92rem; letter-spacing:.02em;
+    color:var(--muted);
+  }
+  .discipline-pill{
+    font-size:.78rem; font-weight:700; letter-spacing:.02em;
+    padding:6px 14px; border-radius:999px;
+    background:var(--surface);
+  }
+  .blue .discipline-pill{ color:var(--blue); }
+  .green .discipline-pill{ color:var(--green); }
+  .lilac .discipline-pill{ color:var(--lilac); }
+
+  .case-card h3{
+    font-size:1.55rem;
+    font-weight:700;
+    line-height:1.22;
+    margin:0 0 20px;
+    letter-spacing:-0.01em;
+    max-width:26ch;
+  }
+  .tag-list{
+    display:flex; flex-wrap:wrap; gap:8px;
+    margin:0 0 26px; padding:0; list-style:none;
+  }
+  .tag-list li{
+    font-size:.82rem; font-weight:600;
+    padding:6px 12px;
+    background:var(--surface);
+    border-radius:999px;
+    color:var(--ink);
+  }
+  .case-link{
+    display:inline-flex; align-items:center; gap:6px;
+    font-weight:700; font-size:.95rem; text-decoration:none;
+    align-self:flex-start;
+    padding-bottom:2px;
+    border-bottom:2px solid currentColor;
+  }
+  .blue .case-link{ color:var(--blue); }
+  .green .case-link{ color:var(--green); }
+  .lilac .case-link{ color:var(--lilac); }
+
+  .carousel-controls{
+    display:flex; align-items:center; justify-content:space-between;
+    margin-top:20px;
+  }
+  .carousel-arrows{ display:flex; gap:10px; }
+  .carousel-btn{
+    width:44px; height:44px; border-radius:50%;
+    border:1px solid var(--hair);
+    background:var(--surface);
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+    color:var(--ink);
+    transition:background .15s ease, border-color .15s ease;
+  }
+  .carousel-btn:hover{ background:var(--bg); border-color:#d3ccbc; }
+  .carousel-btn svg{ width:18px; height:18px; }
+
+  .carousel-dots{ display:flex; gap:9px; }
+  .dot{
+    width:9px; height:9px; border-radius:50%;
+    background:var(--hair);
+    border:none; padding:0; cursor:pointer;
+    transition:background .2s ease, transform .2s ease;
+  }
+  .dot[aria-current="true"]{ background:var(--ink); transform:scale(1.2); }
+
+  .sr-only{
+    position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+    overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+  }
+
+  /* ---------- Section shell ---------- */
+  section{ padding:76px 0; }
+  section.alt{ background:var(--surface-soft); border-top:1px solid var(--hair); border-bottom:1px solid var(--hair); }
+  .section-head{ max-width:640px; margin-bottom:44px; }
+  .eyebrow{
+    font-size:.76rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--muted); margin:0 0 10px;
+  }
+  .section-head h2{
+    font-size:clamp(1.6rem, 1.4vw + 1.1rem, 2.15rem);
+    font-weight:800; letter-spacing:-0.015em; margin:0 0 12px;
+  }
+  .section-head p{ color:var(--muted); margin:0; font-size:1.03rem; }
+
+  /* ---------- Áreas de atuação ---------- */
+  .areas-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:20px;
+  }
+  .area-card{
+    background:var(--surface);
+    border:1px solid var(--hair);
+    border-radius:var(--radius-md);
+    padding:26px 24px;
+    position:relative;
+    overflow:hidden;
+  }
+  .area-card::before{
+    content:"";
+    position:absolute; left:0; top:0; bottom:0; width:5px;
+    background:var(--accent);
+  }
+  .area-card.blue{ --accent:var(--blue); }
+  .area-card.green{ --accent:var(--green); }
+  .area-card.mustard{ --accent:var(--mustard); }
+  .area-card.lilac{ --accent:var(--lilac); }
+  .area-icon{
+    width:42px; height:42px; border-radius:12px;
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:16px;
+    background:var(--tint);
+    color:var(--accent);
+  }
+  .area-card.blue .area-icon{ --tint:var(--blue-tint-strong); }
+  .area-card.green .area-icon{ --tint:var(--green-tint-strong); }
+  .area-card.mustard .area-icon{ --tint:var(--mustard-tint-strong); }
+  .area-card.lilac .area-icon{ --tint:var(--lilac-tint-strong); }
+  .area-icon svg{ width:22px; height:22px; }
+  .area-card h3{
+    font-size:1.08rem; font-weight:700; margin:0 0 8px; letter-spacing:-0.01em;
+  }
+  .area-card p{ margin:0; color:var(--muted); font-size:.94rem; }
+
+  /* ---------- Como trabalho ---------- */
+  .steps-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:18px;
+  }
+  .step-card{
+    background:var(--surface);
+    border:1px solid var(--hair);
+    border-radius:var(--radius-md);
+    padding:26px 22px;
+  }
+  .step-num{
+    font-size:1.7rem; font-weight:800; color:var(--hair);
+    -webkit-text-stroke:1px var(--muted);
+    margin:0 0 14px;
+  }
+  .step-card h3{ font-size:1.02rem; font-weight:700; margin:0 0 6px; }
+  .step-card p{ margin:0; color:var(--muted); font-size:.9rem; }
+
+  /* ---------- Stack ---------- */
+  .stack-grid{
+    display:grid;
+    grid-template-columns:repeat(5, 1fr);
+    gap:18px;
+  }
+  .stack-col{
+    background:var(--surface);
+    border:1px solid var(--hair);
+    border-radius:var(--radius-md);
+    padding:22px 20px;
+  }
+  .stack-col h3{
+    font-size:.98rem; font-weight:700; margin:0 0 14px;
+    padding-bottom:12px; border-bottom:1px solid var(--hair);
+  }
+  .stack-col ul{ margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:9px; }
+  .stack-col li{ font-size:.88rem; color:var(--muted); }
+
+  /* ---------- CTA final ---------- */
+  .cta-band{
+    background:var(--ink);
+    color:var(--bg);
+    border-radius:var(--radius-lg);
+    padding:56px 48px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:32px;
+    flex-wrap:wrap;
+  }
+  .cta-band h2{
+    font-size:clamp(1.5rem, 1.6vw + 1rem, 2.1rem);
+    font-weight:800; letter-spacing:-0.015em;
+    margin:0; max-width:26ch;
+  }
+  .cta-band .btn-primary{ background:var(--bg); color:var(--ink); flex-shrink:0; }
+  .cta-band .btn-primary:hover{ background:#efe9db; }
+
+  /* ---------- Footer ---------- */
+  footer.site{
+    padding:48px 0 56px;
+    border-top:1px solid var(--hair);
+  }
+  .footer-grid{
+    display:flex; align-items:flex-start; justify-content:space-between;
+    gap:24px; flex-wrap:wrap;
+  }
+  .footer-brand{ font-weight:700; font-size:1.05rem; margin:0 0 6px; }
+  .footer-email{ color:var(--muted); font-size:.92rem; margin:0; }
+  .footer-links{ display:flex; gap:22px; flex-wrap:wrap; }
+  .footer-links a{
+    text-decoration:none; color:var(--ink); font-weight:600; font-size:.92rem;
+    border-bottom:1px solid var(--hair); padding-bottom:2px;
+  }
+  .footer-links a:hover{ border-color:var(--ink); }
+  .footer-note{
+    margin-top:28px; padding-top:20px; border-top:1px solid var(--hair);
+    color:var(--muted); font-size:.82rem;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 980px){
+    .hero-grid{ grid-template-columns:1fr; gap:40px; }
+    .areas-grid{ grid-template-columns:repeat(2, 1fr); }
+    .steps-grid{ grid-template-columns:repeat(2, 1fr); }
+    .stack-grid{ grid-template-columns:repeat(2, 1fr); }
+  }
+
+  @media (max-width: 720px){
+    nav.primary-nav{
+      position:fixed; inset:66px 16px auto 16px;
+      background:var(--surface); border:1px solid var(--hair); border-radius:16px;
+      flex-direction:column; align-items:stretch; padding:10px;
+      box-shadow:0 18px 40px rgba(26,24,21,.12);
+      display:none;
+      gap:2px;
+    }
+    nav.primary-nav.open{ display:flex; }
+    nav.primary-nav a{ padding:12px 14px; }
+    .nav-toggle{ display:flex; }
+    .hero{ padding:40px 0 52px; }
+    .case-card{ min-height:340px; padding:28px 22px 24px; }
+    .cta-band{ padding:36px 26px; flex-direction:column; align-items:flex-start; }
+  }
+
+  @media (max-width: 560px){
+    .areas-grid, .steps-grid, .stack-grid{ grid-template-columns:1fr; }
+    .wrap{ padding:0 18px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .carousel-track{ transition:none; }
+    .btn, .carousel-btn, .dot{ transition:none; }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+<header class="site">
+  <div class="wrap nav-row">
+    <a class="brand" href="#main">Eddi Kochi</a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Abrir menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav class="primary-nav" id="primaryNav" aria-label="Navegação principal">
+      <a href="#main">Início</a>
+      <a href="#cases">Cases</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+      <a href="#" download>Currículo</a>
+      <a href="#" class="lang">EN</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="kicker">EXPERIÊNCIA DIGITAL · DADOS · OTIMIZAÇÃO · GOVERNANÇA</p>
+        <h1>Cuido da experiência digital de ponta a ponta: do diagnóstico do problema à execução no site.</h1>
+        <p class="lead">UX Designer sênior que também opera CRM, CRO, dados e governança de sites institucionais. Meu diferencial é ligar áreas que costumam trabalhar separadas.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#cases">Ver cases <span aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="#" download>Baixar currículo</a>
+        </div>
+      </div>
+
+      <div class="carousel" id="caseCarousel" aria-roledescription="carrossel" aria-label="Cases em destaque">
+        <div class="carousel-viewport">
+          <div class="carousel-track" id="carouselTrack">
+
+            <article class="case-card lilac" role="group" aria-roledescription="slide" aria-label="1 de 3">
+              <div class="card-top">
+                <span class="card-index">01 / 03</span>
+                <span class="discipline-pill">Governança</span>
+              </div>
+              <div>
+                <h3>Governança digital de um site de pós médica</h3>
+                <ul class="tag-list">
+                  <li>Governança</li><li>AEM</li><li>QA</li><li>CRO</li>
+                </ul>
+              </div>
+              <a class="case-link" href="#cases">Ver case <span aria-hidden="true">→</span></a>
+            </article>
+
+            <article class="case-card green" role="group" aria-roledescription="slide" aria-label="2 de 3">
+              <div class="card-top">
+                <span class="card-index">02 / 03</span>
+                <span class="discipline-pill">CRM</span>
+              </div>
+              <div>
+                <h3>CRM como motor de relacionamento e conversão de leads</h3>
+                <ul class="tag-list">
+                  <li>CRM</li><li>Email</li><li>Automação</li><li>Salesforce</li>
+                </ul>
+              </div>
+              <a class="case-link" href="#cases">Ver case <span aria-hidden="true">→</span></a>
+            </article>
+
+            <article class="case-card blue" role="group" aria-roledescription="slide" aria-label="3 de 3">
+              <div class="card-top">
+                <span class="card-index">03 / 03</span>
+                <span class="discipline-pill">UX</span>
+              </div>
+              <div>
+                <h3>Redesign da Página de Produto orientado por dados</h3>
+                <ul class="tag-list">
+                  <li>UX</li><li>CRO</li><li>Análise comportamental</li><li>AEM</li>
+                </ul>
+              </div>
+              <a class="case-link" href="#cases">Ver case <span aria-hidden="true">→</span></a>
+            </article>
+
+          </div>
+        </div>
+
+        <div class="carousel-controls">
+          <div class="carousel-arrows">
+            <button class="carousel-btn" id="prevBtn" aria-label="Case anterior">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <button class="carousel-btn" id="nextBtn" aria-label="Próximo case">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
+          <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="Selecionar case"></div>
+        </div>
+        <p class="sr-only" id="carouselStatus" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="cases-areas" aria-labelledby="areas-heading">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">O que eu faço</p>
+        <h2 id="areas-heading">Áreas de atuação</h2>
+        <p>Seis frentes que costumam ser tratadas isoladamente — eu conecto todas em um único fluxo de trabalho.</p>
+      </div>
+      <div class="areas-grid">
+        <div class="area-card blue">
+          <div class="area-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></div>
+          <h3>UX &amp; Experiência</h3>
+          <p>Pesquisa, fluxos e interfaces centradas em quem usa o produto.</p>
+        </div>
+        <div class="area-card mustard">
+          <div class="area-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div>
+          <h3>CRO &amp; Otimização</h3>
+          <p>Testes e hipóteses orientados por dados de comportamento real.</p>
+        </div>
+        <div class="area-card green">
+          <div class="area-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg></div>
+          <h3>CRM &amp; Dados</h3>
+          <p>Relacionamento, automação e leitura contínua da base de contatos.</p>
+        </div>
+        <div class="area-card lilac">
+          <div class="area-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V7l8-4z"/></svg></div>
+          <h3>Governança Digital</h3>
+          <p>Padrões, QA e processos que mantêm o site institucional saudável.</p>
+        </div>
+        <div class="area-card lilac">
+          <div class="area-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 015 5c0 2-1 3-2 4l-1 2h-4l-1-2c-1-1-2-2-2-4a5 5 0 015-5z"/><path d="M9 17h6M10 21h4"/></svg></div>
+          <h3>IA Aplicada</h3>
+          <p>Automação e prototipação assistida por IA no dia a dia do trabalho.</p>
+        </div>
+        <div class="area-card mustard">
+          <div class="area-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>
+          <h3>Gestão de Produto</h3>
+          <p>Priorização e roadmap conectando negócio, dados e execução.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre" aria-labelledby="how-heading">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Metodologia</p>
+        <h2 id="how-heading">Como trabalho</h2>
+        <p>Um processo repetível para transformar um problema difuso em um ganho mensurável de experiência.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card"><p class="step-num">01</p><h3>Diagnosticar</h3><p>Entender o problema real por trás do sintoma reportado.</p></div>
+        <div class="step-card"><p class="step-num">02</p><h3>Estruturar</h3><p>Organizar hipóteses, dados e prioridades em um plano claro.</p></div>
+        <div class="step-card"><p class="step-num">03</p><h3>Documentar</h3><p>Registrar decisões e padrões para o time todo seguir.</p></div>
+        <div class="step-card"><p class="step-num">04</p><h3>Validar</h3><p>Testar com usuários e dados antes de escalar a solução.</p></div>
+        <div class="step-card"><p class="step-num">05</p><h3>Otimizar</h3><p>Refinar continuamente com base em métricas de conversão.</p></div>
+        <div class="step-card"><p class="step-num">06</p><h3>Evoluir</h3><p>Revisitar o que foi entregue à luz de novos aprendizados.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" aria-labelledby="stack-heading">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Ferramentas</p>
+        <h2 id="stack-heading">Stack &amp; ferramentas</h2>
+        <p>O conjunto de ferramentas que sustenta cada etapa do processo, do design ao dado.</p>
+      </div>
+      <div class="stack-grid">
+        <div class="stack-col">
+          <h3>Design/UX</h3>
+          <ul><li>Figma</li><li>Adobe</li><li>IA</li><li>Prototipação</li></ul>
+        </div>
+        <div class="stack-col">
+          <h3>Dados</h3>
+          <ul><li>Power BI</li><li>Clarity</li><li>GTM</li><li>PageSpeed</li></ul>
+        </div>
+        <div class="stack-col">
+          <h3>CRM</h3>
+          <ul><li>Salesforce</li><li>Email</li><li>WhatsApp</li><li>HTML modular</li></ul>
+        </div>
+        <div class="stack-col">
+          <h3>Site/Governança</h3>
+          <ul><li>AEM</li><li>QA</li><li>SEO técnico</li><li>Documentação</li></ul>
+        </div>
+        <div class="stack-col">
+          <h3>Técnico</h3>
+          <ul><li>HTML/CSS/JS</li><li>Git</li><li>Design Systems</li><li>IA</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <div class="wrap">
+      <div class="cta-band">
+        <h2>Tem um problema de experiência, conversão ou governança digital pra resolver?</h2>
+        <a class="btn btn-primary" href="mailto:eddimaicon@gmail.com">Entrar em contato <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-brand">Eddi Kochi</p>
+        <p class="footer-email">eddimaicon@gmail.com</p>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:eddimaicon@gmail.com">Email</a>
+        <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="#" download>Currículo</a>
+      </div>
+    </div>
+    <p class="footer-note">© 2026 Eddi Kochi. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  // Mobile nav toggle
+  var navToggle = document.getElementById('navToggle');
+  var primaryNav = document.getElementById('primaryNav');
+  navToggle.addEventListener('click', function(){
+    var open = primaryNav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  primaryNav.addEventListener('click', function(e){
+    if (e.target.tagName === 'A' && window.innerWidth <= 720){
+      primaryNav.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Carousel
+  var track = document.getElementById('carouselTrack');
+  var slides = Array.prototype.slice.call(track.children);
+  var dotsWrap = document.getElementById('carouselDots');
+  var prevBtn = document.getElementById('prevBtn');
+  var nextBtn = document.getElementById('nextBtn');
+  var status = document.getElementById('carouselStatus');
+  var carousel = document.getElementById('caseCarousel');
+  var index = 0;
+  var count = slides.length;
+  var AUTO_MS = 6000;
+  var timer = null;
+
+  slides.forEach(function(_, i){
+    var dot = document.createElement('button');
+    dot.className = 'dot';
+    dot.setAttribute('role', 'tab');
+    dot.setAttribute('aria-label', 'Ir para case ' + (i + 1));
+    dot.addEventListener('click', function(){ goTo(i); restart(); });
+    dotsWrap.appendChild(dot);
+  });
+  var dots = Array.prototype.slice.call(dotsWrap.children);
+
+  function render(){
+    track.style.transform = 'translateX(-' + (index * 100) + '%)';
+    dots.forEach(function(d, i){
+      d.setAttribute('aria-current', i === index ? 'true' : 'false');
+    });
+    status.textContent = 'Mostrando case ' + (index + 1) + ' de ' + count;
+  }
+
+  function goTo(i){
+    index = (i + count) % count;
+    render();
+  }
+
+  function next(){ goTo(index + 1); }
+  function prev(){ goTo(index - 1); }
+
+  function start(){
+    timer = window.setInterval(next, AUTO_MS);
+  }
+  function stop(){
+    if (timer){ window.clearInterval(timer); timer = null; }
+  }
+  function restart(){ stop(); start(); }
+
+  nextBtn.addEventListener('click', function(){ next(); restart(); });
+  prevBtn.addEventListener('click', function(){ prev(); restart(); });
+
+  carousel.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowRight'){ next(); restart(); }
+    if (e.key === 'ArrowLeft'){ prev(); restart(); }
+  });
+
+  carousel.addEventListener('mouseenter', stop);
+  carousel.addEventListener('mouseleave', start);
+  carousel.addEventListener('focusin', stop);
+  carousel.addEventListener('focusout', start);
+
+  // Basic touch swipe
+  var touchStartX = null;
+  track.addEventListener('touchstart', function(e){
+    touchStartX = e.changedTouches[0].clientX;
+    stop();
+  }, {passive:true});
+  track.addEventListener('touchend', function(e){
+    if (touchStartX === null) return;
+    var dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 40){
+      dx < 0 ? next() : prev();
+    }
+    touchStartX = null;
+    start();
+  }, {passive:true});
+
+  render();
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    start();
+  }
+})();
+</script>
+
+</body>
+</html>

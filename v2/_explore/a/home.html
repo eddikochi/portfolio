@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eddi Kochi — Experiência digital, dados &amp; governança</title>
+<meta name="description" content="UX Designer sênior que também opera CRM, CRO, dados e governança de sites institucionais.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#F7F4EC;
+    --ink:#1A1815;
+    --muted:#6B655C;
+    --hairline:#E2DCD0;
+    --hairline-strong:#D7CFBE;
+    --surface:#FFFFFF;
+    --surface-2:#FDFBF6;
+
+    --azul:#2F6DB5;      --azul-ink:#1F4D84;   --azul-tint:rgba(47,109,181,.09);
+    --verde:#3B7A57;     --verde-ink:#265A3F;  --verde-tint:rgba(59,122,87,.09);
+    --mostarda:#C8912A;  --mostarda-ink:#8A620F; --mostarda-tint:rgba(200,145,42,.12);
+    --lilas:#7C6BB0;     --lilas-ink:#5A4A8F;  --lilas-tint:rgba(124,107,176,.09);
+
+    --maxw:1320px;
+    --side:clamp(20px, 5vw, 56px);
+    --radius:3px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    font-size:16px;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Archivo',sans-serif;
+    margin:0;
+    color:var(--ink);
+  }
+  p{margin:0;}
+  a{color:inherit;text-decoration:none;}
+  ul{margin:0;padding:0;list-style:none;}
+  button{font-family:inherit;}
+
+  .skip-link{
+    position:absolute; left:-999px; top:0;
+    background:var(--ink); color:var(--bg);
+    padding:12px 20px; z-index:200;
+    font-family:'Archivo',sans-serif; font-weight:600; font-size:14px;
+  }
+  .skip-link:focus{left:var(--side); top:12px;}
+
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 var(--side);}
+
+  :focus-visible{outline:2px solid var(--azul); outline-offset:3px;}
+
+  /* ---------- kicker / eyebrow ---------- */
+  .kicker{
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:11.5px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky; top:0; z-index:100;
+    background:var(--bg);
+    border-bottom:1px solid var(--hairline);
+  }
+  .nav-row{
+    display:flex; align-items:center; justify-content:space-between;
+    height:76px; gap:24px;
+  }
+  .brand{
+    font-family:'Archivo',sans-serif;
+    font-weight:800;
+    font-size:19px;
+    letter-spacing:-.01em;
+    white-space:nowrap;
+  }
+  nav.main-nav{
+    display:flex; align-items:center; gap:clamp(16px,2.4vw,34px);
+    overflow-x:auto;
+    scrollbar-width:none;
+  }
+  nav.main-nav::-webkit-scrollbar{display:none;}
+  nav.main-nav a{
+    font-size:13.5px;
+    font-weight:500;
+    color:var(--muted);
+    white-space:nowrap;
+    padding:6px 2px;
+    border-bottom:2px solid transparent;
+    transition:color .15s ease, border-color .15s ease;
+  }
+  nav.main-nav a:hover, nav.main-nav a:focus-visible{
+    color:var(--ink);
+    border-color:var(--azul);
+  }
+  nav.main-nav a.cta-link{
+    color:var(--ink);
+    font-weight:600;
+    border:1px solid var(--hairline-strong);
+    padding:7px 14px;
+    border-radius:var(--radius);
+  }
+  nav.main-nav a.cta-link:hover{border-color:var(--ink);}
+  nav.main-nav a.lang{color:var(--muted); font-weight:600; font-size:12px;}
+
+  /* ---------- buttons ---------- */
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'Archivo',sans-serif;
+    font-weight:600;
+    font-size:15px;
+    padding:14px 24px;
+    border-radius:var(--radius);
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:transform .15s ease, background .15s ease, border-color .15s ease, color .15s ease;
+  }
+  .btn:active{transform:translateY(1px);}
+  .btn-primary{
+    background:var(--ink); color:var(--bg); border-color:var(--ink);
+  }
+  .btn-primary:hover{background:#2c2822;}
+  .btn-ghost{
+    background:transparent; color:var(--ink); border-color:var(--hairline-strong);
+  }
+  .btn-ghost:hover{border-color:var(--ink);}
+  .btn-invert{
+    background:var(--bg); color:var(--ink); border-color:var(--bg);
+  }
+  .btn-invert:hover{background:transparent; color:var(--bg);}
+
+  /* ---------- hero ---------- */
+  .hero{
+    padding:clamp(56px,8vw,104px) 0 clamp(56px,7vw,88px);
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.05fr 1fr;
+    align-items:stretch;
+    gap:0 64px;
+  }
+  .hero-left{
+    padding-right:56px;
+    border-right:1px solid var(--hairline);
+    display:flex; flex-direction:column;
+    justify-content:center;
+    gap:28px;
+  }
+  .hero-left .kicker{margin-bottom:2px;}
+  .hero-left h1{
+    font-size:clamp(34px,4.1vw,52px);
+    font-weight:800;
+    line-height:1.08;
+    letter-spacing:-.02em;
+    max-width:16ch;
+  }
+  .hero-left .lead{
+    font-size:17px;
+    color:var(--muted);
+    max-width:46ch;
+    line-height:1.6;
+  }
+  .hero-actions{
+    display:flex; gap:14px; flex-wrap:wrap;
+    margin-top:6px;
+  }
+  .hero-right{
+    padding-left:56px;
+    display:flex; align-items:center;
+  }
+
+  /* ---------- carousel ---------- */
+  .carousel{
+    width:100%;
+    position:relative;
+  }
+  .carousel-frame{
+    overflow:hidden;
+    border:1px solid var(--hairline-strong);
+    border-radius:6px;
+    background:var(--surface);
+  }
+  .carousel-track{
+    display:flex;
+    transition:transform .5s cubic-bezier(.65,0,.35,1);
+  }
+  .slide{
+    flex:0 0 100%;
+    min-width:100%;
+    padding:36px 32px 30px;
+    display:flex; flex-direction:column; gap:20px;
+    border-left:6px solid var(--slide-color, var(--ink));
+  }
+  .slide[data-color="lilas"]{ --slide-color:var(--lilas); }
+  .slide[data-color="verde"]{ --slide-color:var(--verde); }
+  .slide[data-color="azul"]{ --slide-color:var(--azul); }
+
+  .slide-top{
+    display:flex; align-items:flex-start; justify-content:space-between;
+  }
+  .slide-badge{
+    display:flex; align-items:center; justify-content:center;
+    width:38px; height:38px;
+    font-family:'Archivo',sans-serif; font-weight:800; font-size:12px;
+    color:#fff;
+    background:var(--slide-color);
+    border-radius:4px;
+    letter-spacing:.01em;
+  }
+  .slide-index{
+    font-family:'Archivo',sans-serif;
+    font-weight:700; font-size:13px;
+    color:var(--muted);
+    letter-spacing:.04em;
+  }
+  .slide h3{
+    font-size:22px;
+    font-weight:700;
+    line-height:1.28;
+    letter-spacing:-.01em;
+    max-width:26ch;
+  }
+  .tag-list{
+    display:flex; flex-wrap:wrap; gap:8px;
+  }
+  .tag{
+    font-size:12px;
+    font-weight:600;
+    padding:6px 11px;
+    border-radius:20px;
+    background:var(--tag-tint);
+    color:var(--tag-ink);
+  }
+  .slide[data-color="lilas"] .tag{ --tag-tint:var(--lilas-tint); --tag-ink:var(--lilas-ink); }
+  .slide[data-color="verde"] .tag{ --tag-tint:var(--verde-tint); --tag-ink:var(--verde-ink); }
+  .slide[data-color="azul"] .tag{ --tag-tint:var(--azul-tint); --tag-ink:var(--azul-ink); }
+
+  .slide-foot{
+    margin-top:auto;
+    padding-top:14px;
+    border-top:1px solid var(--hairline);
+    font-size:13px;
+    font-weight:600;
+    color:var(--slide-color);
+    display:flex; align-items:center; gap:6px;
+  }
+
+  .carousel-controls{
+    display:flex; align-items:center; justify-content:space-between;
+    margin-top:18px;
+  }
+  .carousel-arrows{display:flex; gap:10px;}
+  .car-btn{
+    width:38px; height:38px;
+    border:1px solid var(--hairline-strong);
+    background:var(--surface);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+    color:var(--ink);
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .car-btn:hover{border-color:var(--ink); background:var(--surface-2);}
+  .car-btn svg{width:16px; height:16px;}
+
+  .carousel-dots{display:flex; gap:8px; align-items:center;}
+  .car-dot{
+    width:8px; height:8px; border-radius:50%;
+    background:var(--hairline-strong);
+    border:none; cursor:pointer; padding:0;
+    transition:background .15s ease, width .15s ease;
+  }
+  .car-dot[aria-selected="true"]{
+    background:var(--ink);
+    width:22px; border-radius:5px;
+  }
+  .carousel-count{
+    font-family:'Archivo',sans-serif; font-weight:700; font-size:12.5px;
+    color:var(--muted); letter-spacing:.03em;
+  }
+
+  /* ---------- generic section headers ---------- */
+  .section{padding:clamp(64px,8vw,104px) 0;}
+  .section-head{
+    display:flex; align-items:baseline; justify-content:space-between;
+    gap:24px; flex-wrap:wrap;
+    padding-bottom:28px;
+    border-bottom:1px solid var(--hairline);
+    margin-bottom:0;
+  }
+  .section-head h2{
+    font-size:clamp(24px,2.6vw,32px);
+    font-weight:800;
+    letter-spacing:-.01em;
+  }
+  .section-num{
+    font-family:'Archivo',sans-serif;
+    font-weight:700; font-size:13px;
+    color:var(--muted);
+  }
+
+  /* ---------- áreas de atuação: bordered grid ---------- */
+  .areas-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    border-top:1px solid var(--hairline);
+    border-left:1px solid var(--hairline);
+  }
+  .area-card{
+    border-right:1px solid var(--hairline);
+    border-bottom:1px solid var(--hairline);
+    padding:32px 30px;
+    background:var(--surface-2);
+    display:flex; flex-direction:column; gap:14px;
+    position:relative;
+  }
+  .area-card::before{
+    content:"";
+    position:absolute; top:0; left:0;
+    width:100%; height:3px;
+    background:var(--area-color);
+  }
+  .area-card[data-color="azul"]{ --area-color:var(--azul); }
+  .area-card[data-color="mostarda"]{ --area-color:var(--mostarda); }
+  .area-card[data-color="verde"]{ --area-color:var(--verde); }
+  .area-card[data-color="lilas"]{ --area-color:var(--lilas); }
+  .area-top{
+    display:flex; align-items:center; gap:12px;
+  }
+  .area-dot{
+    width:9px; height:9px; border-radius:50%;
+    background:var(--area-color);
+    flex:0 0 auto;
+  }
+  .area-card h3{
+    font-size:17.5px; font-weight:700; letter-spacing:-.005em;
+  }
+  .area-card p{
+    font-size:14px; color:var(--muted); line-height:1.55;
+  }
+
+  /* ---------- como trabalho ---------- */
+  .steps-grid{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    border-top:1px solid var(--hairline);
+    border-left:1px solid var(--hairline);
+  }
+  .step-card{
+    border-right:1px solid var(--hairline);
+    border-bottom:1px solid var(--hairline);
+    padding:28px 20px 26px;
+    display:flex; flex-direction:column; gap:14px;
+  }
+  .step-num{
+    font-family:'Archivo',sans-serif;
+    font-weight:800; font-size:26px;
+    color:var(--hairline-strong);
+    letter-spacing:-.02em;
+  }
+  .step-card h3{
+    font-size:14.5px; font-weight:700;
+  }
+
+  /* ---------- stack ---------- */
+  .stack-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    border-top:1px solid var(--hairline);
+    border-left:1px solid var(--hairline);
+  }
+  .stack-col{
+    border-right:1px solid var(--hairline);
+    border-bottom:1px solid var(--hairline);
+    padding:26px 24px 28px;
+  }
+  .stack-col h3{
+    font-size:12px; font-weight:700;
+    text-transform:uppercase; letter-spacing:.08em;
+    color:var(--muted);
+    margin-bottom:16px;
+  }
+  .stack-col ul{display:flex; flex-direction:column; gap:10px;}
+  .stack-col li{
+    font-size:14px; font-weight:500; color:var(--ink);
+  }
+
+  /* ---------- CTA final ---------- */
+  .cta-band{
+    background:var(--ink);
+    color:var(--bg);
+    padding:clamp(56px,7vw,88px) 0;
+  }
+  .cta-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    gap:40px; flex-wrap:wrap;
+  }
+  .cta-inner h2{
+    color:var(--bg);
+    font-size:clamp(24px,3vw,34px);
+    font-weight:700;
+    line-height:1.25;
+    max-width:24ch;
+    letter-spacing:-.01em;
+  }
+
+  /* ---------- footer ---------- */
+  footer{
+    border-top:1px solid var(--hairline);
+    padding:44px 0 40px;
+  }
+  .footer-grid{
+    display:flex; justify-content:space-between; align-items:flex-start;
+    gap:32px; flex-wrap:wrap;
+  }
+  .footer-brand h3{
+    font-size:17px; font-weight:800; margin-bottom:6px;
+  }
+  .footer-brand p{
+    font-size:13.5px; color:var(--muted);
+  }
+  .footer-links{
+    display:flex; gap:40px; flex-wrap:wrap;
+  }
+  .footer-col h4{
+    font-size:11px; font-weight:700; text-transform:uppercase;
+    letter-spacing:.08em; color:var(--muted); margin-bottom:12px;
+  }
+  .footer-col ul{display:flex; flex-direction:column; gap:9px;}
+  .footer-col a{font-size:13.5px; font-weight:500;}
+  .footer-col a:hover{color:var(--azul);}
+  .footer-bottom{
+    margin-top:36px; padding-top:20px;
+    border-top:1px solid var(--hairline);
+    font-size:12.5px; color:var(--muted);
+    display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width:980px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-left{border-right:none; padding-right:0; padding-bottom:40px; border-bottom:1px solid var(--hairline);}
+    .hero-right{padding-left:0; padding-top:40px;}
+    .areas-grid{grid-template-columns:repeat(2,1fr);}
+    .steps-grid{grid-template-columns:repeat(3,1fr);}
+    .stack-grid{grid-template-columns:repeat(2,1fr);}
+  }
+
+  @media (max-width:640px){
+    .nav-row{height:64px;}
+    nav.main-nav{gap:16px;}
+    nav.main-nav a.cta-link{padding:6px 11px; font-size:12.5px;}
+    .hero-left h1{max-width:none;}
+    .areas-grid{grid-template-columns:1fr;}
+    .steps-grid{grid-template-columns:repeat(2,1fr);}
+    .stack-grid{grid-template-columns:1fr;}
+    .slide{padding:28px 22px 24px;}
+    .cta-inner{flex-direction:column; align-items:flex-start;}
+    .footer-grid{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#conteudo">Pular para conteúdo</a>
+
+<header>
+  <div class="wrap nav-row">
+    <a class="brand" href="#inicio">Eddi Kochi</a>
+    <nav class="main-nav" aria-label="Navegação principal">
+      <a href="#inicio">Início</a>
+      <a href="#cases">Cases</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+      <a class="cta-link" href="#curriculo">Currículo</a>
+      <a class="lang" href="#" lang="en">EN</a>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="wrap hero-grid">
+
+      <div class="hero-left">
+        <p class="kicker">EXPERIÊNCIA DIGITAL · DADOS · OTIMIZAÇÃO · GOVERNANÇA</p>
+        <h1>Cuido da experiência digital de ponta a ponta: do diagnóstico do problema à execução no site.</h1>
+        <p class="lead">UX Designer sênior que também opera CRM, CRO, dados e governança de sites institucionais. Meu diferencial é ligar áreas que costumam trabalhar separadas.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#cases">Ver cases →</a>
+          <a class="btn btn-ghost" href="#curriculo">Baixar currículo</a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="carousel" id="cases" aria-roledescription="carrossel" aria-label="Cases selecionados">
+          <div class="carousel-frame">
+            <div class="carousel-track" id="carTrack">
+
+              <article class="slide" data-color="lilas" role="group" aria-roledescription="slide" aria-label="1 de 3">
+                <div class="slide-top">
+                  <span class="slide-badge" aria-hidden="true">GV</span>
+                  <span class="slide-index">01 — Governança</span>
+                </div>
+                <h3>Governança digital de um site de pós médica</h3>
+                <ul class="tag-list">
+                  <li class="tag">Governança</li>
+                  <li class="tag">AEM</li>
+                  <li class="tag">QA</li>
+                  <li class="tag">CRO</li>
+                </ul>
+                <div class="slide-foot">Case completo <span aria-hidden="true">→</span></div>
+              </article>
+
+              <article class="slide" data-color="verde" role="group" aria-roledescription="slide" aria-label="2 de 3">
+                <div class="slide-top">
+                  <span class="slide-badge" aria-hidden="true">CRM</span>
+                  <span class="slide-index">02 — CRM</span>
+                </div>
+                <h3>CRM como motor de relacionamento e conversão de leads</h3>
+                <ul class="tag-list">
+                  <li class="tag">CRM</li>
+                  <li class="tag">Email</li>
+                  <li class="tag">Automação</li>
+                  <li class="tag">Salesforce</li>
+                </ul>
+                <div class="slide-foot">Case completo <span aria-hidden="true">→</span></div>
+              </article>
+
+              <article class="slide" data-color="azul" role="group" aria-roledescription="slide" aria-label="3 de 3">
+                <div class="slide-top">
+                  <span class="slide-badge" aria-hidden="true">UX</span>
+                  <span class="slide-index">03 — UX / CRO</span>
+                </div>
+                <h3>Redesign da Página de Produto orientado por dados</h3>
+                <ul class="tag-list">
+                  <li class="tag">UX</li>
+                  <li class="tag">CRO</li>
+                  <li class="tag">Análise comportamental</li>
+                  <li class="tag">AEM</li>
+                </ul>
+                <div class="slide-foot">Case completo <span aria-hidden="true">→</span></div>
+              </article>
+
+            </div>
+          </div>
+
+          <div class="carousel-controls">
+            <span class="carousel-count" id="carCount">01 / 03</span>
+            <div class="carousel-arrows">
+              <button class="car-btn" id="carPrev" aria-label="Case anterior">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              </button>
+              <button class="car-btn" id="carNext" aria-label="Próximo case">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+            </div>
+            <div class="carousel-dots" id="carDots" role="tablist" aria-label="Selecionar case">
+              <button class="car-dot" role="tab" aria-selected="true" aria-label="Case 1"></button>
+              <button class="car-dot" role="tab" aria-selected="false" aria-label="Case 2"></button>
+              <button class="car-dot" role="tab" aria-selected="false" aria-label="Case 3"></button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ÁREAS DE ATUAÇÃO -->
+  <section class="section" id="sobre">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Áreas de atuação</h2>
+        <span class="section-num">01 / 04</span>
+      </div>
+      <div class="areas-grid">
+
+        <div class="area-card" data-color="azul">
+          <div class="area-top"><span class="area-dot"></span><h3>UX &amp; Experiência</h3></div>
+          <p>Pesquisa, arquitetura de informação e interfaces centradas no usuário.</p>
+        </div>
+
+        <div class="area-card" data-color="mostarda">
+          <div class="area-top"><span class="area-dot"></span><h3>CRO &amp; Otimização</h3></div>
+          <p>Testes, hipóteses e otimização contínua orientada por comportamento.</p>
+        </div>
+
+        <div class="area-card" data-color="verde">
+          <div class="area-top"><span class="area-dot"></span><h3>CRM &amp; Dados</h3></div>
+          <p>Relacionamento, automação e leitura de dados para conversão de leads.</p>
+        </div>
+
+        <div class="area-card" data-color="lilas">
+          <div class="area-top"><span class="area-dot"></span><h3>Governança Digital</h3></div>
+          <p>Padrões, processos e qualidade para sites institucionais complexos.</p>
+        </div>
+
+        <div class="area-card" data-color="lilas">
+          <div class="area-top"><span class="area-dot"></span><h3>IA Aplicada</h3></div>
+          <p>Uso prático de IA para acelerar diagnóstico, produção e QA.</p>
+        </div>
+
+        <div class="area-card" data-color="mostarda">
+          <div class="area-top"><span class="area-dot"></span><h3>Gestão de Produto</h3></div>
+          <p>Priorização e roadmap conectando negócio, dados e execução.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO TRABALHO -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Como trabalho</h2>
+        <span class="section-num">02 / 04</span>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card"><span class="step-num">01</span><h3>Diagnosticar</h3></div>
+        <div class="step-card"><span class="step-num">02</span><h3>Estruturar</h3></div>
+        <div class="step-card"><span class="step-num">03</span><h3>Documentar</h3></div>
+        <div class="step-card"><span class="step-num">04</span><h3>Validar</h3></div>
+        <div class="step-card"><span class="step-num">05</span><h3>Otimizar</h3></div>
+        <div class="step-card"><span class="step-num">06</span><h3>Evoluir</h3></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STACK -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Stack &amp; ferramentas</h2>
+        <span class="section-num">03 / 04</span>
+      </div>
+      <div class="stack-grid">
+        <div class="stack-col">
+          <h3>Design / UX</h3>
+          <ul>
+            <li>Figma</li><li>Adobe</li><li>IA</li><li>Prototipação</li>
+          </ul>
+        </div>
+        <div class="stack-col">
+          <h3>Dados</h3>
+          <ul>
+            <li>Power BI</li><li>Clarity</li><li>GTM</li><li>PageSpeed</li>
+          </ul>
+        </div>
+        <div class="stack-col">
+          <h3>CRM</h3>
+          <ul>
+            <li>Salesforce</li><li>Email</li><li>WhatsApp</li><li>HTML modular</li>
+          </ul>
+        </div>
+        <div class="stack-col">
+          <h3>Site / Governança</h3>
+          <ul>
+            <li>AEM</li><li>QA</li><li>SEO técnico</li><li>Documentação</li>
+          </ul>
+        </div>
+        <div class="stack-col">
+          <h3>Técnico</h3>
+          <ul>
+            <li>HTML/CSS/JS</li><li>Git</li><li>Design Systems</li><li>IA</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-band" id="contato">
+    <div class="wrap cta-inner">
+      <h2>Tem um problema de experiência, conversão ou governança digital pra resolver?</h2>
+      <a class="btn btn-invert" href="mailto:eddimaicon@gmail.com">Entrar em contato →</a>
+    </div>
+  </section>
+
+</main>
+
+<footer id="curriculo">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <h3>Eddi Kochi</h3>
+      <p>eddimaicon@gmail.com</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="mailto:eddimaicon@gmail.com">eddimaicon@gmail.com</a></li>
+          <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#cases">Cases</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Documentos</h4>
+        <ul>
+          <li><a href="#" download>Currículo (PDF)</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2026 Eddi Kochi. Todos os direitos reservados.</span>
+    <span>Editorial suíço · minimalista tipográfico</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var track = document.getElementById('carTrack');
+  var slides = track.children;
+  var total = slides.length;
+  var index = 0;
+  var prevBtn = document.getElementById('carPrev');
+  var nextBtn = document.getElementById('carNext');
+  var dots = document.querySelectorAll('#carDots .car-dot');
+  var countEl = document.getElementById('carCount');
+  var carousel = document.querySelector('.carousel');
+  var timer = null;
+  var AUTO_MS = 6500;
+
+  function pad(n){ return n < 10 ? '0' + n : '' + n; }
+
+  function render(){
+    track.style.transform = 'translateX(-' + (index * 100) + '%)';
+    dots.forEach(function(d, i){
+      d.setAttribute('aria-selected', i === index ? 'true' : 'false');
+    });
+    countEl.textContent = pad(index + 1) + ' / ' + pad(total);
+  }
+
+  function goTo(i){
+    index = (i + total) % total;
+    render();
+  }
+
+  function next(){ goTo(index + 1); }
+  function prev(){ goTo(index - 1); }
+
+  function startAuto(){
+    stopAuto();
+    timer = setInterval(next, AUTO_MS);
+  }
+  function stopAuto(){
+    if (timer) { clearInterval(timer); timer = null; }
+  }
+
+  nextBtn.addEventListener('click', function(){ next(); startAuto(); });
+  prevBtn.addEventListener('click', function(){ prev(); startAuto(); });
+
+  dots.forEach(function(dot, i){
+    dot.addEventListener('click', function(){ goTo(i); startAuto(); });
+  });
+
+  carousel.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowRight'){ next(); startAuto(); }
+    if (e.key === 'ArrowLeft'){ prev(); startAuto(); }
+  });
+
+  carousel.addEventListener('mouseenter', stopAuto);
+  carousel.addEventListener('mouseleave', startAuto);
+  carousel.addEventListener('focusin', stopAuto);
+  carousel.addEventListener('focusout', startAuto);
+
+  // touch swipe
+  var touchStartX = 0, touchDeltaX = 0;
+  track.addEventListener('touchstart', function(e){
+    touchStartX = e.touches[0].clientX;
+    touchDeltaX = 0;
+    stopAuto();
+  }, {passive:true});
+  track.addEventListener('touchmove', function(e){
+    touchDeltaX = e.touches[0].clientX - touchStartX;
+  }, {passive:true});
+  track.addEventListener('touchend', function(){
+    if (touchDeltaX > 40) prev();
+    else if (touchDeltaX < -40) next();
+    startAuto();
+  });
+
+  render();
+  startAuto();
+})();
+</script>
+
+</body>
+</html>
