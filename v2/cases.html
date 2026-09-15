@@ -1,174 +1,115 @@
-﻿<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex" />
 <title>Cases — Eddi Kochi</title>
-<meta name="description" content="Cases de experiência digital: governança de um site de pós médica, CRM como motor de conversão de leads e redesign de Página de Produto orientado por dados.">
-<meta name="author" content="Eddi Kochi">
-<meta name="theme-color" content="#0E0D0C">
-<link rel="canonical" href="https://eddikochi.github.io/portfolio/cases.html">
-<link rel="icon" href="../favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="../favicon.svg">
-<link rel="manifest" href="../site.webmanifest">
-
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Eddi Kochi">
-<meta property="og:locale" content="pt_BR">
-<meta property="og:title" content="Cases — Eddi Kochi">
-<meta property="og:description" content="Governança de site, CRM como motor de conversão e redesign de PDP orientado por dados.">
-<meta property="og:url" content="https://eddikochi.github.io/portfolio/cases.html">
-<meta property="og:image" content="https://eddikochi.github.io/portfolio/img/avatar.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Cases — Eddi Kochi">
-<meta name="twitter:description" content="Governança de site, CRM como motor de conversão e redesign de PDP orientado por dados.">
-<meta name="twitter:image" content="https://eddikochi.github.io/portfolio/img/avatar.jpg">
-
+<meta name="description" content="Cases de experiência digital: governança de site, CRM como motor de conversão e redesign de página de produto orientado por dados." />
+<link rel="icon" href="../favicon.svg" type="image/svg+xml" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body data-page="cases">
 
-<header class="site-header">
-  <div class="wrap nav">
-    <a href="home.html" class="brand" style="display:inline-flex;align-items:center;gap:7px;"><img src="../favicon.svg" alt="" width="20" height="20" style="border-radius:5px;flex-shrink:0; display:block;flex-shrink:0;">Eddi&nbsp;Kochi</a>
-    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
-    <nav class="nav-links" id="nav-links">
+<a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+<header class="site">
+  <div class="wrap nav-row">
+    <a class="brand" href="home.html"><img src="../favicon.svg" alt="" width="22" height="22">Eddi&nbsp;Kochi</a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Abrir menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav class="primary-nav" id="primaryNav" aria-label="Navegação principal">
       <a href="home.html">Início</a>
       <a href="cases.html" aria-current="page">Cases</a>
       <a href="sobre.html">Sobre</a>
       <a href="contato.html">Contato</a>
-      <a href="../CV_Edi_2026.pdf" target="_blank" data-track="click_download_resume">Currículo ↓</a>
-      <a href="../en/cases.html" style="opacity:.55;font-size:.85em">EN</a>
+      <a href="../CV_Edi_2026.pdf" target="_blank" rel="noopener">Currículo</a>
+      <a href="../en/index.html" class="lang">EN</a>
     </nav>
   </div>
 </header>
 
-<main>
-  <section class="hero" style="padding-block:var(--s-8) var(--s-7)">
-    <div class="hero-aurora" aria-hidden="true">
-      <span class="aurora-blob aurora-blob--1"></span>
-      <span class="aurora-blob aurora-blob--2"></span>
-      <span class="aurora-blob aurora-blob--3"></span>
-    </div>
+<main id="main">
+  <section class="page-hero">
     <div class="wrap">
-      <p class="label label--accent reveal">Prova por cases</p>
-      <h1 class="display reveal" style="font-size:clamp(2.2rem,5vw,3.6rem)">Cada case prova uma parte do trabalho.</h1>
-      <p class="lead reveal">Cada projeto aqui mostra um problema real, o que eu fiz nele e por que decidi assim. São poucos e detalhados, de propósito: governança de site, CRM e redesign orientado por dados.</p>
+      <p class="eyebrow">Prova por cases</p>
+      <h1>Cada case mostra um problema real e o que eu fiz nele.</h1>
+      <p class="lead">São poucos e detalhados, de propósito: o problema, o meu papel, o processo e a decisão por trás — de governança de site a CRM e redesign orientado por dados.</p>
     </div>
   </section>
 
-  <hr class="divider">
+  <section class="section-tight">
+    <div class="wrap">
+      <div class="cases-grid">
 
-  <section class="section wrap">
-    <div class="cases">
-
-      <article class="case-card">
-        <a class="case-card__link" href="case-ibcmed.html" aria-label="Ler case: Governança digital de um site de pós médica"></a>
-        <div class="case-card__head">
-          <div class="ttl">Governança digital de um site de pós médica</div>
-          <div class="tags">
-            <span class="tag">Governança</span><span class="tag">AEM</span><span class="tag">Processo dev↔produto</span>
-            <span class="tag">QA</span><span class="tag">CRO</span><span class="tag">Testes A/B</span>
-          </div>
-        </div>
-        <div class="case-card__reveal">
-          <div class="case-card__reveal-inner">
-            <p class="case-card__desc">A ponte entre marketing, produto e tech na migração WordPress → AEM de um site de pós-graduação médica. Redesenho de processos de implementação, mapa de handoff produto→dev, fluxo de QA criado do zero e testes A/B.</p>
-            <div class="case-card__foot">
-              <span class="go">Ler case →</span>
+        <a class="case-card lilac" href="case-ibcmed.html">
+          <div class="case-card__media" style="background-image:url('../assets/videos/governanca-foto.png')"></div>
+          <div class="case-card__scrim"></div>
+          <div class="case-card__body">
+            <div class="card-top">
+              <span class="discipline-pill">Governança</span>
             </div>
-          </div>
-        </div>
-        <div class="case-cover" aria-hidden="true">
-          <div class="case-cover__plate">
-            <span class="case-cover__kicker">Governança Digital</span>
-            <span class="case-cover__name">Governança digital de um site de pós médica</span>
-          </div>
-          <img class="case-cover__img" src="../assets/videos/governanca-foto.png" alt="Prévia do case de governança digital de um site de pós médica">
-        </div>
-      </article>
-
-      <article class="case-card">
-        <a class="case-card__link" href="case-crm.html" aria-label="Ler case: CRM como motor de relacionamento e conversão de leads"></a>
-        <div class="case-card__head">
-          <div class="ttl">CRM como motor de relacionamento e conversão de leads</div>
-          <div class="tags">
-            <span class="tag">CRM</span><span class="tag">Email Marketing</span><span class="tag">Automação</span>
-            <span class="tag">Salesforce</span><span class="tag">Testes A/B</span>
-          </div>
-        </div>
-        <div class="case-card__reveal">
-          <div class="case-card__reveal-inner">
-            <p class="case-card__desc">Régua de e-mail e CRM multicanal para captação e nutrição de leads numa instituição de pós-graduação médica: jornadas com ramificação por comportamento, automação no Salesforce, testes A/B e dashboard de performance.</p>
-            <div class="case-card__foot">
-              <span class="go">Ler case →</span>
+            <div>
+              <h3>Governança digital de um site de pós médica</h3>
+              <ul class="tag-list"><li>Governança</li><li>AEM</li><li>QA</li><li>CRO</li></ul>
             </div>
+            <span class="case-link">Ver case <span class="arrow" aria-hidden="true">→</span></span>
           </div>
-        </div>
-        <div class="case-cover" aria-hidden="true">
-          <div class="case-cover__plate">
-            <span class="case-cover__kicker">CRM &amp; E-mail</span>
-            <span class="case-cover__name">CRM como motor de relacionamento e conversão de leads</span>
-          </div>
-          <img class="case-cover__img" src="../assets/videos/warmup-foto.png" alt="Prévia do case de CRM e e-mail marketing">
-        </div>
-      </article>
+        </a>
 
-      <article class="case-card">
-        <a class="case-card__link" href="case-pdp.html" aria-label="Ler case: Redesign da Página de Produto orientado por dados"></a>
-        <div class="case-card__head">
-          <div class="ttl">Redesign da Página de Produto orientado por dados</div>
-          <div class="tags">
-            <span class="tag">UX</span><span class="tag">CRO</span><span class="tag">Análise comportamental</span>
-            <span class="tag">Discovery</span><span class="tag">AEM</span>
-          </div>
-        </div>
-        <div class="case-card__reveal">
-          <div class="case-card__reveal-inner">
-            <p class="case-card__desc">Diagnóstico comportamental via Clarity e redesign da PDP do IBCMED: separar validação de ação, mapa de governança de componentes e handoff com produto e tech — do discovery à execução no AEM.</p>
-            <div class="case-card__foot">
-              <span class="go">Ler case →</span>
+        <a class="case-card green" href="case-crm.html">
+          <div class="case-card__media" style="background-image:url('../assets/videos/warmup-foto.png')"></div>
+          <div class="case-card__scrim"></div>
+          <div class="case-card__body">
+            <div class="card-top">
+              <span class="discipline-pill">CRM</span>
             </div>
+            <div>
+              <h3>CRM como motor de relacionamento e conversão de leads</h3>
+              <ul class="tag-list"><li>CRM</li><li>Email</li><li>Automação</li><li>Salesforce</li></ul>
+            </div>
+            <span class="case-link">Ver case <span class="arrow" aria-hidden="true">→</span></span>
           </div>
-        </div>
-        <div class="case-cover" aria-hidden="true">
-          <div class="case-cover__plate">
-            <span class="case-cover__kicker">UX / CRO</span>
-            <span class="case-cover__name">Redesign da Página de Produto</span>
-          </div>
-          <img class="case-cover__img" src="../assets/videos/pdp-foto.png" alt="Prévia do case de redesign da página de produto">
-        </div>
-      </article>
+        </a>
 
+        <a class="case-card blue" href="case-pdp.html">
+          <div class="case-card__media" style="background-image:url('../assets/videos/pdp-foto.png')"></div>
+          <div class="case-card__scrim"></div>
+          <div class="case-card__body">
+            <div class="card-top">
+              <span class="discipline-pill">UX</span>
+            </div>
+            <div>
+              <h3>Redesign da Página de Produto orientado por dados</h3>
+              <ul class="tag-list"><li>UX</li><li>CRO</li><li>Análise comportamental</li><li>AEM</li></ul>
+            </div>
+            <span class="case-link">Ver case <span class="arrow" aria-hidden="true">→</span></span>
+          </div>
+        </a>
+
+      </div>
     </div>
   </section>
 </main>
 
-<footer class="site-footer">
-  <div class="wrap footer-grid">
-    <div>
-      <div class="brand" style="display:inline-flex;align-items:center;gap:7px;"><img src="../favicon.svg" alt="" width="20" height="20" style="border-radius:5px;flex-shrink:0; display:block;flex-shrink:0;">Eddi&nbsp;Kochi</div>
-      <p>Experiência digital — UX, CRO, CRM, dados e governança. Portfólio autoral, em evolução.</p>
+<footer class="site">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div><p class="footer-brand">Eddi Kochi</p><p class="footer-email">eddimaicon@gmail.com</p></div>
+      <div class="footer-links">
+        <a href="mailto:eddimaicon@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/edi-maicon-kochi-427625347/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="../CV_Edi_2026.pdf" target="_blank" rel="noopener">Currículo</a>
+      </div>
     </div>
-    <div class="footer-links">
-      <a href="mailto:eddimaicon@gmail.com" class="footer-ico" aria-label="Enviar e-mail para eddimaicon@gmail.com" title="E-mail" data-track="click_email">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-      </a>
-      <a href="https://www.linkedin.com/in/edi-maicon-kochi-427625347/" class="footer-ico" aria-label="Abrir o LinkedIn de Eddi Kochi" title="LinkedIn" data-track="click_linkedin">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-      </a>
-      <a href="../CV_Edi_2026.pdf" class="footer-ico" target="_blank" rel="noopener" aria-label="Baixar currículo em PDF (abre em nova aba)" title="Currículo (PDF)" data-track="click_download_resume">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h5"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg>
-      </a>
-    </div>
+    <p class="footer-note">© 2026 Eddi Kochi · Porto Alegre, BR</p>
   </div>
-  <div class="wrap"><p class="copyright">© 2025 Eddi Kochi · Porto Alegre, BR · Construído à mão em HTML/CSS/JS</p></div>
 </footer>
 
-<script src="../assets/main.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
