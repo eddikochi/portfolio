@@ -40,6 +40,19 @@
     });
   }
 
+  /* ---------- Timeline "Como trabalho" ---------- */
+  var method = document.querySelector(".method");
+  if (method) {
+    if (reduce || !("IntersectionObserver" in window)) {
+      method.classList.add("is-visible");
+    } else {
+      var mio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { method.classList.add("is-visible"); } });
+      }, { threshold: 0.3 });
+      mio.observe(method);
+    }
+  }
+
   /* ---------- Case carousel (home only) ---------- */
   var track = document.getElementById("carouselTrack");
   if (!track) return;
