@@ -1,0 +1,310 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>CRM como motor de relacionamento e conversão de leads — Eddi Kochi</title>
+<meta name="description" content="Case de CRM: estruturação e operação de jornadas de e-mail multicanal para captação e nutrição de leads em uma instituição de pós-graduação médica — réguas com ramificação por comportamento, automação no Salesforce, testes A/B e dashboard de performance.">
+<meta name="author" content="Eddi Kochi">
+<meta name="theme-color" content="#0E0D0C">
+<link rel="canonical" href="https://eddikochi.github.io/portfolio/case-crm.html">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../favicon.svg">
+<link rel="manifest" href="../site.webmanifest">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Eddi Kochi">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="CRM como motor de relacionamento e conversão de leads">
+<meta property="og:description" content="De disparos avulsos a uma régua que reage ao comportamento do lead — automação no Salesforce, testes A/B e dashboard de performance.">
+<meta property="og:url" content="https://eddikochi.github.io/portfolio/case-crm.html">
+<meta property="og:image" content="https://eddikochi.github.io/portfolio/assets/videos/warmup-foto.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CRM como motor de relacionamento e conversão de leads">
+<meta name="twitter:description" content="De disparos avulsos a uma régua que reage ao comportamento do lead — automação, testes A/B e dashboard.">
+<meta name="twitter:image" content="https://eddikochi.github.io/portfolio/assets/videos/warmup-foto.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="case" data-slug="crm-relacionamento-conversao-leads">
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a href="home.html" class="brand" style="display:inline-flex;align-items:center;gap:7px;"><img src="../favicon.svg" alt="" width="20" height="20" style="border-radius:5px;flex-shrink:0; display:block;flex-shrink:0;">Eddi&nbsp;Kochi</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+    <nav class="nav-links" id="nav-links">
+      <a href="home.html">Início</a>
+      <a href="cases.html" aria-current="page">Cases</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="contato.html">Contato</a>
+      <a href="../CV_Edi_2026.pdf" target="_blank" data-track="click_download_resume">Currículo ↓</a>
+      <a href="../en/case-crm.html" style="opacity:.55;font-size:.85em">EN</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- 1. HERO DO CASE -->
+  <section class="case-hero wrap">
+    <a href="cases.html" class="back">← Voltar para cases</a>
+    <p class="label label--accent" style="margin-top:var(--s-5)">CRM · jornadas de e-mail · nutrição de leads</p>
+    <h1>CRM como motor de relacionamento e conversão de leads</h1>
+    <p class="lead">Estruturação e operação de jornadas de e-mail e CRM multicanal para captação e nutrição de leads em uma instituição de pós-graduação médica. O trabalho foi transformar disparos avulsos em uma régua de comunicação que reage ao comportamento do lead — do primeiro contato à matrícula — e tornar a operação mensurável.</p>
+    <div class="tags" style="margin-top:var(--s-5)">
+      <span class="tag">CRM</span><span class="tag">Email Marketing</span><span class="tag">Automação</span>
+      <span class="tag">Segmentação</span><span class="tag">Testes A/B</span><span class="tag">Salesforce</span>
+      <span class="tag">HTML</span>
+    </div>
+    <dl class="case-meta">
+      <div><dt>Papel</dt><dd>Analista de CRM</dd></div>
+      <div><dt>Período</dt><dd>Ago/2023 – Jan/2025</dd></div>
+      <div><dt>Ferramentas</dt><dd>Salesforce · HTML · Power BI</dd></div>
+      <div><dt>Tipo</dt><dd>Operação e estruturação de CRM</dd></div>
+    </dl>
+    <ul class="case-stats">
+      <li class="case-stat"><span class="case-stat__fig">3 canais</span><span class="case-stat__lbl">régua multicanal: e-mail, SMS e WhatsApp</span></li>
+      <li class="case-stat"><span class="case-stat__fig">Por comportamento</span><span class="case-stat__lbl">jornada ramifica pela abertura do lead</span></li>
+      <li class="case-stat"><span class="case-stat__fig">Planilha → BI</span><span class="case-stat__lbl">leitura de resultado migrada para dashboard Power BI</span></li>
+      <li class="case-stat"><span class="case-stat__fig">A/B sistemático</span><span class="case-stat__lbl">testes em assunto e CTA como prática contínua</span></li>
+    </ul>
+  </section>
+
+  <hr class="divider">
+
+  <article class="section wrap prose">
+
+    <!-- 2. CONTEXTO -->
+    <span class="label">02 — Contexto</span>
+    <h2>Captação por muitos canais, relacionamento sem régua</h2>
+    <p>A instituição captava leads de pós-graduação e educação continuada por <strong>múltiplos canais</strong>, mas a comunicação com essas bases não tinha uma régua estruturada. O relacionamento dependia de disparos avulsos, sem uma jornada que nutrisse o lead do primeiro contato até a matrícula — e sem continuidade depois dela.</p>
+
+    <!-- 3. PROBLEMA -->
+    <span class="label">03 — Problema</span>
+    <h2>Disparos avulsos, sem nutrição nem mensuração</h2>
+    <p>A operação de CRM apresentava fragilidades que limitavam a conversão:</p>
+    <ul>
+      <li><strong>Baixa abertura e ausência de nutrição estruturada</strong> dos leads.</li>
+      <li><strong>Leitura de resultado feita apenas por planilhas</strong>, sem mensuração consolidada.</li>
+      <li>Peças de e-mail (EMM) com <strong>baixo desempenho</strong>.</li>
+      <li>Falta de alinhamento entre os times de <strong>CRM e Comercial</strong>.</li>
+      <li><strong>Inexistência de nutrição pós-matrícula</strong> — o relacionamento parava na conversão.</li>
+    </ul>
+
+    <!-- Componente 1 · Bloco de destaque (insight central) -->
+    <aside class="insight">
+      <span class="insight__label">Insight central</span>
+      <p class="insight__text">Régua que reage a comportamento converte mais que volume de disparo.</p>
+    </aside>
+
+    <!-- 4. MEU PAPEL -->
+    <span class="label">04 — Meu papel</span>
+    <h2>Da peça à performance: operar o CRM ponta a ponta</h2>
+    <p>Atuei na operação de CRM, da construção das peças à leitura de performance:</p>
+    <ul>
+      <li>Construção das peças de e-mail em <strong>HTML modular</strong>.</li>
+      <li>Montagem e disparo das <strong>jornadas no Salesforce</strong>.</li>
+      <li>Estruturação das <strong>réguas de comunicação</strong> em conjunto com o time.</li>
+      <li>Leitura de performance e apresentação de resultados via <strong>dashboard</strong>.</li>
+      <li><strong>Ponte entre os times de CRM e Comercial.</strong></li>
+    </ul>
+
+    <!-- 5. RESTRIÇÕES -->
+    <span class="label">05 — Restrições</span>
+    <h2>O que limitava o trabalho</h2>
+    <ul>
+      <li><strong>Limitações das ferramentas</strong> disponíveis.</li>
+      <li><strong>Dependência de outras áreas</strong> para liberação de conteúdo e definições.</li>
+      <li><strong>Prazos curtos</strong> de execução.</li>
+    </ul>
+
+    <!-- 6. PROCESSO -->
+    <span class="label">06 — Processo</span>
+    <h2>De disparos isolados a uma régua que reage ao comportamento</h2>
+    <p>O núcleo do trabalho foi estruturar uma <strong>régua de comunicação</strong> que conduzisse o lead por etapas, em vez de disparos isolados.</p>
+
+    <!-- Componente 3 · Fluxo horizontal numerado (etapas da régua) -->
+    <ol class="flow flow--numbered">
+      <li class="flow__step"><span class="flow__label">Boas-vindas</span><span class="flow__desc">Régua inicial com personalização de nome</span></li>
+      <li class="flow__step"><span class="flow__label">Ramificação por abertura</span><span class="flow__desc">“Abriu o e-mail?” define o próximo passo</span></li>
+      <li class="flow__step"><span class="flow__label">Nutrição</span><span class="flow__desc">Sequência que aquece o lead progressivamente</span></li>
+      <li class="flow__step"><span class="flow__label">Conversão</span><span class="flow__desc">Envio do formulário e matrícula</span></li>
+    </ol>
+
+    <p>A régua inicial de boas-vindas atendia todos os leads que ainda não haviam indicado interesse específico, com personalização de nome. A partir dela, a jornada se ramificava <strong>por comportamento</strong>: o gatilho “abriu o e-mail?” definia o próximo passo — quem abria seguia na sequência de nutrição; quem não abria recebia um SMS de reforço e reconvite.</p>
+
+    <!-- Componente 5 · Slot de artefato com legenda (imagem clicável p/ ampliar) -->
+    <figure class="artifact">
+      <a class="artifact__zoom" href="../img/crm-regua.png" target="_blank" rel="noopener" aria-label="Ampliar o diagrama da régua de comunicação">
+        <img class="artifact__media" loading="lazy" decoding="async" src="../img/crm-regua.png" alt="Diagrama da régua de comunicação: a jornada se ramifica conforme a abertura do e-mail, seguindo na nutrição ou acionando o reforço por SMS.">
+      </a>
+      <figcaption class="artifact__caption">Régua de comunicação com ramificação por comportamento: a jornada reage à abertura do e-mail, seguindo na nutrição ou acionando reforço. <span style="color:var(--ink-faint)">(clique para ampliar)</span></figcaption>
+    </figure>
+
+    <p>A sequência de e-mails (EMM) foi desenhada para aquecer o lead progressivamente — boas-vindas, diferenciais da instituição, modalidades de curso e, por fim, estrutura e depoimentos —, com divisão de conteúdo por área a partir do terceiro envio. O acionamento de CRM e Comercial acontecia de forma coordenada, resolvendo o desalinhamento anterior.</p>
+    <p>A leitura de performance seguia uma hierarquia de métricas: <strong>taxa de abertura → taxa de leitura → clique</strong>. Os testes A/B foram aplicados primeiro nos <strong>assuntos</strong> dos e-mails e, em seguida, nos <strong>CTAs</strong>, sempre com definição de hipótese, variação e análise de resultado.</p>
+    <p>Além da régua de nutrição, a operação incluía disparos de e-mail e WhatsApp para alertas de eventos e promoções.</p>
+
+    <!-- 7. DECISÕES PRINCIPAIS -->
+    <span class="label">07 — Decisões principais</span>
+    <h2>As escolhas que estruturaram a operação</h2>
+    <!-- Componente 4 · Grid com micro-título (variante numerada) -->
+    <div class="itemgrid itemgrid--numbered">
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">Régua com ramificação por comportamento</h3>
+        <p class="itemgrid__text">Substituir disparos avulsos por uma jornada que reage à abertura do lead — segue na nutrição ou aciona SMS de reforço.</p>
+      </div>
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">Desenho da “régua ideal”</h3>
+        <p class="itemgrid__text">Projeto da jornada-alvo, estruturada com o time, como referência de evolução da operação.</p>
+      </div>
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">Newsletter</h3>
+        <p class="itemgrid__text">Canal recorrente de relacionamento com a base.</p>
+      </div>
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">Checkout e carrinho abandonado</h3>
+        <p class="itemgrid__text">Fluxo de compra com recuperação de carrinho, conectando CRM e conversão direta.</p>
+      </div>
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">Leitura por dashboard</h3>
+        <p class="itemgrid__text">Da análise por planilhas para dashboard (Power BI), com hierarquia clara de métricas.</p>
+      </div>
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">Testes A/B sistemáticos</h3>
+        <p class="itemgrid__text">Teste em assunto e CTA como prática contínua, não pontual.</p>
+      </div>
+    </div>
+
+    <!-- 8. ENTREGAS -->
+    <span class="label">08 — Entregas</span>
+    <h2>O que ficou de concreto</h2>
+    <!-- Componente 4 · Grid com micro-título (variante numerada) -->
+    <div class="itemgrid itemgrid--numbered">
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">Réguas de comunicação</h3>
+        <p class="itemgrid__text">Estruturadas para captação e nutrição.</p>
+      </div>
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">Peças de e-mail em HTML modular</h3>
+        <p class="itemgrid__text">Reutilizáveis e consistentes, construídas para escala e disparo no Salesforce.</p>
+      </div>
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">Jornadas automatizadas no Salesforce</h3>
+        <p class="itemgrid__text">Com ramificação por comportamento.</p>
+      </div>
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">Newsletter</h3>
+        <p class="itemgrid__text">Canal recorrente de relacionamento.</p>
+      </div>
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">Cursos com checkout</h3>
+        <p class="itemgrid__text">Fluxo de compra com recuperação de carrinho abandonado.</p>
+      </div>
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">Dashboard de performance (Power BI)</h3>
+        <p class="itemgrid__text">Substituindo a leitura por planilha.</p>
+      </div>
+    </div>
+
+    <!-- Componente 5 · Slot de artefato com legenda (imagem clicável p/ ampliar) -->
+    <figure class="artifact">
+      <a class="artifact__zoom" href="../img/crm-dash.png" target="_blank" rel="noopener" aria-label="Ampliar o dashboard de performance no Power BI">
+        <img class="artifact__media" loading="lazy" decoding="async" src="../img/crm-dash.png" alt="Dashboard de performance por canal no Power BI, com os KPIs da operação de CRM em visão contínua.">
+      </a>
+      <figcaption class="artifact__caption">Dashboard de performance por canal (Power BI), substituindo a leitura por planilha e dando visibilidade contínua dos KPIs. <span style="color:var(--ink-faint)">(clique para ampliar)</span></figcaption>
+    </figure>
+
+    <!-- 9. FERRAMENTAS -->
+    <span class="label">09 — Ferramentas</span>
+    <h2>Stack do case</h2>
+    <p class="tags" style="margin-top:0">
+      <span class="tag">Salesforce</span><span class="tag">HTML</span><span class="tag">Power BI</span>
+      <span class="tag">Email Marketing</span><span class="tag">Automação</span><span class="tag">Testes A/B</span>
+    </p>
+
+    <!-- 10. IMPACTO -->
+    <span class="label">10 — Impacto</span>
+    <h2>De disparo avulso a operação mensurável</h2>
+    <p>O impacto foi qualitativo e operacional — sem métricas fabricadas, mas com mudanças que a operação sentiu no dia a dia:</p>
+
+    <!-- Componente 2 · Cards de comparação (antes/depois da operação) -->
+    <div class="compare">
+      <div class="compare__card">
+        <h3 class="compare__title">Antes</h3>
+        <ul>
+          <li>Disparos avulsos para toda a base.</li>
+          <li>Sem nutrição estruturada do lead.</li>
+          <li>Leitura de resultado por planilhas manuais.</li>
+          <li>CRM e Comercial desalinhados.</li>
+        </ul>
+      </div>
+      <div class="compare__card">
+        <h3 class="compare__title">Depois</h3>
+        <ul>
+          <li>Régua estruturada e mensurável.</li>
+          <li>Ramificação por comportamento — engajados e não engajados tratados de formas diferentes.</li>
+          <li>Dashboard de performance contínuo (abertura, leitura, clique).</li>
+          <li>CRM e Comercial coordenados pela própria jornada.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 11. APRENDIZADOS -->
+    <span class="label">11 — Aprendizados</span>
+    <h2>O que ficou</h2>
+    <ul>
+      <li>Régua que <strong>reage a comportamento</strong> converte melhor do que volume de disparo.</li>
+      <li><strong>Mensuração consolidada</strong> (dashboard) muda a conversa com as outras áreas: decisão deixa de ser opinião e passa a ser leitura de dado.</li>
+      <li>A maior parte do ganho veio de <strong>estruturar o que já existia</strong> de forma dispersa, não de adicionar complexidade.</li>
+    </ul>
+
+    <!-- 12. PRÓXIMOS PASSOS -->
+    <span class="label">12 — Próximos passos</span>
+    <h2>Evolução possível</h2>
+    <p style="color:var(--ink-faint);font-style:italic">Visão projetada, não implementada — saí do setor antes desta etapa.</p>
+    <ul>
+      <li><strong>Nutrição pós-matrícula:</strong> a lacuna mais clara da operação. A régua terminava na conversão; o passo natural seria estruturar o relacionamento com o aluno já matriculado — onboarding, recorrência e recompra de novos cursos.</li>
+    </ul>
+
+    <!-- ARTEFATOS (placeholder honesto) -->
+    <span class="label">Artefatos visuais</span>
+    <p style="color:var(--ink-faint);font-style:italic">Os artefatos visuais deste case — mapa da régua de comunicação, a ramificação por comportamento e o dashboard de performance — estão sendo recriados em versões anonimizadas, já que o material original continha dados internos. Em breve aqui.</p>
+
+    <!-- 13. CTA -->
+    <hr class="divider" style="margin-block:var(--s-7)">
+    <div class="hero-cta">
+      <a href="cases.html" class="btn btn--ghost">← Todos os cases</a>
+      <a href="contato.html" class="btn btn--primary" data-track="click_contact">Conversar sobre isso <span class="arrow">→</span></a>
+    </div>
+
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <div class="brand" style="display:inline-flex;align-items:center;gap:7px;"><img src="../favicon.svg" alt="" width="20" height="20" style="border-radius:5px;flex-shrink:0; display:block;flex-shrink:0;">Eddi&nbsp;Kochi</div>
+      <p>Experiência digital — UX, CRO, CRM, dados e governança. Portfólio autoral, em evolução.</p>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:eddimaicon@gmail.com" class="footer-ico" aria-label="Enviar e-mail para eddimaicon@gmail.com" title="E-mail" data-track="click_email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/edi-maicon-kochi-427625347/" class="footer-ico" aria-label="Abrir o LinkedIn de Eddi Kochi" title="LinkedIn" data-track="click_linkedin">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+      <a href="../CV_Edi_2026.pdf" class="footer-ico" target="_blank" rel="noopener" aria-label="Baixar currículo em PDF (abre em nova aba)" title="Currículo (PDF)" data-track="click_download_resume">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h5"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="wrap"><p class="copyright">© 2025 Eddi Kochi · Porto Alegre, BR · Construído à mão em HTML/CSS/JS</p></div>
+</footer>
+
+<script src="../assets/main.js"></script>
+</body>
+</html>

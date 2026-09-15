@@ -1,0 +1,291 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Governança digital de um site de pós médica — Eddi Kochi</title>
+<meta name="description" content="Case: ponte entre marketing, produto e tech na migração WordPress → AEM de um site de pós-graduação médica. Redesenho de processos de implementação, mapa de handoff produto→dev, fluxo de QA e testes A/B.">
+<meta name="author" content="Eddi Kochi">
+<meta name="theme-color" content="#0E0D0C">
+<link rel="canonical" href="https://eddikochi.github.io/portfolio/case-ibcmed.html">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../favicon.svg">
+<link rel="manifest" href="../site.webmanifest">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Eddi Kochi">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Governança digital de um site de pós médica">
+<meta property="og:description" content="Da migração WordPress → AEM ao go-live: transformar caos em operação governável — handoff produto→dev, QA e testes A/B.">
+<meta property="og:url" content="https://eddikochi.github.io/portfolio/case-ibcmed.html">
+<meta property="og:image" content="https://eddikochi.github.io/portfolio/assets/videos/governanca-foto.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Governança digital de um site de pós médica">
+<meta name="twitter:description" content="Da migração WordPress → AEM ao go-live: transformar caos em operação governável.">
+<meta name="twitter:image" content="https://eddikochi.github.io/portfolio/assets/videos/governanca-foto.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="case" data-slug="governanca-digital-pos-medica">
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a href="home.html" class="brand" style="display:inline-flex;align-items:center;gap:7px;"><img src="../favicon.svg" alt="" width="20" height="20" style="border-radius:5px;flex-shrink:0; display:block;flex-shrink:0;">Eddi&nbsp;Kochi</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+    <nav class="nav-links" id="nav-links">
+      <a href="home.html">Início</a>
+      <a href="cases.html" aria-current="page">Cases</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="contato.html">Contato</a>
+      <a href="../CV_Edi_2026.pdf" target="_blank" data-track="click_download_resume">Currículo ↓</a>
+      <a href="../en/case-ibcmed.html" style="opacity:.55;font-size:.85em">EN</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- 1. HERO DO CASE -->
+  <section class="case-hero wrap">
+    <a href="cases.html" class="back">← Voltar para cases</a>
+    <p class="label label--accent" style="margin-top:var(--s-5)">Governança digital · migração de plataforma · go-live</p>
+    <h1>Da migração ao go-live: governança de um site de pós-graduação médica</h1>
+    <p class="lead">Fui chamado para ser a ponte entre marketing, produto e tecnologia no momento mais crítico de um site institucional: a migração de WordPress para AEM, em pleno deploy para go-live, sem integração entre os times e sem processo definido. Meu trabalho foi transformar o caos em uma operação governável — e redesenhar os processos que travavam a entrega.</p>
+    <div class="tags" style="margin-top:var(--s-5)">
+      <span class="tag">Governança digital</span><span class="tag">UX</span><span class="tag">AEM</span>
+      <span class="tag">Processo dev↔produto</span><span class="tag">QA</span><span class="tag">CRO</span>
+      <span class="tag">Testes A/B</span><span class="tag">Backlog</span>
+    </div>
+    <dl class="case-meta">
+      <div><dt>Papel</dt><dd>Ponte produto / marketing / tech · governança</dd></div>
+      <div><dt>Contexto</dt><dd>Migração WordPress → AEM · go-live</dd></div>
+      <div><dt>Ferramentas</dt><dd>AEM · Monday · Figma · GTM</dd></div>
+      <div><dt>Setor</dt><dd>Pós-graduação médica · multi-sede</dd></div>
+    </dl>
+    <ul class="case-stats">
+      <li class="case-stat"><span class="case-stat__fig">WordPress → AEM</span><span class="case-stat__lbl">ponte de governança montada em pleno go-live</span></li>
+      <li class="case-stat"><span class="case-stat__fig">QA do zero</span><span class="case-stat__lbl">fluxo criado e passivo de bugs zerado</span></li>
+      <li class="case-stat"><span class="case-stat__fig">3–4 etapas</span><span class="case-stat__lbl">para publicar uma foto — encurtadas após redesenho</span></li>
+      <li class="case-stat"><span class="case-stat__fig">Handoff produto→dev</span><span class="case-stat__lbl">backlog ambíguo virou pipeline com dono</span></li>
+    </ul>
+  </section>
+
+  <hr class="divider">
+
+  <article class="section wrap prose">
+
+    <!-- 2. CONTEXTO -->
+    <span class="label">02 — Contexto</span>
+    <h2>Uma migração de plataforma no pior momento possível</h2>
+    <p>O cliente era uma instituição de <strong>pós-graduação médica de grande porte</strong>, com sedes em várias capitais do país e um catálogo extenso de cursos de especialização para médicos. O site institucional — peça central da captação — estava sendo migrado de WordPress para <strong>Adobe Experience Manager (AEM)</strong>.</p>
+    <p>Fui convidado a entrar exatamente no momento do deploy para go-live: a hora em que mais coisas podem dar errado e menos gente tem visão do todo. A migração avançava, mas sem a estrutura para sustentá-la.</p>
+
+    <!-- 3. PROBLEMA -->
+    <span class="label">03 — Problema</span>
+    <h2>Migração sem governança, times sem ponte</h2>
+    <p>O projeto técnico existia, mas faltava a camada que conecta pessoas, processo e plataforma. Os sintomas:</p>
+    <ul>
+      <li><strong>Sem integração entre os times.</strong> Marketing, produto e tech operavam em silos, sem um fluxo comum de comunicação ou decisão.</li>
+      <li><strong>Sem fluxo de UX para implementação.</strong> Não havia caminho definido entre a interface desenhada e a implementação dos componentes no AEM.</li>
+      <li><strong>Três ambientes, nenhum processo.</strong> O AEM rodava em dev, stage e prod, mas sem um processo claro de promoção e validação entre eles.</li>
+      <li><strong>Backlog confuso.</strong> As histórias eram difíceis de entender para quem ia implementar — o dev recebia demanda sem clareza do que fazer.</li>
+      <li><strong>Nenhum QA pós-go-live.</strong> Bugs em muitas páginas de curso só apareciam quando alguém esbarrava neles em produção.</li>
+      <li><strong>Sem cultura de teste.</strong> Não havia testes A/B nem hipóteses estruturadas de melhoria.</li>
+    </ul>
+
+    <!-- Componente 1 · Bloco de destaque (insight central) -->
+    <aside class="insight">
+      <span class="insight__label">Insight central</span>
+      <p class="insight__text">Ser a ponte entre áreas é menos intermediar conversas e mais projetar os processos que tornam a conversa desnecessária.</p>
+    </aside>
+
+    <!-- 4. MEU PAPEL -->
+    <span class="label">04 — Meu papel</span>
+    <h2>Ser a ponte — e construir os trilhos que faltavam</h2>
+    <p>Entrei como o elo entre marketing, produto e tecnologia. Mas ser "ponte" não era só intermediar conversas: era desenhar os processos que permitiam essas áreas trabalharem juntas sem atrito. Na prática, eu:</p>
+    <ul>
+      <li>peguei a operação desorganizada e a <strong>segmentei e clusterizei por tópico</strong>, dando ordem ao que chegava solto;</li>
+      <li>integrei os times em torno de um fluxo comum de demanda e decisão;</li>
+      <li><strong>redesenhei o processo de implementação de conteúdo</strong> junto com os desenvolvedores;</li>
+      <li>criei um <strong>mapa de processo para o handoff produto → dev</strong>;</li>
+      <li>otimizei a UX do frontend e implementei conteúdo no site;</li>
+      <li>criei um <strong>fluxo de QA</strong> e passei um rodo nos bugs acumulados;</li>
+      <li>implementei <strong>testes A/B</strong> onde antes não existia nenhuma cultura de experimentação.</li>
+    </ul>
+
+    <!-- 5. RESTRIÇÕES -->
+    <span class="label">05 — Restrições</span>
+    <h2>O que limitava o trabalho</h2>
+    <ul>
+      <li><strong>Timing.</strong> Entrei em pleno go-live — não havia o luxo de parar tudo para reorganizar; a operação tinha que rodar e melhorar ao mesmo tempo.</li>
+      <li><strong>Plataforma nova.</strong> O AEM tinha acabado de substituir o WordPress, e os fluxos de trabalho ainda não estavam adaptados ao novo CMS.</li>
+      <li><strong>Silos consolidados.</strong> Marketing, produto e tech tinham linguagens e prioridades diferentes; alinhar não era questão técnica, era de processo e tradução.</li>
+      <li><strong>Escala de conteúdo.</strong> Muitas páginas de curso, espalhadas por várias sedes, multiplicavam qualquer problema de processo.</li>
+    </ul>
+
+    <!-- 6. PROCESSO -->
+    <span class="label">06 — Processo</span>
+    <h2>Diagnosticar → Estruturar → Documentar → Validar → Otimizar</h2>
+
+    <!-- Componente 3 · Fluxo horizontal numerado (etapas do método) -->
+    <ol class="flow flow--numbered">
+      <li class="flow__step"><span class="flow__label">Diagnóstico</span><span class="flow__desc">Mapear o que chegava, de quem e onde travava</span></li>
+      <li class="flow__step"><span class="flow__label">Estruturação</span><span class="flow__desc">Clusterizar as demandas por tópico</span></li>
+      <li class="flow__step"><span class="flow__label">Documentação</span><span class="flow__desc">Mapa de handoff e backlog legível</span></li>
+      <li class="flow__step"><span class="flow__label">Validação</span><span class="flow__desc">Fluxo de QA criado do zero</span></li>
+      <li class="flow__step"><span class="flow__label">Otimização</span><span class="flow__desc">Processos encurtados e testes A/B</span></li>
+    </ol>
+
+    <p><strong>Diagnóstico.</strong> A primeira tarefa foi entender uma "sala bagunçada": mapear o que chegava, de quem, em que estado, e onde travava. Sem esse mapa, qualquer solução seria um chute.</p>
+    <p><strong>Estruturação.</strong> Separei e clusterizei as demandas por tópico, transformando uma fila caótica em categorias gerenciáveis. Isso deu aos times uma linguagem comum para falar do trabalho.</p>
+    <p><strong>Documentação.</strong> Criei o mapa de handoff produto → dev e reescrevi as histórias do backlog para que o desenvolvedor entendesse o que precisava ser feito — sem rodadas de "o que você quis dizer com isso?".</p>
+    <p><strong>Validação.</strong> Montei um fluxo de QA que não existia, validando as páginas antes e depois de irem para produção, e zerando o passivo de bugs acumulado.</p>
+    <p><strong>Otimização.</strong> Com a operação estável, ataquei os processos lentos e implementei testes A/B para começar a decidir com base em comportamento, não em opinião.</p>
+
+    <!-- 7. DECISÕES PRINCIPAIS -->
+    <span class="label">07 — Decisões principais</span>
+    <h2>Dois redesenhos que destravaram a operação</h2>
+    <p>De tudo que otimizei, dois processos resumem o impacto do trabalho:</p>
+
+    <h3>O mapa de handoff produto → dev</h3>
+    <p>O maior gargalo não era técnico — era de comunicação. As histórias do backlog chegavam difíceis de interpretar, e o desenvolvedor perdia tempo decifrando o pedido antes de executá-lo. Criei um mapa de processo para o handoff entre produto e desenvolvimento: um caminho claro de como uma demanda sai da ideia e chega ao dev pronta para ser implementada. O resultado foi menos retrabalho, menos ruído e entregas mais previsíveis.</p>
+
+    <h3>A otimização dos processos de implementação</h3>
+    <p>Alguns processos eram absurdamente longos para o que entregavam. O exemplo que melhor ilustra: <strong>inserir uma simples foto no site exigia um processo de 3 a 4 etapas.</strong> Multiplicado pelo volume de páginas de curso e sedes, isso consumia um tempo enorme da operação. Redesenhei esses fluxos junto com os desenvolvedores, encurtando caminhos e eliminando etapas que só existiam por inércia. Tarefas que antes travavam o time passaram a ser triviais.</p>
+
+    <!-- 8. ENTREGAS -->
+    <span class="label">08 — Entregas</span>
+    <h2>O que ficou de concreto</h2>
+
+    <!-- Componente 4 · Grid numerado (entregas) -->
+    <div class="itemgrid itemgrid--numbered">
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">Mapa de handoff produto → dev</h3>
+        <p class="itemgrid__text">Caminho claro de como a demanda sai da ideia e chega ao dev pronta.</p>
+      </div>
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">Processos de implementação encurtados</h3>
+        <p class="itemgrid__text">Fluxos redesenhados, sem as etapas que só existiam por inércia.</p>
+      </div>
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">Backlog reorganizado</h3>
+        <p class="itemgrid__text">Clusterizado por tópico e com histórias legíveis para o dev.</p>
+      </div>
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">Fluxo de QA criado do zero</h3>
+        <p class="itemgrid__text">Validação antes e depois da produção, com o passivo de bugs zerado.</p>
+      </div>
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">Testes A/B implementados</h3>
+        <p class="itemgrid__text">Experimentação onde antes não havia nenhuma cultura de teste.</p>
+      </div>
+      <div class="itemgrid__item">
+        <h3 class="itemgrid__title">UX do frontend ajustada</h3>
+        <p class="itemgrid__text">Conteúdo implementado nas páginas de curso, em várias sedes.</p>
+      </div>
+    </div>
+
+    <!-- Fluxo de handoff em cards conectados por seta (→ no desktop, ↓ no mobile) -->
+    <figure class="handoff-fig">
+      <ol class="handoff">
+        <li class="handoff__card"><span class="handoff__n">01</span><span class="handoff__label">Design/UX</span></li>
+        <li class="handoff__card"><span class="handoff__n">02</span><span class="handoff__label">Authoração</span></li>
+        <li class="handoff__card"><span class="handoff__n">03</span><span class="handoff__label">Dev (AEM)</span></li>
+        <li class="handoff__card"><span class="handoff__n">04</span><span class="handoff__label">QA</span></li>
+        <li class="handoff__card"><span class="handoff__n">05</span><span class="handoff__label">Go-live</span></li>
+        <li class="handoff__card"><span class="handoff__n">06</span><span class="handoff__label">Sustentação</span></li>
+      </ol>
+      <figcaption class="artifact__caption">Pipeline de handoff produto → dev: cada etapa com dono e critério claros, do design à sustentação — o caminho que substituiu o backlog ambíguo.</figcaption>
+    </figure>
+
+    <!-- 9. FERRAMENTAS -->
+    <span class="label">09 — Ferramentas</span>
+    <h2>Stack do case</h2>
+    <p class="tags" style="margin-top:0">
+      <span class="tag">AEM</span><span class="tag">Monday</span><span class="tag">Figma</span>
+      <span class="tag">Google Tag Manager</span><span class="tag">Testes A/B</span><span class="tag">QA</span>
+    </p>
+
+    <!-- 10. IMPACTO -->
+    <span class="label">10 — Impacto</span>
+    <h2>De caos de migração a operação que anda sozinha</h2>
+    <p>O impacto foi operacional e qualitativo — o tipo de mudança que não aparece numa única métrica, mas que todo mundo do time sente:</p>
+
+    <!-- Componente 2 · Cards de comparação (antes/depois da operação) -->
+    <div class="compare">
+      <div class="compare__card">
+        <h3 class="compare__title">Antes</h3>
+        <ul>
+          <li>Marketing, produto e tech operando em silos.</li>
+          <li>Handoff confuso — o dev decifrava o pedido antes de executá-lo.</li>
+          <li>Processos de 3-4 etapas para tarefas triviais.</li>
+          <li>Bugs descobertos por acaso, já em produção.</li>
+          <li>Decisão guiada por opinião.</li>
+        </ul>
+      </div>
+      <div class="compare__card">
+        <h3 class="compare__title">Depois</h3>
+        <ul>
+          <li>Times integrados por um fluxo e uma linguagem comum.</li>
+          <li>Handoff claro — o dev recebe demandas prontas, com menos retrabalho.</li>
+          <li>Processos encurtados, liberando tempo da operação.</li>
+          <li>Fluxo de QA pega os bugs antes de irem ao ar.</li>
+          <li>Decisão baseada em dado, via testes A/B.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 11. APRENDIZADOS -->
+    <span class="label">11 — Aprendizados</span>
+    <h2>O que ficou</h2>
+    <p>O trabalho mais valioso muitas vezes não é o mais visível. Ninguém vê um "mapa de handoff" ou um "processo de implementação encurtado" do lado de fora — mas são exatamente essas estruturas invisíveis que decidem se uma operação digital funciona ou trava. Aprendi que ser a ponte entre áreas é menos sobre intermediar conversas e mais sobre projetar os processos que tornam a conversa desnecessária.</p>
+
+    <!-- 12. PRÓXIMOS PASSOS -->
+    <span class="label">12 — Próximos passos</span>
+    <h2>Evolução possível</h2>
+    <ul>
+      <li>Transformar o mapa de handoff e o fluxo de QA em um <em>Kit de Governança Digital</em> replicável — um ativo que aplica o mesmo método a outras operações.</li>
+      <li>Evoluir a cultura de testes A/B para um programa estruturado de CRO, com hipóteses e priorização.</li>
+    </ul>
+
+    <!-- ARTEFATOS (placeholder honesto) -->
+    <span class="label">Artefatos visuais</span>
+    <p style="color:var(--ink-faint);font-style:italic">Estou recriando os artefatos visuais deste case — mapa de handoff, fluxo de QA e antes/depois dos processos — em versões anonimizadas, já que o material original continha dados internos. Em breve aqui.</p>
+
+    <!-- 13. CTA -->
+    <hr class="divider" style="margin-block:var(--s-7)">
+    <div class="hero-cta">
+      <a href="cases.html" class="btn btn--ghost">← Todos os cases</a>
+      <a href="contato.html" class="btn btn--primary" data-track="click_contact">Conversar sobre isso <span class="arrow">→</span></a>
+    </div>
+
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <div class="brand" style="display:inline-flex;align-items:center;gap:7px;"><img src="../favicon.svg" alt="" width="20" height="20" style="border-radius:5px;flex-shrink:0; display:block;flex-shrink:0;">Eddi&nbsp;Kochi</div>
+      <p>Experiência digital — UX, CRO, CRM, dados e governança. Portfólio autoral, em evolução.</p>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:eddimaicon@gmail.com" class="footer-ico" aria-label="Enviar e-mail para eddimaicon@gmail.com" title="E-mail" data-track="click_email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/edi-maicon-kochi-427625347/" class="footer-ico" aria-label="Abrir o LinkedIn de Eddi Kochi" title="LinkedIn" data-track="click_linkedin">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+      <a href="../CV_Edi_2026.pdf" class="footer-ico" target="_blank" rel="noopener" aria-label="Baixar currículo em PDF (abre em nova aba)" title="Currículo (PDF)" data-track="click_download_resume">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h5"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="wrap"><p class="copyright">© 2025 Eddi Kochi · Porto Alegre, BR · Construído à mão em HTML/CSS/JS</p></div>
+</footer>
+
+<script src="../assets/main.js"></script>
+</body>
+</html>
