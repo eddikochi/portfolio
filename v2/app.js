@@ -17,6 +17,29 @@
     });
   }
 
+  /* ---------- Reveal ao rolar ---------- */
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!reduce && "IntersectionObserver" in window) {
+    document.documentElement.classList.add("reveal-on");
+    var items = document.querySelectorAll(
+      ".section-head, .area-card, .step-card, .stack-col, .cta-band, .prose > *, .case-stats, .compare, .itemgrid, .flow, .handoff-fig, .artifact, .artifact-scroll"
+    );
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+    items.forEach(function (el, i) {
+      el.classList.add("reveal");
+      var parent = el.parentElement;
+      if (parent && /areas-grid|steps-grid|stack-grid/.test(parent.className)) {
+        var sibs = Array.prototype.indexOf.call(parent.children, el);
+        el.style.transitionDelay = (sibs % 3) * 60 + "ms";
+      }
+      io.observe(el);
+    });
+  }
+
   /* ---------- Case carousel (home only) ---------- */
   var track = document.getElementById("carouselTrack");
   if (!track) return;
