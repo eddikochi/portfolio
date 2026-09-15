@@ -1,23 +1,23 @@
 # Sobre
 
-**Comecei na criação visual. Hoje, organizo complexidade digital.**
+**Comecei no design visual. Hoje cuido da experiência digital inteira, das telas à operação por trás delas.**
 
-Minha trajetória começou no design e evoluiu por camadas — UX, CRM, dados, CRO e governança digital. Não foi troca de área, foi acúmulo: cada etapa, uma adaptação a problemas mais complexos.
+Fui somando uma camada nova a cada problema mais complexo: UX, depois CRM, dados, CRO e governança digital. Nunca larguei o que aprendi antes — foi tudo se acumulando.
 
 ## De onde venho
 
-A origem criativa não é um limite a superar — é o repertório que sustenta como leio hierarquia, clareza e linguagem até hoje.
+O que aprendi no design — hierarquia, clareza, linguagem — é a base que uso até hoje para ler qualquer tela.
 
 ## Como evoluí
 
-Design → UX/UI → CRM → Dados → CRO → Governança Digital → IA aplicada → Design Engineering
+Design → UX/UI → CRM → Dados → CRO → Governança Digital → IA aplicada
 
-UX trouxe comportamento e jornada; CRM, performance; dados, base para decisão; CRO, mensuração; governança, resposta aos gargalos operacionais. Camadas complementares que convergem para experiência digital orientada por dados, otimização e governança.
+Cada camada resolveu um limite da anterior: UX me deu comportamento e jornada; os dados, base pra decidir; o CRO, como medir; a governança, como impedir a operação de travar. Hoje isso tudo trabalha junto no dia a dia.
 
 ## O que faço hoje
 
-Atuo entre UX, CRM, dados e governança — na estratégia e na execução. Minha força está em conectar áreas e organizar caos, não apenas produzir telas.
+Atuo entre UX, CRM, dados e governança, tanto na estratégia quanto na execução. O que faço de melhor é ligar essas áreas e dar ordem a operação bagunçada — telas são só uma parte disso.
 
 ## Para onde vou
 
-Venho desenvolvendo competências técnicas em direção a Design Engineering: não abandonar UX, CRO ou governança, mas combiná-los com mais autonomia técnica. Trato o portfólio como produto — este site é parte dessa prática: construído à mão, documentado, em evolução.
+Venho ampliando minha capacidade de execução técnica — construir, prototipar e publicar por conta própria — para reduzir a distância entre a ideia e o que vai ao ar. Trato o portfólio como produto: este site é parte dessa prática, construído e documentado à mão.
