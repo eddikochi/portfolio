@@ -72,7 +72,7 @@ header.site{
 .nav-row{ display:flex; align-items:center; justify-content:space-between; padding:16px 24px; }
 .brand{ font-weight:700; font-size:1.15rem; letter-spacing:-0.01em; text-decoration:none; color:var(--ink);
   display:inline-flex; align-items:center; gap:9px; }
-.brand img{ width:22px; height:22px; border-radius:6px; }
+.brand img{ width:32px; height:32px; border-radius:50%; object-fit:cover; object-position:center 20%; }
 nav.primary-nav{ display:flex; align-items:center; gap:2px; }
 nav.primary-nav a{
   text-decoration:none; color:var(--ink); font-weight:500; font-size:.95rem;
@@ -138,12 +138,12 @@ nav.primary-nav a.lang{ border:1px solid var(--hair); margin-left:8px; font-weig
 }
 /* texto sobre mídia colorida = claro */
 .case-card .card-index{ color:rgba(255,255,255,.82); }
-.case-card .tag-list li{ background:rgba(255,255,255,.15); color:#fff; box-shadow:none; }
-/* disciplina vive na cor da tag (pode repetir entre cases) */
-.tag-list li.d-ux{ background:var(--blue); color:#fff; }
-.tag-list li.d-cro{ background:var(--mustard); color:#fff; }
-.tag-list li.d-crm{ background:var(--green); color:#fff; }
-.tag-list li.d-gov{ background:var(--lilac); color:#fff; }
+/* todas as tags semi-transparentes, mesma intensidade; a disciplina entra na cor */
+.case-card .tag-list li{ background:rgba(255,255,255,.12); color:rgba(255,255,255,.9); box-shadow:none; }
+.case-card .tag-list li.d-ux{ background:rgba(47,109,181,.26); color:#a8c6ec; }
+.case-card .tag-list li.d-crm{ background:rgba(59,122,87,.28); color:#93cfad; }
+.case-card .tag-list li.d-cro{ background:rgba(178,127,30,.28); color:#e7c684; }
+.case-card .tag-list li.d-gov{ background:rgba(124,107,176,.28); color:#c6b8e9; }
 .card-top{ display:flex; align-items:center; justify-content:space-between; margin-bottom:22px; }
 .card-index{ font-weight:800; font-size:.9rem; letter-spacing:.02em; color:var(--muted); }
 .discipline-pill{ font-size:.76rem; font-weight:700; letter-spacing:.02em; padding:6px 14px; border-radius:999px;
@@ -269,8 +269,16 @@ section.alt{ background:var(--surface-soft); border-top:1px solid var(--hair); b
 .stack-col li{ font-size:.88rem; color:var(--muted); }
 
 /* ---------- CTA final ---------- */
-.cta-band{ background:var(--ink); color:var(--bg); border-radius:var(--radius-lg); padding:56px 48px;
+.cta-band{ position:relative; overflow:hidden; background:var(--ink); color:var(--bg); border-radius:var(--radius-lg); padding:56px 48px;
   display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap; box-shadow:var(--shadow-md); }
+.cta-band > *{ position:relative; z-index:1; }
+/* fundo abstrato: disciplinas como nós conectados (o que ele faz: ligar áreas) */
+.cta-deco{ position:absolute; inset:0; z-index:0; pointer-events:none; overflow:hidden; }
+.cta-deco::before, .cta-deco::after{ content:""; position:absolute; border-radius:50%; filter:blur(70px); opacity:.4; }
+.cta-deco::before{ width:360px; height:360px; right:-40px; top:-140px; background:radial-gradient(circle, var(--lilac), transparent 70%); }
+.cta-deco::after{ width:320px; height:320px; right:180px; bottom:-180px; background:radial-gradient(circle, var(--blue), transparent 70%); }
+.cta-deco svg{ position:absolute; right:20px; top:50%; transform:translateY(-50%); width:min(48%,540px); height:auto; opacity:.55; }
+@media(max-width:720px){ .cta-deco svg{ opacity:.35; right:-40px; } }
 .cta-band h2{ font-size:clamp(1.45rem,1.4vw + 1rem,1.95rem); font-weight:700; letter-spacing:-0.015em; margin:0; max-width:26ch; }
 .cta-band .btn-primary{ background:var(--bg); color:var(--ink); flex-shrink:0; }
 .cta-band .btn-primary:hover{ background:#efe9db; }
@@ -292,7 +300,7 @@ footer.site{ padding:48px 0 56px; border-top:1px solid var(--hair); }
 .case-card:hover .case-link .arrow, .btn:hover .arrow{ transform:translateX(4px); }
 
 /* ---------- Reveal ao rolar (armado por JS; sem JS fica visível) ---------- */
-.reveal-on .reveal{ opacity:0; transform:translateY(16px); transition:opacity .6s var(--ease), transform .6s var(--ease); }
+.reveal-on .reveal{ opacity:0; transform:translateY(20px); transition:opacity .7s var(--ease-soft), transform .7s var(--ease-soft); }
 .reveal-on .reveal.in{ opacity:1; transform:none; }
 @media (prefers-reduced-motion: reduce){ .reveal-on .reveal{ opacity:1; transform:none; transition:none; } }
 

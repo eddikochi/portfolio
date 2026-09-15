@@ -22,7 +22,7 @@
   if (!reduce && "IntersectionObserver" in window) {
     document.documentElement.classList.add("reveal-on");
     var items = document.querySelectorAll(
-      ".section-head, .area-card, .step-card, .stack-col, .cta-band, .prose > *, .case-stats, .compare, .itemgrid, .flow, .handoff-fig, .artifact, .artifact-scroll"
+      ".section-head, .area-card, .stack-col, .cases-grid .case-card, .cta-band, .prose > *, .case-stats, .compare, .itemgrid, .flow, .handoff-fig, .artifact, .artifact-scroll"
     );
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
@@ -32,9 +32,9 @@
     items.forEach(function (el, i) {
       el.classList.add("reveal");
       var parent = el.parentElement;
-      if (parent && /areas-grid|steps-grid|stack-grid/.test(parent.className)) {
+      if (parent && /areas-grid|stack-grid|cases-grid/.test(parent.className)) {
         var sibs = Array.prototype.indexOf.call(parent.children, el);
-        el.style.transitionDelay = (sibs % 3) * 60 + "ms";
+        el.style.transitionDelay = (sibs % 3) * 80 + "ms";
       }
       io.observe(el);
     });
@@ -65,7 +65,7 @@
   var carousel = document.getElementById("caseCarousel");
   var index = 0;
   var count = slides.length;
-  var AUTO_MS = 6000;
+  var AUTO_MS = 7000;
   var timer = null;
 
   slides.forEach(function (_, i) {
