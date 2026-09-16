@@ -64,7 +64,7 @@ button{font-family:inherit;}
 /* ---------- Header ---------- */
 header.site{
   position:sticky; top:0; z-index:40;
-  background:rgba(247,244,236,.86);
+  background:rgba(243,244,246,.86);
   -webkit-backdrop-filter:saturate(160%) blur(10px);
   backdrop-filter:saturate(160%) blur(10px);
   border-bottom:1px solid var(--hair);
@@ -96,7 +96,7 @@ nav.primary-nav{ display:flex; align-items:center; gap:4px; }
 nav.primary-nav a{
   display:flex; flex-direction:column; align-items:center; gap:5px; text-align:center;
   text-decoration:none; color:var(--muted); font-weight:500; font-size:.66rem; letter-spacing:.02em;
-  line-height:1; padding:8px 12px; border-radius:14px;
+  line-height:1; padding:9px 14px; border-radius:999px;
   transition:background .18s var(--ease-soft), color .18s var(--ease-soft);
 }
 nav.primary-nav a svg{ width:21px; height:21px; }
@@ -110,7 +110,7 @@ nav.primary-nav a[aria-current="page"]{ background:var(--surface); color:var(--i
 .lang-switch a:not(.active):hover{ color:var(--ink); }
 .nav-toggle{
   display:none; border:1px solid var(--hair); background:var(--surface);
-  border-radius:10px; width:42px; height:42px; align-items:center; justify-content:center; cursor:pointer;
+  border-radius:50%; width:42px; height:42px; align-items:center; justify-content:center; cursor:pointer;
 }
 .nav-toggle svg{ width:20px; height:20px; }
 
@@ -219,9 +219,9 @@ section.alt{ background:var(--surface-soft); border-top:1px solid var(--hair); b
 .area-card.green{ --accent:var(--green); }
 .area-card.mustard{ --accent:var(--mustard); }
 .area-card.lilac{ --accent:var(--lilac); }
-/* elipse neutra; a cor da disciplina vive no traço do ícone */
+/* elipse neutra, ícone em cinza — sem cor de disciplina */
 .area-icon{ width:48px; height:48px; border-radius:50%; display:flex; align-items:center; justify-content:center;
-  margin-bottom:18px; background:var(--surface-soft); border:1px solid var(--hair); color:var(--accent); }
+  margin-bottom:18px; background:var(--surface-soft); border:1px solid var(--hair); color:#5c626b; }
 .area-icon svg{ width:22px; height:22px; }
 .area-card h3{ font-size:1.08rem; font-weight:700; margin:0 0 8px; letter-spacing:-0.01em; }
 .area-card p{ margin:0; color:var(--muted); font-size:.94rem; }
@@ -246,7 +246,7 @@ section.alt{ background:var(--surface-soft); border-top:1px solid var(--hair); b
 .method.is-visible .step{ opacity:1; transform:none; }
 .step::before, .step::after{ content:""; position:absolute; top:34px; left:5px; transform:translate(-50%,-50%);
   width:9px; height:9px; border-radius:50%; box-shadow:0 0 0 4px var(--bg); }
-.step::before{ background:#cfc7b6; z-index:2; }
+.step::before{ background:#d0d3d9; z-index:2; }
 .step::after{ background:var(--ink); z-index:3; opacity:0; }
 /* nós acesos nas cores das disciplinas (mesma paleta do card de contato) */
 .method .step:nth-child(1)::after{ background:var(--blue); }
