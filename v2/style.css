@@ -8,12 +8,12 @@
    ========================================================= */
 
 :root{
-  --bg:#F8F8F6;
+  --bg:#FAFAFA;
   --ink:#1B1A18;
   --muted:#6E6C67;
   --hair:#E7E6E3;
   --hair-soft:#EFEEEC;
-  --surface:#FFFFFF;
+  --surface:#FEFEFE;
   --surface-soft:#FCFCFB;
 
   --blue:#2F6DB5;   --blue-tint:rgba(47,109,181,.10);  --blue-tint-strong:rgba(47,109,181,.18);
@@ -64,7 +64,7 @@ button{font-family:inherit;}
 /* ---------- Header ---------- */
 header.site{
   position:sticky; top:0; z-index:40;
-  background:rgba(248,248,246,.86);
+  background:rgba(250,250,250,.86);
   -webkit-backdrop-filter:saturate(160%) blur(10px);
   backdrop-filter:saturate(160%) blur(10px);
   border-bottom:1px solid var(--hair);
@@ -219,9 +219,9 @@ section.alt{ background:var(--surface-soft); border-top:1px solid var(--hair); b
 .area-card.green{ --accent:var(--green); }
 .area-card.mustard{ --accent:var(--mustard); }
 .area-card.lilac{ --accent:var(--lilac); }
-/* elipse neutra, ícone em cinza — sem cor de disciplina */
+/* elipse neutra; ícone na cor da disciplina — mesmos tons dos dots da metodologia */
 .area-icon{ width:48px; height:48px; border-radius:50%; display:flex; align-items:center; justify-content:center;
-  margin-bottom:18px; background:var(--surface-soft); border:1px solid var(--hair); color:var(--muted); }
+  margin-bottom:18px; background:var(--surface-soft); border:1px solid var(--hair); color:var(--accent); }
 .area-icon svg{ width:22px; height:22px; }
 .area-card h3{ font-size:1.08rem; font-weight:700; margin:0 0 8px; letter-spacing:-0.01em; }
 .area-card p{ margin:0; color:var(--muted); font-size:.94rem; }
@@ -314,14 +314,17 @@ section.alt{ background:var(--surface-soft); border-top:1px solid var(--hair); b
 .cta-deco::before, .cta-deco::after{ content:""; position:absolute; border-radius:50%; filter:blur(70px); opacity:.4; }
 .cta-deco::before{ width:360px; height:360px; right:-40px; top:-140px; background:radial-gradient(circle, var(--lilac), transparent 70%); }
 .cta-deco::after{ width:320px; height:320px; right:180px; bottom:-180px; background:radial-gradient(circle, var(--blue), transparent 70%); }
-.cta-deco svg{ position:absolute; right:20px; top:50%; transform:translateY(-50%); width:min(48%,540px); height:auto; opacity:.55; }
-@media(max-width:720px){ .cta-deco svg{ opacity:.35; right:-40px; } }
+.cta-deco svg{ position:absolute; right:-40px; top:50%;
+  transform:translateY(-50%) perspective(1000px) rotateY(-22deg) rotateX(7deg) scale(1.18);
+  transform-origin:70% center; width:min(64%,720px); height:auto; opacity:.72; }
+@media(max-width:720px){ .cta-deco svg{ opacity:.4; right:-90px; transform:translateY(-50%) perspective(900px) rotateY(-20deg) scale(1.1); } }
 .cta-band h2{ font-size:clamp(1.45rem,1.4vw + 1rem,1.95rem); font-weight:700; letter-spacing:-0.015em; margin:0; max-width:26ch; }
 .cta-band .btn-primary{ background:var(--bg); color:var(--ink); border:1px solid var(--bg); flex-shrink:0; }
 /* hover em negativo: some o preenchimento, texto e contorno claros */
 .cta-band .btn-primary:hover{ background:transparent; color:var(--bg); border-color:rgba(255,255,255,.55); box-shadow:none; }
 /* ao passar o mouse no card, os nós coloridos pulsam em sequência */
-.cta-deco circle{ transform-box:fill-box; transform-origin:center; }
+.cta-deco circle{ transform-box:fill-box; transform-origin:center; filter:drop-shadow(0 9px 14px rgba(0,0,0,.55)); }
+.cta-deco g line{ filter:drop-shadow(0 4px 8px rgba(0,0,0,.4)); }
 .cta-band:hover .cta-deco circle{ animation:node-twinkle 1.8s var(--ease-soft) infinite; }
 .cta-band:hover .cta-deco circle:nth-of-type(1){ animation-delay:0s; }
 .cta-band:hover .cta-deco circle:nth-of-type(2){ animation-delay:.18s; }
