@@ -8,13 +8,13 @@
    ========================================================= */
 
 :root{
-  --bg:#F5F5F4;
+  --bg:#F8F8F6;
   --ink:#1B1A18;
   --muted:#6E6C67;
   --hair:#E7E6E3;
   --hair-soft:#EFEEEC;
   --surface:#FFFFFF;
-  --surface-soft:#FAFAF9;
+  --surface-soft:#FCFCFB;
 
   --blue:#2F6DB5;   --blue-tint:rgba(47,109,181,.10);  --blue-tint-strong:rgba(47,109,181,.18);
   --green:#3B7A57;  --green-tint:rgba(59,122,87,.10);   --green-tint-strong:rgba(59,122,87,.18);
@@ -64,7 +64,7 @@ button{font-family:inherit;}
 /* ---------- Header ---------- */
 header.site{
   position:sticky; top:0; z-index:40;
-  background:rgba(245,245,244,.86);
+  background:rgba(248,248,246,.86);
   -webkit-backdrop-filter:saturate(160%) blur(10px);
   backdrop-filter:saturate(160%) blur(10px);
   border-bottom:1px solid var(--hair);
