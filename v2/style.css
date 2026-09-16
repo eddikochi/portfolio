@@ -35,7 +35,7 @@
   --glide:cubic-bezier(.16,1,.3,1);       /* desaceleração longa p/ carrossel */
 
   /* filtro único (carvão quente) dos cards de case — cor vive nas tags */
-  --card-scrim:linear-gradient(155deg, rgba(44,39,33,.60), rgba(20,18,15,.86));
+  --card-scrim:linear-gradient(155deg, rgba(36,32,27,.78), rgba(14,12,10,.93));
 }
 
 *{box-sizing:border-box;}
@@ -232,6 +232,13 @@ section.alt{ background:var(--surface-soft); border-top:1px solid var(--hair); b
   width:9px; height:9px; border-radius:50%; box-shadow:0 0 0 4px var(--bg); }
 .step::before{ background:#cfc7b6; z-index:2; }
 .step::after{ background:var(--ink); z-index:3; opacity:0; }
+/* nós acesos nas cores das disciplinas (mesma paleta do card de contato) */
+.method .step:nth-child(1)::after{ background:var(--blue); }
+.method .step:nth-child(2)::after{ background:var(--lilac); }
+.method .step:nth-child(3)::after{ background:var(--green); }
+.method .step:nth-child(4)::after{ background:var(--mustard); }
+.method .step:nth-child(5)::after{ background:var(--blue); }
+.method .step:nth-child(6)::after{ background:var(--lilac); }
 .method.is-visible .step::after{ animation-duration:6s; animation-timing-function:var(--ease-soft); animation-delay:1.3s; animation-iteration-count:infinite; }
 @keyframes nf1{0%,3%{opacity:0}6%{opacity:1}13%,85%{opacity:1}90%,100%{opacity:0}}
 @keyframes nf2{0%,14%{opacity:0}17%{opacity:1}24%,85%{opacity:1}90%,100%{opacity:0}}
@@ -386,7 +393,7 @@ a.case-card{ text-decoration:none; }
 .case-hero__media{ position:absolute; inset:0; z-index:0; background-size:cover; background-position:center; transform:scale(1.03); }
 /* gradiente vertical: topo revela mais a foto, base bem carvão para leitura do meta */
 .case-hero__scrim{ position:absolute; inset:0; z-index:1;
-  background:linear-gradient(180deg, rgba(28,25,20,.52) 0%, rgba(24,21,17,.64) 45%, rgba(12,10,8,.95) 100%); }
+  background:linear-gradient(180deg, rgba(22,20,16,.70) 0%, rgba(18,16,13,.80) 45%, rgba(9,8,6,.96) 100%); }
 .case-hero__body{ position:relative; z-index:2; padding:36px 40px 34px; }
 .case-hero .back{ color:rgba(255,255,255,.82); }
 .case-hero .back:hover{ color:#fff; }
