@@ -8,13 +8,13 @@
    ========================================================= */
 
 :root{
-  --bg:#F3F4F6;
-  --ink:#181A1F;
-  --muted:#697079;
-  --hair:#E3E5EA;
-  --hair-soft:#ECEEF1;
+  --bg:#F5F5F4;
+  --ink:#1B1A18;
+  --muted:#6E6C67;
+  --hair:#E7E6E3;
+  --hair-soft:#EFEEEC;
   --surface:#FFFFFF;
-  --surface-soft:#FAFBFC;
+  --surface-soft:#FAFAF9;
 
   --blue:#2F6DB5;   --blue-tint:rgba(47,109,181,.10);  --blue-tint-strong:rgba(47,109,181,.18);
   --green:#3B7A57;  --green-tint:rgba(59,122,87,.10);   --green-tint-strong:rgba(59,122,87,.18);
@@ -27,8 +27,8 @@
   --maxw:1240px;
 
   /* elevação suave — o "flutuar" da referência */
-  --shadow-sm:0 1px 2px rgba(24,26,31,.015), 0 2px 6px rgba(24,26,31,.02);
-  --shadow-md:0 1px 4px rgba(24,26,31,.025), 0 8px 20px rgba(24,26,31,.035);
+  --shadow-sm:0 1px 2px rgba(26,25,23,.015), 0 2px 6px rgba(26,25,23,.02);
+  --shadow-md:0 1px 4px rgba(26,25,23,.025), 0 8px 20px rgba(26,25,23,.035);
 
   --ease:cubic-bezier(.22,1,.36,1);
   --ease-soft:cubic-bezier(.4,0,.2,1);   /* suave in-out para hovers */
@@ -64,7 +64,7 @@ button{font-family:inherit;}
 /* ---------- Header ---------- */
 header.site{
   position:sticky; top:0; z-index:40;
-  background:rgba(243,244,246,.86);
+  background:rgba(245,245,244,.86);
   -webkit-backdrop-filter:saturate(160%) blur(10px);
   backdrop-filter:saturate(160%) blur(10px);
   border-bottom:1px solid var(--hair);
@@ -72,7 +72,7 @@ header.site{
 .nav-row{ display:flex; align-items:center; justify-content:space-between; padding:16px 24px; }
 .brand{ text-decoration:none; color:var(--ink); display:inline-flex; align-items:center; gap:11px; }
 .brand img{ width:42px; height:42px; border-radius:50%; object-fit:cover; object-position:center 20%; }
-.brand-mark{ width:40px; height:40px; flex:none; border-radius:50%; background:var(--surface); border:1px solid var(--hair);
+.brand-mark{ width:40px; height:40px; flex:none; border-radius:50%; background:var(--ink); border:1px solid var(--ink);
   display:grid; place-items:center; box-shadow:var(--shadow-sm); }
 .brand-mark svg{ width:24px; height:24px; }
 .brand-text{ display:flex; flex-direction:column; gap:2px; line-height:1.02; }
@@ -123,9 +123,9 @@ nav.primary-nav a[aria-current="page"]{ background:var(--surface); color:var(--i
 }
 .btn:active{ transform:translateY(1px); }
 .btn-primary{ background:var(--ink); color:var(--bg); }
-.btn-primary:hover{ background:#2b2e35; box-shadow:var(--shadow-md); }
+.btn-primary:hover{ background:#2a2825; box-shadow:var(--shadow-md); }
 .btn-ghost{ background:var(--surface); color:var(--ink); border-color:var(--hair); box-shadow:var(--shadow-sm); }
-.btn-ghost:hover{ border-color:#cbcfd6; }
+.btn-ghost:hover{ border-color:#d5d3ce; }
 
 /* ---------- Hero ---------- */
 .hero{ padding:80px 0 96px; }
@@ -195,7 +195,7 @@ nav.primary-nav a[aria-current="page"]{ background:var(--surface); color:var(--i
   display:flex; align-items:center; justify-content:center; cursor:pointer; color:var(--ink);
   box-shadow:var(--shadow-sm); transition:background .15s var(--ease), border-color .15s var(--ease);
 }
-.carousel-btn:hover{ background:var(--bg); border-color:#cbcfd6; }
+.carousel-btn:hover{ background:var(--bg); border-color:#d5d3ce; }
 .carousel-btn svg{ width:18px; height:18px; }
 .carousel-dots{ display:flex; gap:7px; }
 .dot{ width:6px; height:6px; border-radius:50%; background:var(--hair); border:none; padding:0; cursor:pointer;
@@ -221,7 +221,7 @@ section.alt{ background:var(--surface-soft); border-top:1px solid var(--hair); b
 .area-card.lilac{ --accent:var(--lilac); }
 /* elipse neutra, ícone em cinza — sem cor de disciplina */
 .area-icon{ width:48px; height:48px; border-radius:50%; display:flex; align-items:center; justify-content:center;
-  margin-bottom:18px; background:var(--surface-soft); border:1px solid var(--hair); color:#5c626b; }
+  margin-bottom:18px; background:var(--surface-soft); border:1px solid var(--hair); color:#63615c; }
 .area-icon svg{ width:22px; height:22px; }
 .area-card h3{ font-size:1.08rem; font-weight:700; margin:0 0 8px; letter-spacing:-0.01em; }
 .area-card p{ margin:0; color:var(--muted); font-size:.94rem; }
@@ -246,7 +246,7 @@ section.alt{ background:var(--surface-soft); border-top:1px solid var(--hair); b
 .method.is-visible .step{ opacity:1; transform:none; }
 .step::before, .step::after{ content:""; position:absolute; top:34px; left:5px; transform:translate(-50%,-50%);
   width:9px; height:9px; border-radius:50%; box-shadow:0 0 0 4px var(--bg); }
-.step::before{ background:#d0d3d9; z-index:2; }
+.step::before{ background:#d8d6d2; z-index:2; }
 .step::after{ background:var(--ink); z-index:3; opacity:0; }
 /* nós acesos nas cores das disciplinas (mesma paleta do card de contato) */
 .method .step:nth-child(1)::after{ background:var(--blue); }
@@ -389,7 +389,7 @@ footer.site{ padding:48px 0 56px; border-top:1px solid var(--hair); }
    PÁGINAS INTERNAS (sobre, cases, contato, cases individuais)
    Cor por disciplina via --accent (herdado das classes abaixo).
    ========================================================= */
-:root{ --read:#33373e; }
+:root{ --read:#34322E; }
 .blue{ --accent:var(--blue); }
 .green{ --accent:var(--green); }
 .mustard{ --accent:var(--mustard); }
