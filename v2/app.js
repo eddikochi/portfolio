@@ -53,22 +53,28 @@
     }
   }
 
-  /* ---------- Case carousel (home only) ---------- */
+  /* ---------- Case carousel (home only): loop contínuo p/ frente ---------- */
   var track = document.getElementById("carouselTrack");
   if (!track) return;
 
-  var slides = Array.prototype.slice.call(track.children);
+  var real = Array.prototype.slice.call(track.children);
+  var count = real.length;
   var dotsWrap = document.getElementById("carouselDots");
   var prevBtn = document.getElementById("prevBtn");
   var nextBtn = document.getElementById("nextBtn");
   var status = document.getElementById("carouselStatus");
   var carousel = document.getElementById("caseCarousel");
-  var index = 0;
-  var count = slides.length;
-  var AUTO_MS = 7000;
+  var AUTO_MS = 8000;
   var timer = null;
+  var index = 0;       // 0..count (count = clone do primeiro slide)
+  var animating = false;
 
-  slides.forEach(function (_, i) {
+  // clone do primeiro slide ao fim → o loop nunca "volta" atravessando os slides
+  var clone = real[0].cloneNode(true);
+  clone.setAttribute("aria-hidden", "true");
+  track.appendChild(clone);
+
+  real.forEach(function (_, i) {
     var dot = document.createElement("button");
     dot.className = "dot";
     dot.setAttribute("role", "tab");
@@ -78,17 +84,41 @@
   });
   var dots = Array.prototype.slice.call(dotsWrap.children);
 
-  function render() {
+  function paint() {
     track.style.transform = "translateX(-" + index * 100 + "%)";
-    dots.forEach(function (d, i) {
-      d.setAttribute("aria-current", i === index ? "true" : "false");
-    });
-    if (status) status.textContent = "Mostrando case " + (index + 1) + " de " + count;
+    var r = index % count;
+    dots.forEach(function (d, i) { d.setAttribute("aria-current", i === r ? "true" : "false"); });
+    if (status) status.textContent = "Mostrando case " + (r + 1) + " de " + count;
   }
-  function goTo(i) { index = (i + count) % count; render(); }
-  function next() { goTo(index + 1); }
-  function prev() { goTo(index - 1); }
-  function start() { timer = window.setInterval(next, AUTO_MS); }
+  function jumpTo(i) {                 // reposiciona sem animar
+    track.classList.add("no-anim");
+    index = i;
+    track.style.transform = "translateX(-" + index * 100 + "%)";
+    void track.offsetHeight;           // força reflow
+    track.classList.remove("no-anim");
+  }
+  function next() {
+    if (animating) return;
+    animating = true; index++; paint();
+  }
+  function prev() {
+    if (animating) return;
+    animating = true;
+    if (index === 0) jumpTo(count);    // salta p/ o clone e desliza p/ o último
+    index--; paint();
+  }
+  function goTo(i) {
+    if (animating || i === index % count) return;
+    animating = true; index = i; paint();
+  }
+
+  track.addEventListener("transitionend", function (e) {
+    if (e.propertyName !== "transform") return;
+    if (index === count) jumpTo(0);    // chegou no clone → volta ao 0 sem o usuário ver
+    animating = false;
+  });
+
+  function start() { if (!timer) timer = window.setInterval(next, AUTO_MS); }
   function stop() { if (timer) { window.clearInterval(timer); timer = null; } }
   function restart() { stop(); start(); }
 
@@ -107,9 +137,7 @@
   }
 
   var touchStartX = null;
-  track.addEventListener("touchstart", function (e) {
-    touchStartX = e.changedTouches[0].clientX; stop();
-  }, { passive: true });
+  track.addEventListener("touchstart", function (e) { touchStartX = e.changedTouches[0].clientX; stop(); }, { passive: true });
   track.addEventListener("touchend", function (e) {
     if (touchStartX === null) return;
     var dx = e.changedTouches[0].clientX - touchStartX;
@@ -117,6 +145,6 @@
     touchStartX = null; start();
   }, { passive: true });
 
-  render();
-  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) start();
+  paint();
+  if (!reduce) start();
 })();
