@@ -221,7 +221,7 @@ section.alt{ background:var(--surface-soft); border-top:1px solid var(--hair); b
 .area-card.lilac{ --accent:var(--lilac); }
 /* elipse neutra, ícone em cinza — sem cor de disciplina */
 .area-icon{ width:48px; height:48px; border-radius:50%; display:flex; align-items:center; justify-content:center;
-  margin-bottom:18px; background:var(--surface-soft); border:1px solid var(--hair); color:#63615c; }
+  margin-bottom:18px; background:var(--surface-soft); border:1px solid var(--hair); color:var(--muted); }
 .area-icon svg{ width:22px; height:22px; }
 .area-card h3{ font-size:1.08rem; font-weight:700; margin:0 0 8px; letter-spacing:-0.01em; }
 .area-card p{ margin:0; color:var(--muted); font-size:.94rem; }
