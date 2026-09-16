@@ -239,6 +239,11 @@ section.alt{ background:var(--surface-soft); border-top:1px solid var(--hair); b
 .method .step:nth-child(4)::after{ background:var(--mustard); }
 .method .step:nth-child(5)::after{ background:var(--blue); }
 .method .step:nth-child(6)::after{ background:var(--lilac); }
+/* método de um case usa uma cor só (a da disciplina) */
+.method.blue .step::after{ background:var(--blue); }
+.method.green .step::after{ background:var(--green); }
+.method.mustard .step::after{ background:var(--mustard); }
+.method.lilac .step::after{ background:var(--lilac); }
 .method.is-visible .step::after{ animation-duration:6s; animation-timing-function:var(--ease-soft); animation-delay:1.3s; animation-iteration-count:infinite; }
 @keyframes nf1{0%,3%{opacity:0}6%{opacity:1}13%,85%{opacity:1}90%,100%{opacity:0}}
 @keyframes nf2{0%,14%{opacity:0}17%{opacity:1}24%,85%{opacity:1}90%,100%{opacity:0}}
@@ -394,11 +399,15 @@ a.case-card{ text-decoration:none; }
 /* gradiente vertical: topo revela mais a foto, base bem carvão para leitura do meta */
 .case-hero__scrim{ position:absolute; inset:0; z-index:1;
   background:linear-gradient(180deg, rgba(22,20,16,.70) 0%, rgba(18,16,13,.80) 45%, rgba(9,8,6,.96) 100%); }
-.case-hero__body{ position:relative; z-index:2; padding:36px 40px 34px; }
-.case-hero .back{ color:rgba(255,255,255,.82); }
+.case-hero__body{ position:relative; z-index:2; padding:26px 40px 28px; }
+.case-hero .back{ color:rgba(255,255,255,.82); margin-bottom:6px; }
 .case-hero .back:hover{ color:#fff; }
-.case-hero .back{ margin-bottom:6px; }
-.case-hero .eyebrow{ color:rgba(255,255,255,.85); margin:34px 0 0; }
+.case-hero .eyebrow{ color:rgba(255,255,255,.85); margin:30px 0 0; }
+/* kicker na cor da disciplina do case */
+.case-hero.blue .eyebrow{ color:#a8c6ec; }
+.case-hero.green .eyebrow{ color:#93cfad; }
+.case-hero.mustard .eyebrow{ color:#e7c684; }
+.case-hero.lilac .eyebrow{ color:#c6b8e9; }
 .case-hero h1{ font-family:'Bricolage Grotesque',sans-serif; font-weight:700; letter-spacing:-0.018em; line-height:1.12;
   font-size:clamp(1.8rem,2.2vw + 1rem,2.75rem); color:#fff; margin:10px 0 16px; max-width:22ch; }
 .case-hero .lead{ color:rgba(255,255,255,.92); max-width:62ch; font-size:1.08rem; line-height:1.55; margin:0 0 18px; }
@@ -414,6 +423,11 @@ a.case-card{ text-decoration:none; }
 /* Faixa de prova (stats) — no creme, abaixo do hero */
 .case-stats{ list-style:none; display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin:24px 0 0; padding:0; }
 .case-stat{ background:var(--surface); border:1px solid var(--hair-soft); border-radius:var(--radius-md); padding:22px 20px; box-shadow:var(--shadow-sm); }
+/* sombra dos stat cards na cor da disciplina do case */
+.case-stats.blue .case-stat{ box-shadow:0 6px 22px rgba(47,109,181,.20); }
+.case-stats.green .case-stat{ box-shadow:0 6px 22px rgba(59,122,87,.20); }
+.case-stats.mustard .case-stat{ box-shadow:0 6px 22px rgba(178,127,30,.20); }
+.case-stats.lilac .case-stat{ box-shadow:0 6px 22px rgba(124,107,176,.24); }
 .case-stat__fig{ display:block; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; line-height:1.1;
   font-size:clamp(1.2rem,2vw,1.65rem); color:var(--accent); margin-bottom:6px; }
 .case-stat__lbl{ font-size:.72rem; color:var(--muted); line-height:1.45; }
@@ -474,11 +488,21 @@ a.case-card{ text-decoration:none; }
 
 /* handoff */
 .handoff-fig{ margin:32px 0; }
-.handoff{ list-style:none; margin:0 0 12px; padding:0; display:grid; grid-template-columns:1fr; gap:12px; }
-.handoff__card{ background:var(--surface); border:1px solid var(--hair-soft); border-radius:var(--radius-sm); padding:14px 16px; display:flex; gap:10px; box-shadow:var(--shadow-sm); }
-.handoff__n{ font-family:'Bricolage Grotesque',sans-serif; font-weight:700; color:var(--accent); font-size:.8rem; }
-.handoff__label{ font-weight:600; font-size:.92rem; }
-@media(min-width:720px){ .handoff{ grid-template-columns:repeat(3,1fr); } }
+/* pipeline horizontal conectada por setas — distinta dos cards de entregas */
+.handoff{ list-style:none; margin:0 0 14px; padding:0; display:flex; flex-wrap:nowrap; gap:22px; align-items:stretch; }
+.handoff__card{ position:relative; flex:1 1 0; min-width:0;
+  display:flex; flex-direction:column; gap:5px; text-align:center;
+  background:var(--surface); border:1px solid var(--hair-soft); border-top:3px solid var(--accent);
+  border-radius:var(--radius-sm); padding:14px 10px; box-shadow:var(--shadow-sm); }
+.handoff__n{ font-family:'Bricolage Grotesque',sans-serif; font-weight:700; color:var(--accent); font-size:.72rem; letter-spacing:.06em; }
+.handoff__label{ font-weight:600; font-size:.86rem; color:var(--ink); line-height:1.2; }
+.handoff__card:not(:last-child)::after{ content:"→"; position:absolute; right:-16px; top:50%; transform:translateY(-50%);
+  color:var(--accent); font-weight:700; font-size:.95rem; line-height:1; }
+@media(max-width:640px){
+  .handoff{ flex-direction:column; gap:20px; }
+  .handoff__card{ flex:none; text-align:left; border-top:1px solid var(--hair-soft); border-left:3px solid var(--accent); }
+  .handoff__card:not(:last-child)::after{ content:"↓"; right:auto; left:50%; top:auto; bottom:-15px; transform:translateX(-50%); }
+}
 
 /* artefatos */
 .artifact{ margin:28px 0; }
