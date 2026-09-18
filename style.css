@@ -321,7 +321,7 @@ section.alt{ background:var(--surface-soft); border-top:1px solid var(--hair); b
 .cta-band h2{ font-size:clamp(1.45rem,1.4vw + 1rem,1.95rem); font-weight:700; letter-spacing:-0.015em; margin:0; max-width:26ch; }
 .cta-band .btn-primary{ background:var(--bg); color:var(--ink); border:1px solid var(--bg); flex-shrink:0; }
 /* hover em negativo: some o preenchimento, texto e contorno claros */
-.cta-band .btn-primary:hover{ background:#000; color:#fff; border-color:#fff; box-shadow:0 0 0 1px #fff, 0 8px 30px rgba(255,255,255,.28); }
+.cta-band .btn-primary:hover{ background:#000; color:#fff; border:0.5px solid #fff; box-shadow:0 8px 30px rgba(255,255,255,.28); }
 /* ao passar o mouse no card, os nós coloridos pulsam em sequência */
 .cta-deco circle{ transform-box:fill-box; transform-origin:center; filter:drop-shadow(0 9px 14px rgba(0,0,0,.55)); }
 .cta-deco g line{ filter:drop-shadow(0 4px 8px rgba(0,0,0,.4)); }
@@ -338,13 +338,12 @@ section.alt{ background:var(--surface-soft); border-top:1px solid var(--hair); b
 footer.site{ padding:48px 0 56px; border-top:1px solid var(--hair); }
 .footer-grid{ display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap; }
 .footer-links{ display:flex; gap:16px; align-items:center; }
-.footer-links a{ display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:50%;
-  color:var(--muted); border:1px solid var(--hair); background:var(--surface);
-  transition:color .15s var(--ease), border-color .15s var(--ease); }
-.footer-links a:hover{ color:var(--ink); border-color:var(--ink); }
-.footer-links svg{ width:20px; height:20px; }
+.footer-links a{ display:inline-flex; align-items:center; justify-content:center;
+  color:var(--muted); transition:color .15s var(--ease); }
+.footer-links a:hover{ color:var(--ink); }
+.footer-links svg{ width:23px; height:23px; }
 .footer-brand-block{ display:inline-flex; align-items:center; gap:12px; }
-.footer-brand-text{ display:flex; flex-direction:column; gap:3px; line-height:1.05; text-align:right; }
+.footer-brand-text{ display:flex; flex-direction:column; gap:3px; line-height:1.05; text-align:left; }
 .footer-brand{ font-weight:700; font-size:1.05rem; margin:0; }
 .footer-sub{ font-size:.66rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
 .footer-mark{ width:42px; height:42px; flex:none; border-radius:50%; background:var(--ink); display:grid; place-items:center; }
