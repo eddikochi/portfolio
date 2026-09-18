@@ -338,10 +338,11 @@ section.alt{ background:var(--surface-soft); border-top:1px solid var(--hair); b
 footer.site{ padding:48px 0 56px; border-top:1px solid var(--hair); }
 .footer-grid{ display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap; }
 .footer-links{ display:flex; gap:16px; align-items:center; }
-.footer-links a{ display:inline-flex; align-items:center; justify-content:center;
-  color:var(--muted); transition:color .15s var(--ease); }
-.footer-links a:hover{ color:var(--ink); }
-.footer-links svg{ width:23px; height:23px; }
+.footer-links a{ display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:50%;
+  color:var(--muted); border:1px solid var(--hair); background:var(--surface);
+  transition:color .15s var(--ease), border-color .15s var(--ease); }
+.footer-links a:hover{ color:var(--ink); border-color:var(--ink); }
+.footer-links svg{ width:21px; height:21px; }
 .footer-brand-block{ display:inline-flex; align-items:center; gap:12px; }
 .footer-brand-text{ display:flex; flex-direction:column; gap:3px; line-height:1.05; text-align:left; }
 .footer-brand{ font-weight:700; font-size:1.05rem; margin:0; }
