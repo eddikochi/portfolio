@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Eddi Kochi — Portfolio V4</title>
+<meta name="description" content="Eddi Kochi — UX, CRM, CRO, Product e Governança Digital.">
+<style>
+:root{--bg:#f2f0e8;--ink:#10100f;--muted:#6b685f;--line:#c9c5ba;--accent:#ff4b00;--dark:#11110f;--light:#f8f5ec;--pad:clamp(20px,4vw,64px)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.3}a{color:inherit;text-decoration:none}button{font:inherit}.w{max-width:1440px;margin:auto;padding-inline:var(--pad)}
+body > header{position:sticky;top:0;z-index:30;background:#f2f0e8ed;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}nav{height:72px;display:flex;align-items:center;gap:25px}.brand{font-weight:900;margin-right:auto;letter-spacing:-.04em}.links{display:flex;gap:22px;font-size:11px;text-transform:uppercase;letter-spacing:.1em}.btn{display:inline-block;border:1px solid currentColor;padding:11px 14px;background:transparent;color:inherit;font-size:11px;text-transform:uppercase;letter-spacing:.09em;cursor:pointer}
+.hero{min-height:calc(100vh - 72px);padding-block:9vh 6vh;display:flex;flex-direction:column;justify-content:space-between;border-bottom:1px solid var(--line)}.ey{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}.hero h1{font-size:clamp(78px,14vw,205px);line-height:.73;letter-spacing:-.09em;margin:35px 0}.hero h1 span{display:block}.accent{color:var(--accent)}.hb{display:grid;grid-template-columns:1.45fr .55fr;gap:40px}.lede{font-size:clamp(23px,3vw,42px);letter-spacing:-.04em;max-width:950px;margin:0}.muted{color:var(--muted)}
+.sec{padding-block:105px;border-bottom:1px solid var(--line)}.head,.project,.about{display:grid;grid-template-columns:.55fr 1.45fr;gap:40px}.head{margin-bottom:65px}.head h2{font-size:clamp(48px,7vw,100px);line-height:.86;letter-spacing:-.07em;margin:0}.head p{font-size:20px;max-width:720px}.projects{border-top:1px solid var(--line)}.project{padding:38px 0;border-bottom:1px solid var(--line)}.project h3{font-size:clamp(52px,7vw,100px);line-height:.85;letter-spacing:-.07em;margin:0 0 15px}.hook{font-size:clamp(25px,3vw,43px);letter-spacing:-.04em;max-width:850px;margin:12px 0}.desc{font-size:18px;max-width:800px}.status,.pill{display:inline-block;border:1px solid var(--line);padding:7px 9px;font-size:10px;text-transform:uppercase;letter-spacing:.1em}.status{margin-top:12px}.facts{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.visual{height:clamp(300px,39vw,570px);margin-top:28px;background:#151513;color:var(--light);display:grid;place-items:center;position:relative;overflow:hidden}.visual.light{background:#ddd7c7;color:#111}.visual:before{content:"";position:absolute;width:60%;height:65%;border:1px solid currentColor;opacity:.28;transform:rotate(-6deg)}.visual strong{z-index:1;font-size:clamp(30px,6vw,85px);letter-spacing:-.07em;text-align:center}.meta{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-top:14px;font-size:11px;text-transform:uppercase}
+.toolstrip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;display:flex;gap:24px;flex-wrap:wrap;align-items:center}.toolstrip strong{font-size:10px;letter-spacing:.12em}.toolstrip span{font-size:13px;color:var(--muted)}
+.three{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}.cap{padding:28px 28px 55px 0;border-bottom:1px solid var(--line);min-height:390px}.cap+.cap{border-left:1px solid var(--line);padding-left:28px}.cap h3{font-size:46px;letter-spacing:-.055em;margin:75px 0 20px}.cap ul{list-style:none;padding:0;margin:28px 0 0;line-height:1.75}.systems{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.sys{border:1px solid var(--line);padding:28px;min-height:420px}.sys.mid{background:var(--dark);color:var(--light);border-color:var(--dark)}.sys h3{font-size:38px;letter-spacing:-.05em;margin:62px 0 14px}.sys p{min-height:65px}.sys ul{padding-left:18px;line-height:1.85}.ind{display:grid;grid-template-columns:1fr 1fr;gap:16px}.ic{border:1px solid var(--line);padding:28px;min-height:390px;display:flex;flex-direction:column}.ic h3{font-size:clamp(48px,6vw,78px);letter-spacing:-.06em;margin:70px 0 10px}.bottom{margin-top:auto}.process{display:grid;grid-template-columns:repeat(6,1fr);border-top:1px solid var(--line)}.step{padding:24px 15px 55px 0;border-bottom:1px solid var(--line)}.step+.step{border-left:1px solid var(--line);padding-left:15px}.step strong{display:block;font-size:22px;margin-top:55px}.step p{font-size:13px}.portrait{min-height:560px;background:#111;color:#aaa;display:flex;align-items:flex-end;padding:22px}.about h2{font-size:clamp(50px,7vw,100px);line-height:.87;letter-spacing:-.07em;margin:0 0 30px}.about p{font-size:20px;max-width:760px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}.cta{background:#111;color:var(--light)}.cta h2{font-size:clamp(70px,12vw,170px);line-height:.76;letter-spacing:-.085em;margin:20px 0 50px}.cta p{font-size:20px;max-width:720px;color:#aaa}footer{padding-block:28px;display:flex;justify-content:space-between;gap:15px;font-size:11px;text-transform:uppercase}
+.overlay{display:none;position:fixed;inset:0;z-index:1000;background:var(--dark);color:var(--light);overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}.overlay.open{display:block}.caseNav{position:sticky;top:0;background:#111e;backdrop-filter:blur(10px);border-bottom:1px solid #444;z-index:3}.caseNavIn{height:68px;display:flex;align-items:center;justify-content:space-between}.close{background:none;color:white;border:1px solid #777;padding:10px 13px;cursor:pointer}.case{max-width:1200px;margin:auto;padding:80px var(--pad)}.caseHero{padding-bottom:80px}.case h2{font-size:clamp(62px,10vw,145px);line-height:.78;letter-spacing:-.08em;margin:28px 0}.caseLead{font-size:clamp(22px,2.5vw,34px);letter-spacing:-.035em;color:#c7c4ba;max-width:900px}.caseStats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #555;border-bottom:1px solid #555;margin-top:55px}.caseStat{padding:22px 18px}.caseStat+.caseStat{border-left:1px solid #555}.caseStat strong{display:block;font-size:23px;margin-top:8px}.story{display:grid;grid-template-columns:.55fr 1.45fr;gap:45px;border-top:1px solid #555;padding:55px 0}.story h3{font-size:15px;letter-spacing:.12em;margin:0}.story h4{font-size:clamp(30px,4vw,55px);letter-spacing:-.05em;margin:0 0 25px}.story p,.story li{font-size:18px;color:#bbb;max-width:780px}.story li{margin-bottom:9px}.insight{border:1px solid #666;padding:35px;margin:30px 0}.insight strong{font-size:clamp(30px,5vw,65px);letter-spacing:-.06em;display:block}.profiles{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:25px}.profile{border:1px solid #555;padding:25px}.profile h5{font-size:24px;margin:0 0 12px}.decisionGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.decision{border:1px solid #555;padding:22px}.decision strong{font-size:20px}.truth{border-left:4px solid var(--accent);padding:20px 25px;background:#1b1b18;margin-top:30px;color:#ccc}
+body.case-open{overflow:hidden!important;height:100vh;touch-action:none}.overlay.open{display:block}.overlay .case{min-height:100vh}.overlay .caseNav{position:sticky;top:0;z-index:1002}
+@media(max-width:850px){.links{display:none}.hb,.head,.project,.about,.story{grid-template-columns:1fr}.three,.systems,.process,.ind,.caseStats,.profiles,.decisionGrid{grid-template-columns:1fr}.cap+.cap,.step+.step,.caseStat+.caseStat{border-left:0;padding-left:0}.caseStat+.caseStat{border-top:1px solid #555}footer{flex-direction:column}.hero h1{font-size:22vw}}
+
+.pageView{display:none}
+.pageView.active{display:block}
+.casePage{background:var(--dark);color:var(--light);min-height:100vh}
+body.case-view > header,body.case-view > #homeFooter{display:none}
+.casePage .caseNav{position:sticky;top:0;z-index:50;background:#111;border-bottom:1px solid #444}
+
+
+.caseHero{
+  position:static!important;
+  top:auto!important;
+  z-index:auto!important;
+  background:transparent!important;
+  backdrop-filter:none!important;
+  border-bottom:0!important;
+  display:block!important;
+  height:auto!important;
+}
+
+
+.heroV4{min-height:calc(100vh - 72px);padding-top:clamp(70px,9vh,125px);padding-bottom:50px;border-bottom:1px solid var(--line);display:flex;align-items:center}
+.heroGrid{width:100%;display:grid;grid-template-columns:minmax(0,1.65fr) minmax(300px,.85fr);gap:clamp(55px,8vw,140px);align-items:center}
+.heroMain h1{font-size:clamp(82px,9vw,155px);line-height:.79;letter-spacing:-.085em;margin:28px 0 38px}
+.heroMain h1 span{display:block}
+.heroStatement{font-size:clamp(25px,2.3vw,39px);line-height:1.12;letter-spacing:-.04em;max-width:820px;margin:0}
+.heroPrimary{background:var(--ink);color:var(--light);border-color:var(--ink)}
+.heroScope{border-left:1px solid var(--line);padding-left:32px;max-width:430px}
+.heroScope p{font-size:17px;color:var(--muted);margin:22px 0 28px}
+.heroTags{display:flex;gap:8px;flex-wrap:wrap}
+.heroTags span{border:1px solid var(--line);border-radius:999px;padding:8px 12px;font-size:11px}
+@media(max-width:850px){
+  .heroV4{min-height:auto;padding-block:70px}
+  .heroGrid{grid-template-columns:1fr;gap:55px}
+  .heroMain h1{font-size:20vw}
+  .heroScope{border-left:0;border-top:1px solid var(--line);padding:28px 0 0}
+}
+
+
+/* V4 PROJECT COVER SYSTEM */
+.projectVisual{position:relative;isolation:isolate;display:block;padding:clamp(20px,3vw,44px);height:clamp(360px,42vw,610px);overflow:hidden}
+.projectVisual:before{display:none!important}
+.visualLabel{position:absolute;left:clamp(20px,3vw,44px);top:22px;z-index:5;font-size:10px;letter-spacing:.14em;font-weight:700}
+.browserMockup{position:absolute;width:72%;height:72%;left:14%;top:15%;background:#f3f0e7;color:#111;border:1px solid #777;box-shadow:18px 22px 0 rgba(255,255,255,.08);transform:rotate(-1.5deg);overflow:hidden}
+.browserBar{height:34px;border-bottom:1px solid #aaa;display:flex;align-items:center;gap:6px;padding:0 11px;font-size:8px;color:#777}.browserBar i{width:7px;height:7px;border:1px solid #777;border-radius:50%}.browserBar span{margin-left:8px}
+.browserBody{height:calc(100% - 34px);padding:14px}.mockNav{height:12px;width:100%;border-bottom:1px solid #bbb;margin-bottom:17px}.pdpScreen{display:grid;grid-template-columns:1.1fr .9fr;gap:15px;height:62%}.pdpCopy{padding:10px 4px}.mockKicker{font-size:7px;letter-spacing:.12em}.mockTitle{height:18px;background:#111;width:88%;margin-top:12px}.mockTitle.short{width:58%;margin-top:5px}.mockLines{width:70%;height:30px;border-top:1px solid #aaa;border-bottom:1px solid #aaa;margin-top:17px}.mockCTA{display:inline-block;background:#ff4b00;color:#fff;font-size:7px;padding:9px 12px;margin-top:17px}.pdpMedia{background:#d8d4ca;display:flex;align-items:flex-end;padding:12px;font-size:16px;font-weight:800;line-height:.9}.mockModules{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:12px}.mockModules b{height:45px;border:1px solid #bbb}
+.visualNote{position:absolute;z-index:6;background:#f3f0e7;color:#111;border:1px solid #777;padding:12px 14px;font-size:8px;line-height:1.4;letter-spacing:.1em}.visualNote b{font-size:12px}.noteA{left:5%;bottom:8%;transform:rotate(2deg)}.noteB{right:5%;top:12%;transform:rotate(3deg)}.orangeNote{background:#ff4b00;color:#fff;border-color:#ff4b00}.darkNote{background:#111;color:#fff}
+.ibcmedVisual{background:#ddd7c7;color:#111}.lightMock{background:#111;color:#f3f0e7;border-color:#333;box-shadow:18px 22px 0 rgba(0,0,0,.12)}.lightMock .browserBar{border-color:#444;color:#999}.governanceCanvas{height:calc(100% - 34px);padding:clamp(20px,3vw,42px);display:flex;flex-direction:column;justify-content:space-between}.govTop{font-size:clamp(24px,3vw,46px);font-weight:800;letter-spacing:-.05em;display:flex;justify-content:space-between;align-items:center}.govTop em{font-style:normal;color:#ff4b00}.govFlow{display:flex;align-items:center;justify-content:center;gap:9px}.govFlow div{border:1px solid #666;padding:12px 15px;font-size:9px}.govFlow i{font-style:normal;color:#ff4b00}.govBottom{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #555}.govBottom span{padding:12px 5px;font-size:8px;border-right:1px solid #555}
+.crmVisual{background:#151513}.crmBoard{position:absolute;width:76%;height:68%;left:12%;top:17%;border:1px solid #777;background:#20201d;box-shadow:18px 22px 0 rgba(255,255,255,.06);transform:rotate(1deg);padding:18px}.crmHead{display:flex;justify-content:space-between;border-bottom:1px solid #555;padding-bottom:12px;font-size:8px;letter-spacing:.12em}.crmHead b{color:#ff4b00}.journey{height:65%;position:relative;display:flex;align-items:center;padding:0 3%}.node{border:1px solid #888;padding:12px 14px;min-width:85px;font-size:9px;background:#20201d;z-index:2}.node small,.diamond small{display:block;font-size:6px;color:#999;margin-top:5px}.wire{height:1px;background:#777;width:9%}.diamond{font-size:24px;color:#ff4b00;text-align:center;z-index:2}.branch{position:absolute;left:63%;width:10%;border-left:1px solid #777}.branchTop{top:22%;height:28%;border-top:1px solid #777}.branchBottom{bottom:22%;height:28%;border-bottom:1px solid #777}.branchNode{position:absolute;left:73%}.branchNode.top{top:12%}.branchNode.bottom{bottom:12%}.crmMetrics{border-top:1px solid #555;padding-top:12px;display:flex;justify-content:space-between;align-items:center;font-size:7px}.crmMetrics strong{color:#ff4b00}
+@media(max-width:700px){
+ .projectVisual{height:390px;padding:18px}.browserMockup,.crmBoard{width:84%;left:8%;height:67%;top:18%}
+ .visualLabel{left:18px}.visualNote{padding:9px;font-size:7px}.visualNote b{font-size:9px}
+ .pdpScreen{grid-template-columns:1fr}.pdpMedia{display:none}.govFlow{gap:4px}.govFlow div{padding:8px 6px;font-size:7px}.govBottom span{font-size:6px}
+ .node{min-width:55px;padding:8px 5px;font-size:7px}.journey{padding:0}.wire{width:6%}.branch{left:62%}.branchNode{left:72%}
+}
+
+</style>
+<style>
+.overlay,.overlay.open{position:static!important;inset:auto!important;overflow:visible!important}
+body.case-open{overflow:auto!important;height:auto!important;touch-action:auto!important}
+</style>
+</head><body>
+<header><nav class="w"><a class="brand" href="#top">EDDI KOCHI</a><div class="links"><a href="#work">Work</a><a href="#what">Expertise</a><a href="#independent">Independent</a><a href="#about">About</a></div><a class="btn" href="#contact">Get in touch ↗</a></nav></header>
+<main id="homePage" class="pageView active">
+<section class="heroV4 w" id="top">
+  <div class="heroGrid">
+    <div class="heroMain">
+      <div class="ey">DIGITAL DESIGNER · UX / CRM / CRO / PRODUCT</div>
+      <h1><span>DESIGN.</span><span>GROWTH.</span><span class="accent">SYSTEMS.</span></h1>
+      <p class="heroStatement">Eu desenho experiências e sistemas digitais que conectam interface, comportamento, relacionamento e operação.</p>
+      <div class="actions">
+        <a class="btn heroPrimary" href="#work">Explorar projetos ↓</a>
+        <a class="btn" href="#about">Sobre mim →</a>
+      </div>
+    </div>
+    <aside class="heroScope">
+      <div class="ey">ATUAÇÃO</div>
+      <p>Da experiência à conversão.<br>Do CRM à operação.<br>Estratégia e execução no mesmo sistema.</p>
+      <div class="heroTags">
+        <span>UX/UI</span><span>CRM</span><span>CRO</span><span>Product</span>
+        <span>Lifecycle</span><span>Analytics</span><span>Automation</span>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="sec w" id="work"><div class="head"><div class="ey">01 / Selected professional work</div><div><h2>Problemas reais.<br>Evidência antes da solução.</h2><p class="muted">Três trabalhos que mostram diagnóstico, decisão, implementação e operação — não apenas interfaces finais.</p></div></div><div class="projects">
+<article class="project"><div><div class="ey">01 — CRO / UX / Behavior</div><span class="status">Professional work · IBCMED</span></div><div><h3>Nova PDP</h3><p class="hook">O problema não era o CTA.</p><p class="desc muted">90 dias de análise comportamental mostraram que o gargalo estava na transição entre validação e ação. O diagnóstico orientou discovery, redesign, governança e implementação.</p><div class="facts"><span class="pill">90 dias · Clarity</span><span class="pill">3 → 1 modalidades</span><span class="pill">Aprovado pela diretoria</span><span class="pill">Produção / AEM</span></div><div class="visual projectVisual pdpVisual">
+      <div class="visualLabel">01 / BEHAVIOR → INTERFACE</div>
+      <div class="browserMockup">
+        <div class="browserBar"><i></i><i></i><i></i><span>ibcmed.com.br / curso</span></div>
+        <div class="browserBody">
+          <div class="mockNav"></div>
+          <div class="pdpScreen">
+            <div class="pdpCopy">
+              <span class="mockKicker">PÓS-GRADUAÇÃO</span>
+              <div class="mockTitle"></div><div class="mockTitle short"></div>
+              <div class="mockLines"></div>
+              <div class="mockCTA">QUERO SABER MAIS →</div>
+            </div>
+            <div class="pdpMedia"><span>PRODUCT<br>PAGE</span></div>
+          </div>
+          <div class="mockModules"><b></b><b></b><b></b></div>
+        </div>
+      </div>
+      <div class="visualNote noteA">90 DAYS<br><b>CLARITY</b></div>
+      <div class="visualNote noteB">VALIDATION<br><b>→ ACTION</b></div>
+    </div><div class="meta"><span>Clarity · Figma · Miro · AEM</span><button class="btn" id="openPDP">Read case ↗</button></div></div></article>
+<article class="project"><div><div class="ey">02 — Governance / AEM / QA</div><span class="status">Professional work · IBCMED</span></div><div><h3>Go-live</h3><p class="hook">Governança para uma operação digital em migração.</p><p class="desc muted">Migração WordPress → AEM conectando marketing, produto e tecnologia, com QA, handoff e processos para sustentar a operação após o lançamento.</p><div class="visual projectVisual ibcmedVisual">
+      <div class="visualLabel">02 / PLATFORM → GOVERNANCE</div>
+      <div class="browserMockup lightMock">
+        <div class="browserBar"><i></i><i></i><i></i><span>AEM / digital operation</span></div>
+        <div class="governanceCanvas">
+          <div class="govTop"><span>WORDPRESS</span><em>→</em><span>AEM</span></div>
+          <div class="govFlow">
+            <div>MARKETING</div><i>↔</i><div>PRODUCT</div><i>↔</i><div>TECH</div>
+          </div>
+          <div class="govBottom"><span>QA</span><span>HANDOFF</span><span>BACKLOG</span><span>DOCS</span></div>
+        </div>
+      </div>
+      <div class="visualNote noteA darkNote">GO-LIVE<br><b>OPERATIONS</b></div>
+      <div class="visualNote noteB orangeNote">CHAOS<br><b>→ SYSTEM</b></div>
+    </div><div class="meta"><span>AEM · QA · Governance</span><span>Case será migrado na próxima etapa</span></div></div></article>
+<article class="project"><div><div class="ey">03 — CRM / Lifecycle</div><span class="status">Professional work · Medical education</span></div><div><h3>CRM</h3><p class="hook">De disparos avulsos a jornadas comportamentais.</p><p class="desc muted">CRM multicanal estruturado para transformar comunicação isolada em uma régua que reage ao comportamento e pode ser mensurada continuamente.</p><div class="visual projectVisual crmVisual">
+      <div class="visualLabel">03 / CAMPAIGN → LIFECYCLE</div>
+      <div class="crmBoard">
+        <div class="crmHead"><span>JOURNEY / 01</span><b>SALESFORCE</b></div>
+        <div class="journey">
+          <div class="node start">LEAD</div><span class="wire"></span>
+          <div class="node">EMAIL 01<small>WELCOME</small></div><span class="wire"></span>
+          <div class="diamond">◆<small>BEHAVIOR</small></div>
+          <div class="branch branchTop"></div><div class="branch branchBottom"></div>
+          <div class="node branchNode top">SMS<small>ENGAGED</small></div>
+          <div class="node branchNode bottom">EMAIL 02<small>NO ACTION</small></div>
+        </div>
+        <div class="crmMetrics"><span>OPEN</span><strong>→</strong><span>CLICK</span><strong>→</strong><span>BEHAVIOR</span><strong>→</strong><span>NEXT STEP</span></div>
+      </div>
+      <div class="visualNote noteA">MULTICHANNEL<br><b>LIFECYCLE</b></div>
+      <div class="visualNote noteB orangeNote">DATA<br><b>→ JOURNEY</b></div>
+    </div><div class="meta"><span>Salesforce · HTML · Power BI</span><span>Case será migrado na próxima etapa</span></div></div></article>
+</div>
+<div class="toolstrip"><strong>TOOLS & PLATFORMS</strong><span>Salesforce Marketing Cloud</span><span>Adobe Experience Manager</span><span>Microsoft Clarity</span><span>Power BI</span><span>Figma</span><span>Miro</span><span>GA4</span><span>HTML/CSS</span></div></section>
+
+<section class="sec w" id="what"><div class="head"><div class="ey">02 / What I do</div><div><h2>Construir. Crescer.<br>Operar.</h2><p class="muted">Organizo diferentes disciplinas para criar experiências digitais, melhorar sua performance e estruturar a operação por trás delas.</p></div></div><div class="three">
+<div class="cap"><span>01</span><h3>BUILD</h3><p class="muted">Experiências e produtos digitais claros, úteis e orientados à ação.</p><ul><li>UX & Product</li><li>Websites & landing pages</li><li>Discovery & prototyping</li><li>Digital products</li><li>Design systems</li></ul></div>
+<div class="cap"><span>02</span><h3>GROW</h3><p class="muted">Jornadas que conectam aquisição, conversão, relacionamento e retenção.</p><ul><li>CRM & Lifecycle</li><li>CRO</li><li>Behavior analysis</li><li>Experimentation</li><li>Retention</li></ul></div>
+<div class="cap"><span>03</span><h3>OPERATE</h3><p class="muted">Operações digitais mais mensuráveis, integradas e governáveis.</p><ul><li>Digital governance</li><li>QA & validation</li><li>Analytics</li><li>Automation</li><li>AI workflows</li></ul></div></div></section>
+
+<section class="sec w"><div class="head"><div class="ey">03 / Systems I can connect</div><div><h2>Das peças<br>ao sistema.</h2><p class="muted">UX, CRM, CRO, web, dados e automação normalmente geram mais valor quando operam conectados.</p></div></div><div class="systems">
+<div class="sys"><div class="ey">01 / Presence</div><h3>Digital Presence</h3><p>Uma base digital própria para transformar descoberta em uma experiência controlada e mensurável.</p><ul><li>Website</li><li>WhatsApp / formulário</li><li>Analytics</li><li>SEO básico</li></ul></div>
+<div class="sys mid"><div class="ey">02 / Acquisition</div><h3>Lead System</h3><p>Uma estrutura para transformar tráfego e interesse em leads identificáveis e acompanháveis.</p><ul><li>Landing page</li><li>CRM</li><li>Automation</li><li>Tracking</li><li>Funnel</li></ul></div>
+<div class="sys"><div class="ey">03 / Operations</div><h3>Digital Operation</h3><p>Uma operação conectada entre experiência, relacionamento, dados e processos.</p><ul><li>Diagnosis</li><li>Web / LP</li><li>CRM</li><li>Automation</li><li>Analytics + dashboard</li></ul></div></div></section>
+
+<section class="sec w" id="independent"><div class="head"><div class="ey">04 / Independent & concept work</div><div><h2>Explorações fora do trabalho corporativo.</h2><p class="muted">Projetos independentes aparecem com o estágio real em que estão — discovery não é apresentado como produto lançado.</p></div></div><div class="ind">
+<article class="ic"><div><div class="ey">Strategy concept · Independent · 2026</div><h3>Fermenta</h3><p class="muted">Estratégia de jornada para um negócio local dependente de Instagram — da descoberta à recompra.</p></div><div class="bottom"><span class="status">Strategy / Discovery</span></div></article>
+<article class="ic"><div><div class="ey">Product discovery · Independent · 2026</div><h3>VetScan</h3><p class="muted">Exploração de um fluxo digital para organizar etapas e informação no contexto de diagnóstico veterinário.</p></div><div class="bottom"><span class="status">Discovery / Prototype</span></div></article></div></section>
+
+<section class="sec w"><div class="head"><div class="ey">05 / How I work</div><div><h2>Do problema<br>à evolução.</h2><p class="muted">Um processo repetível para transformar sintomas difusos em decisões, entregas e aprendizado.</p></div></div><div class="process">
+<div class="step"><span>01</span><strong>Diagnose</strong><p class="muted">Entender o problema real por trás do sintoma.</p></div><div class="step"><span>02</span><strong>Structure</strong><p class="muted">Organizar hipóteses, dados e prioridades.</p></div><div class="step"><span>03</span><strong>Design</strong><p class="muted">Transformar evidência em solução.</p></div><div class="step"><span>04</span><strong>Document</strong><p class="muted">Tornar decisões e padrões reproduzíveis.</p></div><div class="step"><span>05</span><strong>Validate</strong><p class="muted">Testar antes de escalar.</p></div><div class="step"><span>06</span><strong>Evolve</strong><p class="muted">Medir, aprender e melhorar.</p></div></div></section>
+
+<section class="sec w" id="about"><div class="about"><div class="portrait">Sua foto / retrato</div><div><div class="ey">06 / About</div><h2>Designer de sistemas digitais, não apenas de telas.</h2><p>Minha trajetória começou no design e passou por produção editorial, QA, liderança de UX, experiência web e CRM. Essa combinação me fez olhar para produtos como sistemas: interface, conteúdo, comportamento, operação e mensuração precisam conversar.</p><p class="muted">Hoje atuo principalmente em UX, CRM, CRO e produtos digitais, conectando diagnóstico, execução e governança.</p><div class="actions"><a class="btn" href="#">View résumé ↗</a><a class="btn" href="#">LinkedIn ↗</a><a class="btn" href="#">GitHub ↗</a></div></div></div></section>
+
+<section class="sec cta" id="contact"><div class="w"><div class="ey">Open to opportunities & selected independent projects</div><h2>LET'S BUILD<br>SOMETHING<br>USEFUL.</h2><p>Aberto a oportunidades em UX, CRM, CRO, Product e Growth — como parte de um time ou em projetos independentes selecionados.</p><div class="actions"><a class="btn" href="#">View résumé ↗</a><a class="btn" href="#">Get in touch ↗</a></div></div></section>
+</main><footer id="homeFooter" class="w"><span>© 2026 Eddi Kochi</span><span>Porto Alegre · Brazil · Remote</span><span>UX · CRM · CRO · PRODUCT</span></footer>
+
+<main class="casePage pageView" id="pdp">
+<div class="caseNav"><div class="w caseNavIn"><span class="ey">Case study · Nova PDP</span><button class="close" id="closePDP">Close ×</button></div></div>
+<article class="case">
+<header class="caseHero"><div class="ey">CRO · Behavioral analysis · PDP redesign</div><h2>THE PROBLEM<br>WASN'T THE <span class="accent">CTA.</span></h2><p class="caseLead">Diagnóstico comportamental via Microsoft Clarity e reestruturação da PDP do IBCMED, do discovery ao handoff com produto e tecnologia.</p>
+<div class="caseStats"><div class="caseStat"><span class="ey">Role</span><strong>Digital Experience & CRO</strong></div><div class="caseStat"><span class="ey">Focus</span><strong>Diagnosis → execution</strong></div><div class="caseStat"><span class="ey">Evidence</span><strong>90 days / Clarity</strong></div><div class="caseStat"><span class="ey">Stack</span><strong>Clarity · Miro · Figma · AEM</strong></div></div></header>
+
+<section class="story"><h3>01 / CONTEXT</h3><div><h4>A página de decisão da jornada.</h4><p>A PDP era onde o usuário avaliava valor, reduzia risco e buscava clareza antes de enviar o formulário de interesse. A estrutura existente era genérica: modalidades diferentes geravam páginas separadas e informações essenciais ficavam escondidas em uma sequência de sanfonas.</p></div></section>
+<section class="story"><h3>02 / PROBLEM</h3><div><h4>Tráfego relevante. Conversão que não correspondia.</h4><p>Antes de redesenhar, a prioridade foi entender o comportamento real. A hipótese inicial apontava para o CTA, mas os dados mostraram outro problema.</p><div class="insight"><span class="ey">Central insight</span><strong>O gargalo não era o CTA, mas a transição entre validação e ação.</strong></div></div></section>
+<section class="story"><h3>03 / MY ROLE</h3><div><h4>Do comportamento ao handoff.</h4><ul><li>Análise de 90 dias no Microsoft Clarity, separando mobile e desktop.</li><li>Diagnóstico de scroll, cliques, rage clicks, dead clicks e padrões recorrentes.</li><li>Discovery, mapa de objeções e user flow da nova PDP.</li><li>Handoff e acompanhamento com Produto e Tecnologia.</li><li>Implementação de parte das mudanças diretamente no AEM.</li></ul></div></section>
+<section class="story"><h3>04 / EVIDENCE</h3><div><h4>Validação e ação são comportamentos diferentes.</h4><p>Scroll e leitura foram tratados como microconversões. Isso revelou dois padrões recorrentes:</p><div class="profiles"><div class="profile"><div class="ey">Profile A</div><h5>Já decidido</h5><p>Vai rapidamente ao formulário e converte cedo. O site executa uma decisão que, em grande parte, já estava tomada.</p></div><div class="profile"><div class="ey">Profile B</div><h5>Em validação</h5><p>Lê mais, percorre a página e procura informações como público, aulas práticas e corpo docente antes de decidir.</p></div></div><p>A oportunidade estava em conduzir melhor o segundo perfil do “entendi” para o “quero fazer”.</p></div></section>
+<section class="story"><h3>05 / DESIGN DECISIONS</h3><div><h4>O redesign nasceu do diagnóstico.</h4><div class="decisionGrid">
+<div class="decision"><strong>Diagnosticar antes de redesenhar</strong><p>Decisão por evidência comportamental.</p></div><div class="decision"><strong>3 modalidades → 1 PDP</strong><p>Menos páginas, vitrine mais limpa e manutenção mais simples.</p></div><div class="decision"><strong>Reduzir a sanfona</strong><p>Conteúdo direto e escaneável para apoiar validação.</p></div><div class="decision"><strong>Contextualizar o CTA</strong><p>Conduzir explicitamente validação → ação.</p></div><div class="decision"><strong>Microconversões</strong><p>Medir leitura e scroll, não somente o formulário.</p></div><div class="decision"><strong>Sistema de componentes</strong><p>Governança e reutilização entre cursos.</p></div></div></div></section>
+<section class="story"><h3>06 / DELIVERABLES</h3><div><h4>Do insight para algo operável.</h4><ul><li>Análise comportamental priorizada.</li><li>Mapa de objeções e user flow.</li><li>Estrutura final da nova PDP.</li><li>Mapa de governança de componentes.</li><li>Handoff com Produto e Tecnologia.</li><li>Implementação parcial em AEM.</li></ul></div></section>
+<section class="story"><h3>07 / IMPACT</h3><div><h4>Do “CTA não converte” para o problema certo.</h4><p>O redesign passou a ser orientado por evidência, consolidou modalidades em uma única estrutura e transformou a PDP em um sistema de componentes reutilizável. A proposta foi aprovada pela diretoria e chegou à produção.</p><div class="truth"><strong>Sobre os resultados:</strong> a mensuração de conversão pós-implementação continuou com o time após minha saída. Não acompanhei os números finais. O que sustento neste case é o diagnóstico, o redesign aprovado e a entrega em produção.</div></div></section>
+<section class="story"><h3>08 / LEARNING</h3><div><h4>O valor não estava em redesenhar uma tela.</h4><p>O principal aprendizado foi traduzir comportamento em decisão de produto: entender a jornada antes de alterar a interface evitou otimizar o elemento errado e criou uma solução mais governável para produto, conteúdo e tecnologia.</p><div class="actions"><button class="btn" onclick="document.getElementById('closePDP').click()">← Back to portfolio</button></div></div></section>
+</article></main>
+
+<script>
+const homePage=document.getElementById('homePage');
+const homeFooter=document.getElementById('homeFooter');
+const pdp=document.getElementById('pdp');
+const openPDP=document.getElementById('openPDP');
+const closePDP=document.getElementById('closePDP');
+let homeScroll=0;
+
+function openCase(){
+  homeScroll=window.scrollY;
+  homePage.classList.remove('active');
+  pdp.classList.add('active');
+  document.body.classList.add('case-view');
+  window.scrollTo({top:0,left:0,behavior:'instant'});
+}
+
+function closeCase(){
+  pdp.classList.remove('active');
+  homePage.classList.add('active');
+  document.body.classList.remove('case-view');
+  window.scrollTo({top:homeScroll,left:0,behavior:'instant'});
+}
+
+openPDP.addEventListener('click',openCase);
+closePDP.addEventListener('click',closeCase);
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape' && pdp.classList.contains('active')) closeCase();
+});
+</script></body></html>
