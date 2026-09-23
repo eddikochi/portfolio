@@ -101,9 +101,9 @@ nav{gap:22px}
 .visual:hover:before,.visual.light:hover:before{transform:rotate(0) scale(1.04);box-shadow:none}
 .visual strong{z-index:1}
 /* Mockups reais de cada case (pasta img/) */
-.visual.pdp:before{background-image:url('../img/m-pdp.webp')}
-.visual.ibcmed:before{background-image:url('../img/m-gov.webp')}
-.visual.crm:before{background-image:url('../img/m-nova-crm.webp')}
+.visual.pdp:before{background-image:url('img/m-pdp.webp')}
+.visual.ibcmed:before{background-image:url('img/m-gov.webp')}
+.visual.crm:before{background-image:url('img/m-nova-crm.webp')}
 /* Com imagem, o rótulo grande vira legenda discreta */
 .visual.pdp strong,.visual.ibcmed strong,.visual.crm strong{display:none}
 
@@ -122,7 +122,7 @@ nav{gap:22px}
 .sys:hover,.sys.mid:hover{background:var(--dark);color:var(--light);border-color:var(--dark)}
 
 /* --- About: foto (pasta img/avatar) --- */
-.portrait{background:#111 url('../img/avatar.webp') center 18%/cover no-repeat}
+.portrait{background:#111 url('img/avatar.webp') center 18%/cover no-repeat}
 
 /* --- Footer: manter como a versão atual do site --- */
 footer#homeFooter.site{display:block;padding:48px 0 56px;border-top:1px solid var(--line);text-transform:none}
