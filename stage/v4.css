@@ -230,3 +230,11 @@ footer#homeFooter .footer-note{margin-top:28px;padding-top:20px;border-top:1px s
 
 /* Case standalone: body escuro (evita cream em overscroll) */
 body.onCase{background:var(--dark)}
+
+/* --- A11y: foco visivel de teclado (todas as paginas) --- */
+a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,.lang a:focus-visible{
+  outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+/* --- A11y: skip link --- */
+.skip{position:absolute;left:8px;top:-48px;z-index:100;background:var(--ink);color:var(--light);
+  padding:10px 14px;font-size:12px;text-transform:uppercase;letter-spacing:.08em;transition:top .15s}
+.skip:focus{top:8px}
