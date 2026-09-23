@@ -101,9 +101,9 @@ nav{gap:22px}
 .visual:hover:before,.visual.light:hover:before{transform:rotate(0) scale(1.04);box-shadow:none}
 .visual strong{z-index:1}
 /* Mockups reais de cada case (pasta img/) */
-.visual.pdp:before{background-image:url('../img/m-pdp.png')}
-.visual.ibcmed:before{background-image:url('../img/m-gov.png')}
-.visual.crm:before{background-image:url('../img/m-nova-crm.png')}
+.visual.pdp:before{background-image:url('../img/m-pdp.webp')}
+.visual.ibcmed:before{background-image:url('../img/m-gov.webp')}
+.visual.crm:before{background-image:url('../img/m-nova-crm.webp')}
 /* Com imagem, o rótulo grande vira legenda discreta */
 .visual.pdp strong,.visual.ibcmed strong,.visual.crm strong{display:none}
 
