@@ -277,3 +277,37 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,.l
 .visual.square:before{inset:0;width:100%;height:100%;transform:none!important;opacity:1;border:0;background-size:cover;background-position:center;background-repeat:no-repeat;transition:transform .5s ease}
 .visual.square:hover:before{transform:scale(1.03)!important}
 .visual.square .vlabel{color:#f2f0e8;background:#11110fcc;padding:6px 9px;left:clamp(18px,3vw,32px)}
+
+/* --- Seletor PT/EN: pílula deslizante --- */
+.lang{position:relative;isolation:isolate}
+.lang a{position:relative;z-index:1;min-width:38px;text-align:center;transition:color .35s ease}
+.lang a.active{background:transparent;color:var(--light)}
+.lang:before{content:"";position:absolute;z-index:0;top:3px;bottom:3px;left:3px;width:calc(50% - 3px);border-radius:999px;background:var(--ink);transition:transform .38s cubic-bezier(.65,0,.35,1)}
+.lang:has(a.active:last-child):before{transform:translateX(100%)}
+.lang.switching:before{transform:translateX(100%)}
+.lang:has(a.active:last-child).switching:before{transform:none}
+.lang.switching a.active{color:var(--muted)}
+.lang.switching a:not(.active){color:var(--light)}
+
+/* --- Entrada da página e saída na troca de idioma --- */
+@media(prefers-reduced-motion:no-preference){
+  body{animation:pageIn .55s ease both}
+  body.leaving{opacity:0;transform:translateY(-6px);transition:opacity .32s ease .06s,transform .32s ease .06s}
+  @keyframes pageIn{from{opacity:0}to{opacity:1}}
+
+  /* Hero: entrada em cascata */
+  .heroMain>.ey,.heroMain h1>span,.heroStatement,.heroMain .actions,.heroScope{animation:heroUp .9s cubic-bezier(.2,.8,.2,1) both}
+  .heroMain>.ey{animation-delay:.05s}
+  .heroMain h1>span:nth-child(1){animation-delay:.12s}
+  .heroMain h1>span:nth-child(2){animation-delay:.22s}
+  .heroMain h1>span:nth-child(3){animation-delay:.32s}
+  .heroStatement{animation-delay:.45s}
+  .heroMain .actions{animation-delay:.55s}
+  .heroScope{animation-delay:.65s}
+  @keyframes heroUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+
+  /* Cards: imagem entra com leve zoom-out quando o card aparece */
+  .project.reveal .visual.square:before{transform:scale(1.08)!important;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+  .project.reveal.is-visible .visual.square:before{transform:none!important}
+  .project.reveal.is-visible .visual.square:hover:before{transform:scale(1.03)!important;transition-duration:.5s}
+}
