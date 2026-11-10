@@ -238,3 +238,37 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,.l
 .skip{position:absolute;left:8px;top:-48px;z-index:100;background:var(--ink);color:var(--light);
   padding:10px 14px;font-size:12px;text-transform:uppercase;letter-spacing:.08em;transition:top .15s}
 .skip:focus{top:8px}
+
+/* ── Case conceito (work/crm-varejo) ── */
+.conceptSeal{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--accent);color:#fff;padding:9px 13px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.conceptSeal:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.conceptNote{margin:18px 0 0;max-width:780px;font-size:16px;color:#aaa;font-style:italic}
+.status.concept{border-color:var(--accent);color:var(--accent);font-weight:700}
+.caseTable{width:100%;border-collapse:collapse;margin:6px 0 0;font-size:16px}
+.caseTable th,.caseTable td{border-top:1px solid #555;padding:13px 14px 13px 0;text-align:left;vertical-align:top;color:#bbb}
+.caseTable th{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#888;font-weight:700}
+.caseTable td:first-child{color:#eee;font-weight:700;white-space:nowrap}
+.caseTableWrap{overflow-x:auto}
+.msgGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}
+.msg{border:1px solid #555;padding:20px 22px;background:#151513}
+.msg.wide{grid-column:1/-1}
+.msg .ey{color:var(--accent);margin-bottom:10px}
+.msg p{font-size:16px!important;margin:0 0 8px}
+.msg .msgMeta{font-size:13px!important;color:#888}
+.msg .cta{display:inline-block;margin-top:6px;border:1px solid #888;padding:7px 12px;font-size:13px;color:#eee}
+.promptBlock{border:1px solid #555;background:#0d0d0c;color:#d8d5cc;padding:22px;font:14px/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;white-space:pre-wrap;margin:0 0 26px;overflow-x:auto}
+.checklist{list-style:none;padding:0}
+.checklist li{padding-left:30px;position:relative}
+.checklist li:before{content:"";position:absolute;left:0;top:.3em;width:15px;height:15px;border:1px solid #888}
+.touchline{position:absolute;inset:auto clamp(18px,4vw,56px) clamp(24px,5vw,70px);display:grid;grid-template-columns:repeat(4,1fr);gap:8px;z-index:2}
+.touchline span{border-top:2px solid currentColor;padding-top:10px;font-size:clamp(10px,1.2vw,13px);letter-spacing:.08em;text-transform:uppercase}
+.touchline b{display:block;font-size:clamp(18px,2.6vw,34px);letter-spacing:-.04em;margin-bottom:4px}
+@media(max-width:700px){.msgGrid{grid-template-columns:1fr}.caseTable{font-size:14px}.caseTable td:first-child{white-space:normal}}
+.visual.concept{background:#11110f!important;color:#f2f0e8}
+.visual.concept:before{display:none!important}
+.visual.concept .vlabel{color:#9a978d}
+.visual.concept strong{font-size:clamp(34px,7vw,104px);margin-bottom:clamp(40px,7vw,90px)}
+.visual.concept .touchline span{color:#cfccc2}
+.visual.concept .touchline span:nth-child(3){color:var(--accent)}
+.story>div,.msgGrid>*{min-width:0}
+@media(max-width:500px){.case h2.long{font-size:13.5vw}}
