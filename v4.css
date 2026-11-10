@@ -103,7 +103,7 @@ nav{gap:22px}
 /* Mockups reais de cada case (pasta img/) */
 .visual.pdp:before{background-image:url('img/m-pdp.webp')}
 .visual.ibcmed:before{background-image:url('img/m-gov.webp')}
-.visual.crm:before{background-image:url('img/m-nova-crm.webp')}
+.visual.crm:before{background-image:url('img/m-crm-inspirali.webp')}
 /* Com imagem, o rótulo grande vira legenda discreta */
 .visual.pdp strong,.visual.ibcmed strong,.visual.crm strong{display:none}
 
@@ -311,3 +311,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,.l
   .project.reveal.is-visible .visual.square:before{transform:none!important}
   .project.reveal.is-visible .visual.square:hover:before{transform:scale(1.03)!important;transition-duration:.5s}
 }
+
+/* Cards com imagem: sem cantos arredondados nem moldura aparente, imagem sangra o quadro */
+.visual.square:before{border-radius:0!important;inset:-2px;width:calc(100% + 4px);height:calc(100% + 4px)}
+.visual.crm.square:before{background-position:left center}
