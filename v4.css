@@ -315,3 +315,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,.l
 /* Cards com imagem: sem cantos arredondados nem moldura aparente, imagem sangra o quadro */
 .visual.square:before{border-radius:0!important;inset:-2px;width:calc(100% + 4px);height:calc(100% + 4px)}
 .visual.crm.square:before{background-position:left center}
+
+/* Card Reativação: toque sutil de vermelho varejo (sem marca) */
+.project .status.concept{border-color:#e30613;color:#e30613}
+.visual.concept{background:radial-gradient(120% 90% at 100% 100%,rgba(227,6,19,.22),transparent 55%),#11110f!important}
+.visual.concept .touchline span.on{color:#ff2a36}
+.visual.concept .vlabel{color:#e9a3a6}
