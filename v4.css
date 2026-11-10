@@ -272,3 +272,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,.l
 .visual.concept .touchline span.on{color:var(--accent)}
 .story>div,.msgGrid>*{min-width:0}
 @media(max-width:500px){.case h2.long{font-size:13.5vw}}
+/* Cards com imagem em moldura reta (sem rotação), mesmo formato do card conceito */
+.visual.square{background:#11110f!important}
+.visual.square:before{inset:0;width:100%;height:100%;transform:none!important;opacity:1;border:0;background-size:cover;background-position:center;background-repeat:no-repeat;transition:transform .5s ease}
+.visual.square:hover:before{transform:scale(1.03)!important}
+.visual.square .vlabel{color:#f2f0e8;background:#11110fcc;padding:6px 9px;left:clamp(18px,3vw,32px)}
